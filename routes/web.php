@@ -33,3 +33,15 @@ Route::group(['prefix' => "/products"], function() {
     Route::get('/detail/{id}', "ProductsController@detail")->name("productsDetail");
     Route::get('/delete/{id}', "ProductsController@delete")->name("productsDelete");
 });
+
+    Route::group(['prefix' => "/categorys"], function() {
+    Route::get('/index', "CategorysController@index")->name("categorys");
+    Route::get('/add', "CategorysController@create")->name("categorysAdd");
+    Route::get('/edit/{id}', "CategorysController@editHoliday")->name("categorysEdit");
+    Route::post('/store', "CategorysController@store")->name("categorysStore");
+    Route::post('/update', "CategorysController@update")->name("categorysUpdate");
+    Route::get('/detail/{id}', "CategorysController@detail")->name("categorysDetail");
+    Route::get('/delete/{id}', "CategorysController@delete")->name("categorysDelete");
+});
+
+
