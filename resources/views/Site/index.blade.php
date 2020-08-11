@@ -147,21 +147,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-         <a href="beverages.html"> <img class="first-slide" src="site/images/b1.jpg" alt="First slide"></a>
-       
+         <a href="beverages.html"> <img class="first-slide" src="site/images/b1.jpg" alt="First slide"></a>   
         </div>
         <div class="item">
-         <a href="personalcare.html"> <img class="second-slide " src="site/images/b3.jpg" alt="Second slide"></a>
-         
+         <a href="personalcare.html"> <img class="second-slide " src="site/images/b3.jpg" alt="Second slide"></a>     
         </div>
         <div class="item">
-          <a href="household.html"><img class="third-slide " src="site/images/b1.jpg" alt="Third slide"></a>
-          
+          <a href="household.html"><img class="third-slide " src="site/images/b1.jpg" alt="Third slide"></a>      
         </div>
       </div>
-    
     </div><!-- /.carousel -->	
-	
 	<!-- //top-header and slider -->
 	<!-- top-brands -->
 	<div class="top-brands">
@@ -686,8 +681,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="w3_footer_grids">
 				<div class="col-md-3 w3_footer_grid">
-					<h3>Contact</h3>
-					
+					<h3>Contact</h3>			
 					<ul class="address">
 						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Martínez, San Isidro, <span>Buenos Aires</span></li>
 						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:ventaelroble@gmail.com">ventaelroble@gmail.com</a></li>
