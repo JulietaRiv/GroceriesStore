@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Brand' => $baseDir . '/app/Brand.php',
     'App\\Category' => $baseDir . '/app/Category.php',
     'App\\Console\\Commands\\CRUDmaker' => $baseDir . '/app/Console/Commands/CRUDmaker.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
@@ -17,6 +18,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
+    'App\\Http\\Controllers\\Categorys\\CategoriesController' => $baseDir . '/app/Http/Controllers/CategoriesController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\Products\\ProductsController' => $baseDir . '/app/Http/Controllers/Admin/ProductsController.php',
     'App\\Http\\Controllers\\Site\\WelcomeController' => $baseDir . '/app/Http/Controllers/Site/WelcomeController.php',

@@ -504,6 +504,7 @@ class ComposerStaticInit7e41028a1824d42d2cb49ec786709528
     );
 
     public static $classMap = array (
+        'App\\Brand' => __DIR__ . '/../..' . '/app/Brand.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Console\\Commands\\CRUDmaker' => __DIR__ . '/../..' . '/app/Console/Commands/CRUDmaker.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
@@ -515,6 +516,7 @@ class ComposerStaticInit7e41028a1824d42d2cb49ec786709528
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
+        'App\\Http\\Controllers\\Categorys\\CategoriesController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoriesController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\Products\\ProductsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ProductsController.php',
         'App\\Http\\Controllers\\Site\\WelcomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Site/WelcomeController.php',
