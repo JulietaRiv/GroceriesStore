@@ -46,9 +46,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="agile-login">
 				<ul>
 					<li><a href="registered.html"> Create Account </a></li>
-					<li><a href="login.html">Login</a></li>
-					<li><a href="contact.html">Help</a></li>
-					
+					<li><a href="login.html">Login</a></li>			
 				</ul>
 			</div>
 			<div class="product_list_header">  
@@ -131,7 +129,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 										</ul>
 									</li>						
-									<li><a href="">Gourmet</a></li>	
+									<li><a href="">Destacados</a></li>	
 									<li><a href="">Nosotros</a></li>
 									<li><a href="">Ofertas</a></li>
 									<li><a href="">Contacto</a></li>
@@ -187,20 +185,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="footer">
 		<div class="container">
 			<div class="w3_footer_grids">
-				<div class="col-md-3 w3_footer_grid">
+				<div class="col-md-6 w3_footer_grid">
 					<h3>Contacto</h3>			
 					<ul class="address">
-						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Martínez, San Isidro, <span>Buenos Aires</span></li>
+						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Martínez, San Isidro, Buenos Aires<span></span></li>
 						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:ventaelroble@gmail.com">ventaelroble@gmail.com</a></li>
 						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>(+011) 153-505-1213</li>
 					</ul>
 				</div>
-				<div class="col-md-3 w3_footer_grid">
-					<h3>Info</h3>
+				<div class="col-md-6 w3_footer_grid">
+					<h3></h3>
 					<ul class="info"> 
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="about.html">Nosotros</a></li>
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="contact.html">Ofertas</a></li>
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="products.html">Gourmet</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="about.html">Destacados</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="contact.html">Nosotros</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="products.html">Ofertas</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="products.html">Categorías</a></li>
 					</ul>
 				</div>			
 			</div>
