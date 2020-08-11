@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', "Categorys")
+@section('title', "Categories")
 
 @section('content_header')
    
@@ -11,7 +11,7 @@
     <div class="col-md-12">
         <div class="box">
             <div class="box-header with-border">
-            <h3 class="box-title">Categorys</h3>
+            <h3 class="box-title">Categories</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

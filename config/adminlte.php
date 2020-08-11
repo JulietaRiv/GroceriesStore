@@ -260,12 +260,12 @@ return [
         ],
         ['header' => 'Mi contenido'],
         [
-            'text'       => 'Categorías',
+            'text'       => 'Productos',
             'icon_color' => 'red',
             'url'        => '#',
         ],
         [
-            'text'       => 'Productos',
+            'text'       => 'Categorías',
             'icon_color' => 'yellow',
             'url'        => '#',
         ],

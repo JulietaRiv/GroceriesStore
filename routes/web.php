@@ -29,14 +29,14 @@ Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {
         Route::get('/delete/{id}', "ProductsController@delete")->name("productsDelete");
     });
 
-    Route::group(['prefix' => "/categorys"], function() {
-        Route::get('/index', "CategorysController@index")->name("categorys");
-        Route::get('/add', "CategorysController@create")->name("categorysAdd");
-        Route::get('/edit/{id}', "CategorysController@edit")->name("categorysEdit");
-        Route::post('/store', "CategorysController@store")->name("categorysStore");
-        Route::post('/update', "CategorysController@update")->name("categorysUpdate");
-        Route::get('/detail/{id}', "CategorysController@detail")->name("categorysDetail");
-        Route::get('/delete/{id}', "CategorysController@delete")->name("categorysDelete");
+    Route::group(['prefix' => "/categories"], function() {
+        Route::get('/index', "CategoriesController@index")->name("categories");
+        Route::get('/add', "CategoriesController@create")->name("categoriesAdd");
+        Route::get('/edit/{id}', "CategoriesController@edit")->name("categoriesEdit");
+        Route::post('/store', "CategoriesController@store")->name("categoriesStore");
+        Route::post('/update', "CategoriesController@update")->name("categoriesUpdate");
+        Route::get('/detail/{id}', "CategoriesController@detail")->name("categoriesDetail");
+        Route::get('/delete/{id}', "CategoriesController@delete")->name("categoriesDelete");
     });
 
     Route::group(['prefix' => "/brands"], function() {
