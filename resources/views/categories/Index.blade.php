@@ -10,7 +10,7 @@
     
     <div class="box">
         <div class="box-header with-border">
-        <h3 class="box-title">Categories</h3>
+        <h3 class="box-title">Categorías</h3>
         <h4><span class="badge bg-green">Add +</span></h4>
         </div>  
             <div class="box-body">
@@ -22,11 +22,9 @@
                     <th></th>
                     <th style="width: 15%">Action</th>
                 </tr>
-                
+                @foreach ( $categories as $category)
                 <tr>
-                    <td>sample</td>
-                    <td>sample</td>
-                    <td>sample</td>           
+                    <td>{{ $category->name }}</td>    
                     <td><span class="badge bg-green">Edit</span>
                     <span class="badge bg-blue">View</span>
                     <span class="badge bg-red">Delete</span></td>

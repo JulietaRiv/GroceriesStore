@@ -267,7 +267,7 @@ return [
         [
             'text'       => 'Categorías',
             'icon_color' => 'yellow',
-            'url'        => '#',
+            'url'        => 'admin/categories/index',
         ],
         [
             'text'       => 'Marcas',
