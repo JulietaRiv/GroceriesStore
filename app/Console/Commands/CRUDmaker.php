@@ -42,12 +42,13 @@ class CRUDmaker extends Command
         $data['pluralName'] = $data['name'].'s';
         $data['pluralUpperName'] = $data['upperName'].'s';
     //create model and migration
-        $this->call("make:model", ['name'=>$data['upperName'], '--migration'=>'default']);
+        $this->call("make:model", ['name'=>$data['upperName']]);
+        //, '--migration'=>'default'
     //create controller file and main methods
-        $controllerPath = substr(dirname(__FILE__), 0, -16)."Http/Controllers/";
+        $controllerPath = substr(dirname(__FILE__), 0, -16)."Http/Controllers/Admin/";
         $this->createController($data, $controllerPath);   
     //create views directory and main views files
-    $viewsPath = substr(dirname(__FILE__), 0, -20)."resources/views/".$data['pluralName'];
+    $viewsPath = substr(dirname(__FILE__), 0, -20)."resources/views/Admin".$data['pluralName'];
     mkdir($viewsPath, 0755);
 
     $file = fopen($viewsPath."/Index.blade.php", 'x+');
@@ -75,7 +76,7 @@ class CRUDmaker extends Command
     Route::group(['prefix' => "/{$data['pluralName']}"], function() {
     Route::get('/index', "{$data['pluralUpperName']}Controller@index")->name("{$data['pluralName']}");
     Route::get('/add', "{$data['pluralUpperName']}Controller@create")->name("{$data['pluralName']}Add");
-    Route::get('/edit/{id}', "{$data['pluralUpperName']}Controller@editHoliday")->name("{$data['pluralName']}Edit");
+    Route::get('/edit/{id}', "{$data['pluralUpperName']}Controller@edit")->name("{$data['pluralName']}Edit");
     Route::post('/store', "{$data['pluralUpperName']}Controller@store")->name("{$data['pluralName']}Store");
     Route::post('/update', "{$data['pluralUpperName']}Controller@update")->name("{$data['pluralName']}Update");
     Route::get('/detail/{id}', "{$data['pluralUpperName']}Controller@detail")->name("{$data['pluralName']}Detail");
@@ -83,7 +84,7 @@ class CRUDmaker extends Command
 });\n\n\n
 CONTENT;
 $routesPath = substr(dirname(__FILE__), 0, -20)."routes/web.php";
-file_put_contents($routesPath, $content, FILE_APPEND | LOCK_EX);
+//file_put_contents($routesPath, $content, FILE_APPEND | LOCK_EX);
 
     }
 

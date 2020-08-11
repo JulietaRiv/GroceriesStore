@@ -15,17 +15,22 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->integer('category_id');
+            $table->integer('brand_id');
             $table->string('name');
             $table->string('photo');
-            $table->string('marca');
             $table->string('description');
-            $table->integer('category');
-            $table->string('presentations');
-            $table->integer('price');
+            $table->string('presentations', 1000);
+            $table->decimal('price');
+            $table->decimal('promo_price')->nullable();
+            $table->boolean('offer');
+            $table->boolean('highlighted');
+            $table->boolean('stock');
+            $table->boolean('active');
             $table->timestamps();
         });
     }
-
+//claves foraneas
     /**
      * Reverse the migrations.
      *

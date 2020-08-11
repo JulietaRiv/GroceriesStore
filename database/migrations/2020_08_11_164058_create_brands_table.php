@@ -15,11 +15,12 @@ class CreateBrandsTable extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
-            $table->string('products_ids');
+            $table->string('name');
+            $table->boolean('active');
             $table->timestamps();
         });
     }
-
+//indice a active
     /**
      * Reverse the migrations.
      *
