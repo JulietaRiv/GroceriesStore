@@ -40,9 +40,9 @@ class CategoriesController extends Controller
     {
         if ($category = Category::where('id', '=', $id)->first()){       
             $category->delete();
-            return redirect()->route("categories")->with('success','Record deleted succesfully!');
+            return redirect()->route("categories")->with('success','Excelente, registro guardado!');
         } else {
-            return redirect()->route("categories")->with('errors','An error occurs!');
+            return redirect()->route("categories")->with('errors','Oops ocurrió un error!');
         }  
     }
 
@@ -57,7 +57,7 @@ class CategoriesController extends Controller
         $category = Category::where('id', '=', $request->id)->first();
         $category->name = $request->nameEdit;
         $category->update();
-        return redirect()->route("categories")->with('success','Record updated succesfully!');
+        return redirect()->route("categories")->with('success','Excelente, registro guardado!');
     }
 
 }

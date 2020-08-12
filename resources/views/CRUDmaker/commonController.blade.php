@@ -14,7 +14,7 @@ class {{ $data['pluralUpperName'] }}Controller extends Controller
     public function index()
     {
         ${{ $data['pluralName'] }} = '';
-        return view ("Admin/{{ $data['pluralName'] }}/{{ $data['upperName'] }}", ["{{ $data['pluralName'] }}" => ${{ $data['pluralName'] }}]);
+        return view ("Admin/{{ $data['pluralName'] }}/Index", ["{{ $data['pluralName'] }}" => ${{ $data['pluralName'] }}]);
     }
 
     public function create()
@@ -32,16 +32,16 @@ class {{ $data['pluralUpperName'] }}Controller extends Controller
     public function detail ($id)
     {
         ${{ $data['name'] }} = {{ $data['upperName'] }}::where('id', '=', $id)->first();
-        return view ("Admin/{{ $data['pluralName'] }}/DetailView", ["{{ $data['name'] }}" => ${{ $data['name'] }}] );
+        return view ("Admin/{{ $data['pluralName'] }}/Detail", ["{{ $data['name'] }}" => ${{ $data['name'] }}] );
     }
 
     public function delete ($id)
     {
         if (${{ $data['name'] }} = {{ $data['upperName'] }}::where('id', '=', $id)->first()){
             ${{ $data['name'] }}->delete();
-            return redirect()->route("{{ $data['pluralName'] }}")->with('success','Record deleted succesfully!');
+            return redirect()->route("{{ $data['pluralName'] }}")->with('success','Excelente, registro guardado!');
         } else {
-            return redirect()->route("{{ $data['pluralName'] }}")->with('errors','An error occurs!');
+            return redirect()->route("{{ $data['pluralName'] }}")->with('errors','Oops ocurrió un error!');
         }  
     }
 
@@ -55,7 +55,7 @@ class {{ $data['pluralUpperName'] }}Controller extends Controller
     {
         ${{ $data['name'] }} = Category::where('id', '=', $request->id)->first();
         ${{ $data['name'] }}->update();
-        return redirect()->route("{{ $data['pluralName'] }}")->with('success','Record updated succesfully!');
+        return redirect()->route("{{ $data['pluralName'] }}")->with('success','Excelente, registro guardado!');
     }
 
 }
