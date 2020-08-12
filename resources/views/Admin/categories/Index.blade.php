@@ -29,8 +29,8 @@
                     <span class="badge bg-blue">View</span>
                     <span class="badge bg-red">Delete</span></td>
                 </tr>
-                </tbody>
-                
+                @endforeach
+                </tbody>     
             </table>
             </div>
             <div class="box-footer clearfix">
