@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App;
-use App\Brands;
+use App\Brand;
 use App\Http\Controllers\Controller;
+
 
 class BrandsController extends Controller
 {
@@ -48,12 +49,12 @@ class BrandsController extends Controller
     public function edit($id)
     {
         $brand = Brand::where('id', '=', $id)->first();
-        return view ("Admin/brands/EditForm");        
+        return view ("Admin/brands/Edit", ['brand' => $brand]);        
     }
 
     public function update (Request $request)
     {
-        $brand = Brand::where('id', '=', $equest->id)->first();
+        $brand = Brand::where('id', '=', $request->id)->first();
         $brand->name = $request->nameEdit;
         $brand->update();
         return redirect()->route("brands")->with('success','Excelente, registro guardado!');

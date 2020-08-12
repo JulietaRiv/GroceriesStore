@@ -11,7 +11,6 @@ class CategoriesController extends Controller
 {
     public function index()
     {
-        //$categories = '';
         $categories = Category::where('active', 1)->get();
         return view ("Admin/categories/Index", ["categories" => $categories]);
     }

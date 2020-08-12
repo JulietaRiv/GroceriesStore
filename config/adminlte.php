@@ -272,7 +272,7 @@ return [
         [
             'text'       => 'Marcas',
             'icon_color' => 'cyan',
-            'url'        => '#',
+            'url'        => 'admin/brands/index',
         ],
     ],
 

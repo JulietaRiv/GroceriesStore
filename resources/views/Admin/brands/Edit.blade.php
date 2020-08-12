@@ -10,11 +10,17 @@
 
 <div class="box box-warning">
     <div class="box-header with-border">
-        <h3 class="box-title">Brands</h3>
+        <h3 class="box-title">Marca {{ $brand->name }}</h3>
     </div>
+    <br>
+    <br>
         <div class="box-body">
-            <form  role="form">
-            <input type="hidden" name="_token" value="">            </form>
+            <form id="brandEdit" method="post" action="{{route('brandsUpdate')}}" name="brandEdit" role="form">
+            @csrf
+            <input style="width:50%; padding:5px;" type=text value="{{$brand->name}}" name="nameEdit">
+            <input type="hidden" name="id" value="{{$brand->id}}">
+            <button onclick="$('#brandEdit').submit();" type="submit" class="btn btn-success">Guardar</button>      
+            </form>
         </div>
 </div>
 

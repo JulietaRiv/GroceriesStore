@@ -10,29 +10,25 @@
     
     <div class="box">
         <div class="box-header with-border">
-        <h3 class="box-title">Brands</h3>
-        <h4><span class="badge bg-green">Add +</span></h4>
+        <h3 class="box-title">Marcas</h3>
+        <h4><span class="badge bg-green">Agregar +</span></h4>
         </div>  
             <div class="box-body">
             <table class="table table-bordered">
                 <tbody>
                 <tr>
-                    <th style="width: 20%"></th>
-                    <th></th>
-                    <th></th>
-                    <th style="width: 15%">Action</th>
+                    <th>Nombre</th>
+                    <th style="width: 20%">Acción</th>
                 </tr>
-                
+                @foreach ( $brands as $brand)
                 <tr>
-                    <td>sample</td>
-                    <td>sample</td>
-                    <td>sample</td>           
-                    <td><span class="badge bg-green">Edit</span>
-                    <span class="badge bg-blue">View</span>
-                    <span class="badge bg-red">Delete</span></td>
+                    <td>{{ $brand->name }}</td>           
+                    <td><a href="/admin/brands/edit/{{ $brand->id }}"><span class="badge bg-green">Editar</span></a>
+                    <a href="/admin/brands/detail/{{ $brand->id }}"><span class="badge bg-blue">Ver</span></a>
+                    <a href="/admin/brands/delete/{{ $brand->id }}"><span class="badge bg-red">Eliminar</span></a></td>
                 </tr>
-                </tbody>
-                
+                @endforeach
+                </tbody>      
             </table>
             </div>
             <div class="box-footer clearfix">

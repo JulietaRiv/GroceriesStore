@@ -48,7 +48,7 @@ class {{ $data['pluralUpperName'] }}Controller extends Controller
     public function edit($id)
     {
         ${{ $data['name'] }} = {{ $data['upperName'] }}::where('id', '=', $id)->first();
-        return view ("Admin/{{ $data['pluralName'] }}/EditForm");        
+        return view ("Admin/{{ $data['pluralName'] }}/Edit", ['{{ $data['name'] }}' => ${{ $data['name'] }}]);        
     }
 
     public function update (Request $request)
