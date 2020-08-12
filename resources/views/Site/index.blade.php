@@ -141,12 +141,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //navigation -->
 
 <!-- //ACA INCLUYO CAROUSEL -->
+@include('Site/carousel')
 
 	<!-- //top-header and slider -->
 	
 <!-- //ACA INCLUYO TOPBRANDS -->
+@include('Site/topBrands')
 
 <!--ACA INCLUYO MAIN SLIDER-->
+@include('Site/mainSlider')
 
 <!--banner-bottom-->
 				<div class="ban-bottom-w3l">
@@ -180,6 +183,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--banner-bottom-->
 
 <!-- //ACA INCLUYO OFFERS -->
+@include('Site/offers')
 
 <!-- //footer -->
 <div class="footer">
