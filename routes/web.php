@@ -18,7 +18,9 @@ Route::group(['namespace' => 'Site'], function () {
 });    
 
 Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {
+
     Route::get('/', 'WelcomeController@welcome')->name('welcome');
+    
     Route::group(['prefix' => "/products"], function() {
         Route::get('/index', "ProductsController@index")->name("products");
         Route::get('/add', "ProductsController@create")->name("productsAdd");

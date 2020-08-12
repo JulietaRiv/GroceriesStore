@@ -23,32 +23,40 @@ class CategoriesController extends Controller
 
     public function store(Request $request)
     {
-        return redirect()->route("Admin/categories/Index");
+        $category = new Category();
+        $category->name = $request->name;
+        $category->save();
+        return redirect()->route("categories")->with('Excelente, registro guardado!');
     }
 
     public function detail ($id)
     {
+        //aca quiza hacer query a products y traer los q pertenezcan
         return view ("Admin/categories/Detail", ["category" => $category] );
     }
 
     public function delete ($id)
     {
-        if ($category = Category::where('id', '=', $id)->first()){
+        if ($category = Category::where('id', '=', $id)->first()){       
             $category->delete();
-            return redirect()->route("Admin/categories/Index")->with('success','Record deleted succesfully!');
+            return redirect()->route("categories")->with('success','Record deleted succesfully!');
         } else {
-            return redirect()->route("Admin/categories/Index")->with('errors','An error occurs!');
+            return redirect()->route("categories")->with('errors','An error occurs!');
         }  
     }
 
     public function edit($id)
     {
-        return view ("Admin/categories/Edit");        
+        $category = Category::where('id', '=', $id)->first();
+        return view ("Admin/categories/Edit", ['category' => $category]);        
     }
 
     public function update (Request $request)
     {
-        return redirect()->route("Admin/categories/Index")->with('success','Record updated succesfully!');
+        $category = Category::where('id', '=', $request->id)->first();
+        $category->name = $request->nameEdit;
+        $category->update();
+        return redirect()->route("categories")->with('success','Record updated succesfully!');
     }
 
 }
