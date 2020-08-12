@@ -31,6 +31,7 @@ class {{ $data['pluralUpperName'] }}Controller extends Controller
 
     public function detail ($id)
     {
+        ${{ $data['name'] }} = {{ $data['upperName'] }}::where('id', '=', $id)->first();
         return view ("Admin/{{ $data['pluralName'] }}/DetailView", ["{{ $data['name'] }}" => ${{ $data['name'] }}] );
     }
 

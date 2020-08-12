@@ -25,7 +25,7 @@
                 <tr>
                     <td>{{ $category->name }}</td>    
                     <td><a href="/admin/categories/edit/{{ $category->id }}"><span class="badge bg-green">Edit</span></a>
-                    <span class="badge bg-blue">View</span>
+                    <a href="/admin/categories/detail/{{ $category->id }}"><span class="badge bg-blue">View</span></a>
                     <a href="/admin/categories/delete/{{ $category->id }}"><span class="badge bg-red">Delete</span></a></td>
                 </tr>
                 @endforeach

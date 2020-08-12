@@ -31,6 +31,7 @@ class CategoriesController extends Controller
 
     public function detail ($id)
     {
+        $category = Category::where('id', '=', $id)->first();
         //aca quiza hacer query a products y traer los q pertenezcan
         return view ("Admin/categories/Detail", ["category" => $category] );
     }
