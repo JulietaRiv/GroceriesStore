@@ -24,7 +24,9 @@ class {{ $data['pluralUpperName'] }}Controller extends Controller
 
     public function store(Request $request)
     {
-        return redirect()->route("Admin/{{ $data['upperName'] }}");
+        ${{ $data['name'] }} = new {{ $data['upperName'] }}();
+        ${{ $data['name'] }}->save();
+        return redirect()->route("{{ $data['upperName'] }}");
     }
 
     public function detail ($id)
@@ -36,20 +38,23 @@ class {{ $data['pluralUpperName'] }}Controller extends Controller
     {
         if (${{ $data['name'] }} = {{ $data['upperName'] }}::where('id', '=', $id)->first()){
             ${{ $data['name'] }}->delete();
-            return redirect()->route("Admin/{{ $data['pluralName'] }}")->with('success','Record deleted succesfully!');
+            return redirect()->route("{{ $data['pluralName'] }}")->with('success','Record deleted succesfully!');
         } else {
-            return redirect()->route("Admin/{{ $data['pluralName'] }}")->with('errors','An error occurs!');
+            return redirect()->route("{{ $data['pluralName'] }}")->with('errors','An error occurs!');
         }  
     }
 
     public function edit($id)
     {
+        ${{ $data['name'] }} = {{ $data['upperName'] }}::where('id', '=', $id)->first();
         return view ("Admin/{{ $data['pluralName'] }}/EditForm");        
     }
 
     public function update (Request $request)
     {
-        return redirect()->route("Admin/{{ $data['pluralName'] }}")->with('success','Record updated succesfully!');
+        ${{ $data['name'] }} = Category::where('id', '=', $request->id)->first();
+        ${{ $data['name'] }}->update();
+        return redirect()->route("{{ $data['pluralName'] }}")->with('success','Record updated succesfully!');
     }
 
 }
