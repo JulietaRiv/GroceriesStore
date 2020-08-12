@@ -1,7 +1,7 @@
 <!-- new -->
 <div class="newproducts-w3agile">
 		<div class="container">
-			<h3>New offers</h3>
+			<h3>Ofertas</h3>
 				<div class="agile_top_brands_grids">
 					<div class="col-md-3 top_brand_left-1">
 						<div class="hover14 column">
@@ -15,13 +15,6 @@
 											<div class="snipcart-thumb">
 												<a href="products.html"><img title=" " alt=" " src="site/images/14.png"></a>		
 												<p>Fried-gram</p>
-												<div class="stars">
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star gray-star" aria-hidden="true"></i>
-												</div>
 													<h4>$35.99 <span>$55.00</span></h4>
 											</div>
 											<div class="snipcart-details top_brand_home_details">
@@ -58,14 +51,7 @@
 											<div class="snipcart-thumb">
 												<a href="products.html"><img title=" " alt=" " src="site/images/15.png"></a>		
 												<p>Navaratan-dal</p>
-												<div class="stars">
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star gray-star" aria-hidden="true"></i>
-												</div>
-													<h4>$30.99 <span>$45.00</span></h4>
+												<h4>$30.99 <span>$45.00</span></h4>
 											</div>
 											<div class="snipcart-details top_brand_home_details">
 												<form action="#" method="post">
@@ -104,14 +90,7 @@
 											<div class="snipcart-thumb">
 												<a href="products.html"><img src="site/images/16.png" alt=" " class="img-responsive"></a>
 												<p>White-peasmatar</p>
-												<div class="stars">
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star gray-star" aria-hidden="true"></i>
-												</div>
-													<h4>$80.99 <span>$105.00</span></h4>
+												<h4>$80.99 <span>$105.00</span></h4>
 											</div>
 											<div class="snipcart-details top_brand_home_details">
 												<form action="#" method="post">
@@ -147,14 +126,7 @@
 											<div class="snipcart-thumb">
 												<a href="products.html"><img title=" " alt=" " src="site/images/17.png"></a>		
 												<p>Channa-dal</p>
-												<div class="stars">
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star blue-star" aria-hidden="true"></i>
-													<i class="fa fa-star gray-star" aria-hidden="true"></i>
-												</div>
-													<h4>$35.99 <span>$55.00</span></h4>
+												<h4>$35.99 <span>$55.00</span></h4>
 											</div>
 											<div class="snipcart-details top_brand_home_details">
 												<form action="#" method="post">

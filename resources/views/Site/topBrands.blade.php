@@ -1,7 +1,7 @@
 <!-- top-brands -->
 <div class="top-brands">
 		<div class="container">
-		<h2>Top selling offers</h2>
+		<h2>Destacados</h2>
 			<div class="grid_3 grid_5">
 				<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 					<ul id="myTab" class="nav nav-tabs" role="tablist">
@@ -32,7 +32,7 @@
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
-																<i class="fa fa-star gray-star" aria-hidden="true"></i>
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 															</div>
 															<h4>$20.99 <span>$35.00</span></h4>
 														</div>
@@ -75,7 +75,7 @@
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
-																<i class="fa fa-star gray-star" aria-hidden="true"></i>
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 															</div>
 															<h4>$20.99 <span>$35.00</span></h4>
 														</div>
@@ -118,7 +118,7 @@
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
-																<i class="fa fa-star gray-star" aria-hidden="true"></i>
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 															</div>
 															<h4>$40.99 <span>$65.00</span></h4>
 														</div>
@@ -164,7 +164,7 @@
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
-																<i class="fa fa-star gray-star" aria-hidden="true"></i>
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 															</div>
 															<h4>$35.99 <span>$55.00</span></h4>
 														</div>
@@ -207,7 +207,7 @@
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
-																<i class="fa fa-star gray-star" aria-hidden="true"></i>
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 															</div>
 															<h4>$30.99 <span>$45.00</span></h4>
 														</div>
@@ -253,7 +253,7 @@
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 																<i class="fa fa-star blue-star" aria-hidden="true"></i>
-																<i class="fa fa-star gray-star" aria-hidden="true"></i>
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
 															</div>
 															<h4>$80.99 <span>$105.00</span></h4>
 														</div>
