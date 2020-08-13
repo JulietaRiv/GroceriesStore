@@ -10,11 +10,12 @@
 
 <div class="box box-warning">
     <div class="box-header with-border">
-        <h3 class="box-title">New product</h3>
+        <h3 class="box-title">Nuevo producto</h3>
     </div>
         <div class="box-body">
             <form  role="form">
-            <input type="hidden" name="_token" value="">            </form>
+                <input type="hidden" name="_token" value="">            
+            </form>
         </div>
 </div>
 

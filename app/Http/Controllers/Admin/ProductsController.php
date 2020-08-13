@@ -11,7 +11,7 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        $products = '';
+        $products = Product::where('active', 1)->get();
         return view ("Admin/products/Product", ["products" => $products]);
     }
 
@@ -22,32 +22,40 @@ class ProductsController extends Controller
 
     public function store(Request $request)
     {
-        return redirect()->route("Admin/Product");
+        $product = new Product();
+        $product->name = $request->name;
+        $product->save();
+        return redirect()->route("products")->with('success','Excelente, registro guardado!');
     }
 
     public function detail ($id)
     {
-        return view ("Admin/products/DetailView", ["product" => $product] );
+        $products = Product::where('id', '=', $id)->first();
+        return view ("Admin/products/Detail", ["product" => $product] );
     }
 
     public function delete ($id)
     {
         if ($product = Product::where('id', '=', $id)->first()){
             $product->delete();
-            return redirect()->route("Admin/products")->with('success','Record deleted succesfully!');
+            return redirect()->route("products")->with('success','Excelente, registro guardado!');
         } else {
-            return redirect()->route("Admin/products")->with('errors','An error occurs!');
+            return redirect()->route("products")->with('errors','Oops ocurrió un error!');
         }  
     }
 
     public function edit($id)
     {
-        return view ("Admin/products/EditForm");        
+        $product = Product::where('id', '=', $id)->first();
+        return view ("Admin/products/Edit");       
     }
 
     public function update (Request $request)
     {
-        return redirect()->route("Admin/products")->with('success','Record updated succesfully!');
+        $product = Product::where('id', '=', $request->id)->first();
+        $product->name = $request->nameEdit;
+        $product->update();      
+        return redirect()->route("products")->with('success','Excelente, registro guardado!');
     }
 
 }

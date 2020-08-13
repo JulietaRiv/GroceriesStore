@@ -10,8 +10,8 @@
     
     <div class="box">
         <div class="box-header with-border">
-        <h3 class="box-title">Products</h3>
-        <h4><span class="badge bg-green">Add +</span></h4>
+        <h3 class="box-title">Productos</h3>
+        <h4><span class="badge bg-green">Agregar +</span></h4>
         </div>  
             <div class="box-body">
             <table class="table table-bordered">
@@ -20,16 +20,16 @@
                     <th style="width: 20%"></th>
                     <th></th>
                     <th></th>
-                    <th style="width: 15%">Action</th>
+                    <th style="width: 15%">Acción</th>
                 </tr>
                 
                 <tr>
                     <td>sample</td>
                     <td>sample</td>
                     <td>sample</td>           
-                    <td><span class="badge bg-green">Edit</span>
-                    <span class="badge bg-blue">View</span>
-                    <span class="badge bg-red">Delete</span></td>
+                    <td><span class="badge bg-green">Editar</span>
+                    <span class="badge bg-blue">Ver</span>
+                    <span class="badge bg-red">Eliminar</span></td>
                 </tr>
                 </tbody>
                 
