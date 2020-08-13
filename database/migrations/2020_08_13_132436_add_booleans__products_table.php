@@ -14,9 +14,9 @@ class AddBooleansProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->boolean('apto_celiacos')->default(0);
-            $table->boolean('organico')->default(0);
-            $table->boolean('agroecologico')->default(0);
+            $table->boolean('for_celiacs')->default(0);
+            $table->boolean('organic')->default(0);
+            $table->boolean('agroecological')->default(0);
         });
     }
 
