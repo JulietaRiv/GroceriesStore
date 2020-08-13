@@ -26,19 +26,20 @@
                     <th>Agroecológico</th>
                     <th style="width: 15%">Acción</th>
                 </tr>
-                
+                @foreach ( $products as $product )
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>      
+                    <td>{{ $product->name }}</td>
+                    <td>{{ $product->category_id }}</td>
+                    <td>{{ $product->brand_id }}</td>
+                    <td>{{ $product->price }}</td>
+                    <td>{{ $product->for_celiacs }}</td>
+                    <td>{{ $product->organic }}</td>
+                    <td>{{ $product->agroecological }}</td>      
                     <td><a href="/admin/products/edit/{{ $product->id }}"><span class="badge bg-green">Editar</span></a>
                     <a href="/admin/products/view/{{ $product->id }}"><span class="badge bg-blue">Ver</span></a>
                     <a href="/admin/products/delete/{{ $product->id }}"><span class="badge bg-red">Eliminar</span></a></td>
                 </tr>
+                @endforeach
                 </tbody>
                 
             </table>
