@@ -19,4 +19,14 @@ class Product extends Model
         'active'=> 'boolean'
     ];
 
+    public function category()
+    {
+        return $this->hasOne('App\Category', 'id', 'category_id');
+    }
+
+    public function brand()
+    {
+        return $this->hasOne('App\Brand', 'id', 'brand_id');
+    }
+
 }
