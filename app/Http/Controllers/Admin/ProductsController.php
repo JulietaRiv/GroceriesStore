@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App;
-use App\Products;
+use App\Product;
 use App\Http\Controllers\Controller;
 
 class ProductsController extends Controller
@@ -12,7 +12,7 @@ class ProductsController extends Controller
     public function index()
     {
         $products = Product::where('active', 1)->get();
-        return view ("Admin/products/Product", ["products" => $products]);
+        return view ("Admin/products/Index", ["products" => $products]);
     }
 
     public function create()

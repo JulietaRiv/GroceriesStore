@@ -262,7 +262,7 @@ return [
         [
             'text'       => 'Productos',
             'icon_color' => 'red',
-            'url'        => '#',
+            'url'        => 'admin/products/index',
         ],
         [
             'text'       => 'Categorías',

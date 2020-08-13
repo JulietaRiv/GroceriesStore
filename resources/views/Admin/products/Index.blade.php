@@ -11,25 +11,33 @@
     <div class="box">
         <div class="box-header with-border">
         <h3 class="box-title">Productos</h3>
-        <h4><span class="badge bg-green">Agregar +</span></h4>
+        <h4><a href="/admin/products/add"><span class="badge bg-green">Agregar +</span></a></h4>
         </div>  
             <div class="box-body">
             <table class="table table-bordered">
                 <tbody>
                 <tr>
-                    <th style="width: 20%"></th>
-                    <th></th>
-                    <th></th>
+                    <th style="width: 20%">Nombre</th>
+                    <th>Categoría</th>
+                    <th>Marca</th>
+                    <th>Precio</th>
+                    <th>Orgánico</th>
+                    <th>Sin Tacc</th>
+                    <th>Agroecológico</th>
                     <th style="width: 15%">Acción</th>
                 </tr>
                 
                 <tr>
-                    <td>sample</td>
-                    <td>sample</td>
-                    <td>sample</td>           
-                    <td><span class="badge bg-green">Editar</span>
-                    <span class="badge bg-blue">Ver</span>
-                    <span class="badge bg-red">Eliminar</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>      
+                    <td><a href="/admin/products/edit/{{ $product->id }}"><span class="badge bg-green">Editar</span></a>
+                    <a href="/admin/products/view/{{ $product->id }}"><span class="badge bg-blue">Ver</span></a>
+                    <a href="/admin/products/delete/{{ $product->id }}"><span class="badge bg-red">Eliminar</span></a></td>
                 </tr>
                 </tbody>
                 

@@ -4988,6 +4988,7 @@ class ComposerStaticInit7e41028a1824d42d2cb49ec786709528
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\True_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/True_.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
+        'products_table_seeder' => __DIR__ . '/../..' . '/database/seeds/products_table_seeder.php',
         'voku\\helper\\ASCII' => __DIR__ . '/..' . '/voku/portable-ascii/src/voku/helper/ASCII.php',
     );
 
