@@ -32,7 +32,7 @@ class ProductsController extends Controller
 
     public function detail ($id)
     {
-        $products = Product::where('id', '=', $id)->first();
+        $product = Product::where('id', '=', $id)->first();
         return view ("Admin/products/Detail", ["product" => $product] );
     }
 

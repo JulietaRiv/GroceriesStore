@@ -52,7 +52,7 @@
                     <td>No</td>@else<td>Si</td>
                     @endif
                     <td><a href="/admin/products/edit/{{ $product->id }}"><span class="badge bg-green">Editar</span></a>
-                    <a href="/admin/products/view/{{ $product->id }}"><span class="badge bg-blue">Ver</span></a>
+                    <a href="/admin/products/detail/{{ $product->id }}"><span class="badge bg-blue">Ver</span></a>
                     <a href="/admin/products/delete/{{ $product->id }}"><span class="badge bg-red">Eliminar</span></a></td>
                 </tr>
                 @endforeach
