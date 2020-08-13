@@ -36,21 +36,11 @@
                     <td>{{ $product->category->name }}</td>
                     <td>{{ $product->brand->name }}</td>
                     <td>{{ $product->price }}</td>   
-                    @if ( $product->organic == 1 )
-                    <td>No</td>@else<td>Si</td>
-                    @endif
-                    @if ( $product->for_celiacs == 1 )
-                    <td>No</td>@else<td>Si</td>
-                    @endif 
-                    @if ( $product->agroecological == 0 )
-                    <td>No</td>@else<td>Si</td>
-                    @endif
-                    @if ( $product->offer == 0 )
-                    <td>No</td>@else<td>Si</td>
-                    @endif
-                    @if ( $product->highlighted == 0 )
-                    <td>No</td>@else<td>Si</td>
-                    @endif
+                    <td>{{ $product->organic  == 1 ? 'Si' : 'No' }}</td>
+                    <td>{{ $product->for_celiacs  == 1 ? 'Si' : 'No' }}</td>
+                    <td>{{ $product->agroecological  == 1 ? 'Si' : 'No' }}</td>
+                    <td>{{ $product->offer  == 1 ? 'Si' : 'No' }}</td>
+                    <td>{{ $product->highlighted  == 1 ? 'Si' : 'No' }}</td>
                     <td><a href="/admin/products/edit/{{ $product->id }}"><span class="badge bg-green">Editar</span></a>
                     <a href="/admin/products/detail/{{ $product->id }}"><span class="badge bg-blue">Ver</span></a>
                     <a href="/admin/products/delete/{{ $product->id }}"><span class="badge bg-red">Eliminar</span></a></td>
