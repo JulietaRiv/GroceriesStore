@@ -274,6 +274,11 @@ return [
             'icon_color' => 'cyan',
             'url'        => 'admin/brands/index',
         ],
+        [
+            'text'       => 'Pedidos',
+            'icon_color' => 'purple',
+            'url'        => '',
+        ],
     ],
 
     /*
