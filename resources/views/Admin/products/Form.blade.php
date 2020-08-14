@@ -14,23 +14,34 @@
     </div>
     <br>
         <div class="box-body">
+          <button onclick="$('#totalForm').hide(); $('#boxPresentations').show();" type="button" class="btn btn-primary">Cargar presentaciones</button>
+            <br>
+            <div style="display:none;" id="boxPresentations">
+            @include('Admin/products/Presentations')
+            </div>  
+            <br>
+            <div id="totalForm">
             <form id="prodForm" method="post" action="" name="prodForm" role="form">
-            @csrf
+            @csrf            
                 <label>Nombre</label>
                 <input class="form-control input-lg" name="name" type="text">
                 <br>
                 <div class="form-group">
                   <label>Categoría</label>
                   <select class="form-control">
-                    <option>Seleccionar</option>
-                    <option>option 1</option>
+                    <option selected>Seleccionar</option>
+                  @foreach ( $categories as $category )               
+                    <option value="{{$category->id}}">{{ $category->name }}</option>
+                  @endforeach
                   </select>
                 </div>
                 <div class="form-group">
                   <label>Marca</label>
                   <select class="form-control">
-                    <option>Seleccionar</option>
-                    <option>option 1</option>
+                    <option selected>Seleccionar</option>
+                  @foreach ( $brands as $brand )
+                    <option value="{{$brand->id}}">{{ $brand->name }}</option>
+                  @endforeach
                   </select>
                 </div>
                 <br>
@@ -41,35 +52,6 @@
                 <label>Descripción</label>
                 <input class="form-control input-lg" name="name" type="text">
                 <br>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"> Presentación única
-                  </label>
-                </div>
-                <br>
-                <label>Precio</label>
-                <div class="input-group">
-                <span class="input-group-addon">$</span>
-                    <input type="text" placeholder="00.00" class="form-control">
-                </div>
-                <br>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"> Oferta
-                  </label>
-                </div>
-                <br>
-                <label>Precio promo</label>
-                <div class="input-group">
-                <span class="input-group-addon">$</span>
-                    <input type="text" placeholder="00.00" class="form-control">
-                </div>
-                <br>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"> Destacado
-                  </label>
-                </div>
                 <div class="checkbox">
                   <label>
                     <input type="checkbox"> Sin Tacc
@@ -84,13 +66,14 @@
                   <label>
                     <input type="checkbox"> Agroecológico
                   </label>
-                </div>
-                <br>
+                </div>  
+                <br>            
                 <button onclick="$('#prodForm').submit();" type="submit" class="btn btn-success">Guardar</button>
                 <br>
-                <br>
-            </form>
+            </div>
+            <br>       
         </div>
+        </form>
 </div>
 
 @stop

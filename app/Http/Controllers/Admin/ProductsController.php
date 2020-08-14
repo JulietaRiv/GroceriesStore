@@ -19,7 +19,9 @@ class ProductsController extends Controller
 
     public function create()
     {
-        return view ("Admin/products/Form");
+        $categories = Category::where('active', 1)->get();
+        $brands = Brand::where('active', 1)->get();
+        return view ("Admin/products/Form", ['brands'=>$brands, 'categories'=>$categories]);
     }
 
     public function store(Request $request)
