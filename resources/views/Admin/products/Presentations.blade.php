@@ -6,7 +6,7 @@
         <label>Precio</label>
         <div class="input-group">
         <span class="input-group-addon">$</span>
-            <input type="number" placeholder="00.00" name="price" id="price" value="{{ old('price') }}" class="form-control">
+            <input type="number" placeholder="00.00" name="price" id="price" value="" class="form-control">
         </div>
         <br>
         <label>Precio promo</label>

@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->foreignId('brand_id')->references('id')->on('brands');
             $table->string('name');
             $table->string('photo')->nullable();
+            $table->decimal('price', 8, 2)->nullable();
             $table->string('description', 2000);
             $table->text('presentations');
             $table->boolean('stock')->default(1);
