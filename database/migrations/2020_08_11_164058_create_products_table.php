@@ -22,13 +22,13 @@ class CreateProductsTable extends Migration
             $table->string('description', 2000);
             $table->text('presentations');
             $table->decimal('price', 8, 2);
-            $table->decimal('promo_price', 8, 2)->nullable();
             $table->boolean('stock')->default(1);
             $table->boolean('offer')->default(0);
             $table->boolean('highlighted')->default(0);
             $table->boolean('for_celiacs')->default(0);
             $table->boolean('organic')->default(0);
             $table->boolean('agroecological')->default(0);
+            $table->boolean('vegan')->default(0);
             $table->boolean('active')->default(1);
             $table->timestamps();
         });

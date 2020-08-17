@@ -12,13 +12,13 @@ class brands_table_seeder extends Seeder
     public function run()
     {
         DB::table('brands')->insert([
-            ['id'=>1, 'name' => 'Lopez'],
-            ['id'=>2, 'name' => 'Oreo'],
-            ['id'=>3, 'name' => 'Taragui'],
-            ['id'=>4, 'name' => 'Gatorade'],
-            ['id'=>5, 'name' => 'El calchaqui'],
-            ['id'=>6, 'name' => 'Patagonia'],
-            ['id'=>7, 'name' => 'Malibu'],
+            ['id'=>1, 'name' => 'La Riojana'],
+            ['id'=>2, 'name' => 'Fincas del Cruz del Eje'],
+            ['id'=>3, 'name' => 'Cuchiyaco'],
+            ['id'=>4, 'name' => 'Pulpa de Nuez'],
+            ['id'=>5, 'name' => 'Planta Abierta'],
+            ['id'=>6, 'name' => 'La Huerta Familiar'],
+            ['id'=>7, 'name' => 'Fincas "El Paraíso"'],
         ]);
     }
 }
