@@ -21,14 +21,14 @@
             </div>  
             <br>
             <div id="totalForm">
-            <form id="prodForm" method="post" action="" name="prodForm" role="form">
+            <form id="prodForm" method="post" action="{{route('productsStore')}}" name="prodForm" role="form">
             @csrf            
                 <label>Nombre</label>
                 <input class="form-control input-lg" name="name" type="text">
                 <br>
                 <div class="form-group">
                   <label>Categoría</label>
-                  <select class="form-control">
+                  <select name="category_id" class="form-control">
                     <option selected>Seleccionar</option>
                   @foreach ( $categories as $category )               
                     <option value="{{$category->id}}">{{ $category->name }}</option>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group">
                   <label>Marca</label>
-                  <select class="form-control">
+                  <select name="brand_id" class="form-control">
                     <option selected>Seleccionar</option>
                   @foreach ( $brands as $brand )
                     <option value="{{$brand->id}}">{{ $brand->name }}</option>
@@ -47,24 +47,39 @@
                 <br>
                 <div class="form-group">
                   <label for="exampleInputFile">Foto</label>
-                  <input type="file" id="exampleInputFile">
+                  <input name="photo" type="file" id="exampleInputFile">
                 </div>
                 <label>Descripción</label>
-                <input class="form-control input-lg" name="name" type="text">
+                <input class="form-control input-lg" name="description" type="text">
                 <br>
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox"> Sin Tacc
+                    <input name="for_celiacs" type="checkbox"> Sin Tacc
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox"> Orgánico
+                    <input name="organic" type="checkbox"> Orgánico
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox"> Agroecológico
+                    <input name="agroecological" type="checkbox"> Agroecológico
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input name="vegan" type="checkbox"> Vegano
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input name="offer" type="checkbox"> Oferta
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input name="highlighted" type="checkbox"> highlighted
                   </label>
                 </div>  
                 <br>            

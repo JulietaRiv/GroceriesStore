@@ -26,10 +26,11 @@
             <input name="highlighted" id="highlighted" type="checkbox"> Destacado
             </label>
         </div>
+        <br>
         <label>Stock</label>
         <div class="input-group">
-        <span class="input-group-addon"></span>
-            <input type="number" placeholder="00" id="stock" id="stock" class="form-control">
+        <span class="input-group-addon">(Cantidad)</span>
+            <input type="number" placeholder="00" id="stock" class="form-control">
         </div>
         <input type="hidden" id="presNum" name="presNum" value="">
         <br>
@@ -56,7 +57,7 @@
             'price': $('#price').val(), 
             'promo_price': $('#promo_price').val(), 
             'offer': $('#offer').is(':checked'), 
-            'highlighted': $('#highlighted').is(':checked')
+            'highlighted': $('#highlighted').is(':checked'),
             'stock': $('#stock').val(), 
         };      
         if ($('#presNum').val() !== ''){

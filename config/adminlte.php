@@ -279,6 +279,16 @@ return [
             'icon_color' => 'purple',
             'url'        => '',
         ],
+        [
+            'text'       => 'Destacados',
+            'icon_color' => 'green',
+            'url'        => '',
+        ],
+        [
+            'text'       => 'Ofertas',
+            'icon_color' => 'blue',
+            'url'        => '',
+        ],
     ],
 
     /*
