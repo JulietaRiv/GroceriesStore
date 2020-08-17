@@ -24,62 +24,64 @@
             <form id="prodForm" method="post" action="{{route('productsStore')}}" name="prodForm" role="form">
             @csrf            
                 <label>Nombre</label>
-                <input class="form-control input-lg" name="name" type="text">
+                <input id="productName" class="form-control input-lg" value="{{ old('name') }}" name="name" type="text">
                 <br>
                 <div class="form-group">
                   <label>Categoría</label>
-                  <select name="category_id" class="form-control">
-                    <option selected>Seleccionar</option>
-                  @foreach ( $categories as $category )               
+                  <select id="category_id" name="category_id" class="form-control">
+                    <option @if ( old('category_id') == '') selected @else style="display:none;" @endif>Seleccionar</option>        
+                  @foreach ( $categories as $category )         
+                    <option @if ( old('category_id') == '') value="{{old('category_id')}}" style="display:none;" @else selected @endif>{{ $category->name }}</option>      
                     <option value="{{$category->id}}">{{ $category->name }}</option>
                   @endforeach
                   </select>
                 </div>
                 <div class="form-group">
                   <label>Marca</label>
-                  <select name="brand_id" class="form-control">
-                    <option selected>Seleccionar</option>
+                  <select id="barnd_id" name="brand_id" class="form-control">
+                  <option @if ( old('brand_id') == '') selected @else style="display:none;" @endif>Seleccionar</option>
                   @foreach ( $brands as $brand )
+                  <option @if ( old('brand_id') == '') value="{{old('brand_id')}}" style="display:none;" @else selected @endif>{{ $brand->name }}</option>
                     <option value="{{$brand->id}}">{{ $brand->name }}</option>
                   @endforeach
                   </select>
                 </div>
                 <br>
                 <div class="form-group">
-                  <label for="exampleInputFile">Foto</label>
-                  <input name="photo" type="file" id="exampleInputFile">
+                  <label for="InputFile">Foto</label>
+                  <input id="photo" name="photo" type="file" value="{{ old('photo') }}">
                 </div>
                 <label>Descripción</label>
-                <input class="form-control input-lg" name="description" type="text">
+                <input id="description" name="description" class="form-control input-lg" type="text" value="{{ old('description') }}">
                 <br>
                 <div class="checkbox">
                   <label>
-                    <input name="for_celiacs" type="checkbox"> Sin Tacc
+                    <input id="for_celiacs" name="for_celiacs" type="checkbox" value="{{ old('for_celiacs') }}"> Sin Tacc
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input name="organic" type="checkbox"> Orgánico
+                    <input id="organic" name="organic" type="checkbox" value="{{ old('organic') }}"> Orgánico
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input name="agroecological" type="checkbox"> Agroecológico
+                    <input id="agroecological" name="agroecological" type="checkbox" value="{{ old('agroecological') }}"> Agroecológico
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input name="vegan" type="checkbox"> Vegano
+                    <input id="vegan" name="vegan" type="checkbox" value="{{ old('vegan') }}"> Vegano
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input name="offer" type="checkbox"> Oferta
+                    <input id="offer" name="offer" type="checkbox" value="{{ old('offer') }}"> Oferta              
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input name="highlighted" type="checkbox"> highlighted
+                    <input id="highlighted" name="highlighted" type="checkbox" value="{{ old('highlighted') }}"> highlighted
                   </label>
                 </div>  
                 <br>            

@@ -1,38 +1,39 @@
     <form id="presentationsForm">
         <br>
         <label>Presentación</label>
-        <input class="form-control input-lg" id="presentation" name="presentation" type="text">
+        <input class="form-control input-lg" id="presentation" name="presentation" value="" type="text">
         <br>
         <label>Precio</label>
         <div class="input-group">
         <span class="input-group-addon">$</span>
-            <input type="number" placeholder="00.00" name="price" id="price" class="form-control">
+            <input type="number" placeholder="00.00" name="price" id="price" value="{{ old('price') }}" class="form-control">
         </div>
         <br>
         <label>Precio promo</label>
         <div class="input-group">
         <span class="input-group-addon">$</span>
-            <input type="number" placeholder="00.00" name="promo_price" id="promo_price" class="form-control">
+            <input type="number" placeholder="00.00" name="promo_price" id="promo_price" value="" class="form-control">
         </div>
         <br>
         <div class="checkbox">
             <label>
-            <input name="offer" id="offer" type="checkbox"> Oferta
+            <input name="offer" id="offer" value="" type="checkbox"> Oferta
             </label>
         </div>
         <br>
         <div class="checkbox">
             <label>
-            <input name="highlighted" id="highlighted" type="checkbox"> Destacado
+            <input name="highlighted" id="highlighted" value="" type="checkbox"> Destacado
             </label>
         </div>
         <br>
         <label>Stock</label>
         <div class="input-group">
         <span class="input-group-addon">(Cantidad)</span>
-            <input type="number" placeholder="00" id="stock" class="form-control">
+            <input type="number" placeholder="00" id="stock" value="" class="form-control">
         </div>
-        <input type="hidden" id="presNum" name="presNum" value="">
+        <input type="hidden" id="presNum" name="presNum" value=""/>
+        <input type="hidden" id="presentations" name="presentations" value=""/>
         <br>
         <button onclick="addPres()" type="button" class="btn btn-warning">Agregar +</button>
         <button onclick="$('#totalForm').show(); $('#boxPresentations').hide();" type="button" class="btn btn-primary">Volver</button>
@@ -48,8 +49,8 @@
     </form>
 
 <script>
-
-    let presentations = [];   
+   
+    let presentations = [];
 
     function addPres(){         
         let presentation = {
@@ -107,6 +108,7 @@
             html = 'Aun no hay presentaciones cargadas';
         }
         $("#presentationContent").html(html);
+        $("#presentations").val(JSON.stringify(presentations));
     }
 
     function deletePres(param){

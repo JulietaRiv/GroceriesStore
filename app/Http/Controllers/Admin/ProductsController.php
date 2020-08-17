@@ -25,9 +25,10 @@ class ProductsController extends Controller
         return view ("Admin/products/Form", ['brands'=>$brands, 'categories'=>$categories]);
     }
 
-    public function store(Request $request)
+    public function store(App\Http\Requests\productForm $request)
     {
         $validated = $request->validated();
+        dd($request);
         $product = new Product();
         $product->name = $request->name;
         $product->category_id = $request->category_id;
