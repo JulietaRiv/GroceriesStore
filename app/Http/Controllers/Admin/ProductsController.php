@@ -47,13 +47,13 @@ class ProductsController extends Controller
 
     public function detail($id)
     {
-        $product = Product::where('id', '=', $id)->first();
+        $product = Product::where('id', $id)->first();
         return view ("Admin/products/Detail", ["product" => $product] );
     }
 
     public function delete($id)
     {
-        if ($product = Product::where('id', '=', $id)->first()){
+        if ($product = Product::where('id', $id)->first()){
             $product->delete();
             return redirect()->route("products")->with('success','Excelente, registro guardado!');
         } else {
@@ -63,13 +63,13 @@ class ProductsController extends Controller
 
     public function edit($id)
     {
-        $product = Product::where('id', '=', $id)->first();
+        $product = Product::where('id', $id)->first();
         return view ("Admin/products/Edit");       
     }
 
     public function update(Request $request)
     {
-        $product = Product::where('id', '=', $request->id)->first();
+        $product = Product::where('id', $request->id)->first();
         $product->name = $request->nameEdit;
         $product->update();      
         return redirect()->route("products")->with('success','Excelente, registro guardado!');

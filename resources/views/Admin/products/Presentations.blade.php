@@ -33,7 +33,7 @@
             <input type="number" placeholder="00" id="stock" value="" class="form-control">
         </div>
         <input type="hidden" id="presNum" name="presNum" value=""/>
-        <input type="hidden" id="presentations" name="presentations" value=""/>
+        <input type="hidden" id="presentations" name="presentations" value="{{old('presentations')}}"/>
         <br>
         <button onclick="addPres()" type="button" class="btn btn-warning">Agregar +</button>
         <button onclick="$('#totalForm').show(); $('#boxPresentations').hide();" type="button" class="btn btn-primary">Volver</button>
@@ -78,30 +78,34 @@
 <table border='1' style='width:90%';>
     <thead>
         <tr>
+            <th>Principal</th>
             <th>Presentación</th>
             <th>Precio</th>
             <th>Precio Promo</th>
             <th>Es oferta</th>
             <th>Es destacado</th>
             <th>Stock</th>
-            <th>&nbsp;</th>
+            <th>Acción</th>
         </tr>
     </thead>
     <tbody>`;
             presentations.forEach(function(presentation, i){
                 let offer = presentation.offer == true ? 'Si' : 'No';
                 let highlighted = presentation.highlighted == true ? 'Si' : 'No';
-                html += `
-<tr>
-    <td>${ presentation.presentation }</td>
-    <td>${ presentation.price }</td>
-    <td>${ presentation.promo_price }</td>
-    <td>${ offer }</td>
-    <td>${ highlighted  }</td>
-    <td>${ presentation.stock  }</td>
-    <td style='width:10%;'><a href='#' onclick='deletePres(${ i });'><span class='badge bg-red'>Eliminar</span></a>
-                           <a href='#' onclick='editPres(${ i });'><span class='badge bg-green'>Editar</span></a></td>
-</tr>`;  
+                if (i == 0){
+                    html += `<tr><td><input checked type="radio" name="default"/></td>`;
+                } else {
+                    html += `<tr><td><input type="radio" name="default"/></td>`;
+                }
+                html +=`<td>${ presentation.presentation }</td>
+                        <td>${ presentation.price }</td>
+                        <td>${ presentation.promo_price }</td>
+                        <td>${ offer }</td>
+                        <td>${ highlighted  }</td>
+                        <td>${ presentation.stock  }</td>
+                        <td style='width:10%;'><a href='#' onclick='deletePres(${ i });'><span class='badge bg-red'>Eliminar</span></a>
+                                            <a href='#' onclick='editPres(${ i });'><span class='badge bg-green'>Editar</span></a></td>
+                    </tr>`;  
             });
             html += "</tbody></table>";
         } else {

@@ -14,12 +14,7 @@
     </div>
     <br>
         <div class="box-body">
-          <button onclick="$('#totalForm').hide(); $('#boxPresentations').show();" type="button" class="btn btn-primary">Cargar presentaciones</button>
-            <br>
-            <div style="display:none;" id="boxPresentations">
-            @include('Admin/products/Presentations')
-            </div>  
-            <br>
+          
             <div id="totalForm">
             <form id="prodForm" method="post" action="{{route('productsStore')}}" name="prodForm" role="form">
             @csrf            
@@ -41,7 +36,7 @@
                   <select id="barnd_id" name="brand_id" class="form-control">
                   <option @if ( old('brand_id') == '') selected @else style="display:none;" @endif>Seleccionar</option>
                   @foreach ( $brands as $brand )
-                  <option @if ( old('brand_id') == '') value="{{old('brand_id')}}" style="display:none;" @else selected @endif>{{ $brand->name }}</option>
+                  <option @if ( old('brand_id') == '') value="" style="display:none;" @else selected @endif>{{ $brand->name }}</option>
                     <option value="{{$brand->id}}">{{ $brand->name }}</option>
                   @endforeach
                   </select>
@@ -84,6 +79,8 @@
                     <input id="highlighted" name="highlighted" type="checkbox" value="{{ old('highlighted') }}"> highlighted
                   </label>
                 </div>  
+                <br>
+                <button id="cargarPres" name="cargarPres" type="button" class="btn btn-primary">Cargar presentaciones</button>
                 <br>            
                 <button onclick="$('#prodForm').submit();" type="submit" class="btn btn-success">Guardar</button>
                 <br>
@@ -95,10 +92,36 @@
 
 @stop
 
+
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="">
 @stop
 
 @section('js')
-    <script> </script>
+
+<script>
+
+    $('#cargarPres').on('click', function () {
+        event.preventDefault();//this will hold the url
+        swal({
+          button: {
+            confirm: true,
+            content: "holaaaa",
+            text: "cargaaaaa",
+          },
+        });
+    });
+
+    swal({
+          title: 'El examen fue enviado con éxito',
+          text: data["mensaje"],
+          html: true,
+          type:'info',
+          allowOutsideClick:false,
+          confirmButtonColor: '#DD6B55',
+          confirmButtonText: 'Ok',
+      });
+       
+</script>
+
 @stop
