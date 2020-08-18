@@ -3,7 +3,10 @@
 @section('title', "Products")
 
 @section('content_header')
-   
+ 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+<script src="/admin/js/products_presentations.js"></script>
 @stop
 
 @section('content')
@@ -51,47 +54,46 @@
                 <br>
                 <div class="checkbox">
                   <label>
-                    <input id="for_celiacs" name="for_celiacs" type="checkbox" value="{{ old('for_celiacs') }}"> Sin Tacc
+                    <input id="celiacs" name="celiacs" type="checkbox" value="1"> Sin Tacc
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input id="organic" name="organic" type="checkbox" value="{{ old('organic') }}"> Orgánico
+                    <input id="organic" name="organic" type="checkbox" value="1"> Orgánico
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input id="agroecological" name="agroecological" type="checkbox" value="{{ old('agroecological') }}"> Agroecológico
+                    <input id="agroecological" name="agroecological" type="checkbox" value="1"> Agroecológico
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input id="vegan" name="vegan" type="checkbox" value="{{ old('vegan') }}"> Vegano
+                    <input id="vegan" name="vegan" type="checkbox" value="1"> Vegano
                   </label>
                 </div>
-                <div class="checkbox">
-                  <label>
-                    <input id="offer" name="offer" type="checkbox" value="{{ old('offer') }}"> Oferta              
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input id="highlighted" name="highlighted" type="checkbox" value="{{ old('highlighted') }}"> highlighted
-                  </label>
-                </div>  
                 <br>
-                <button id="cargarPres" name="cargarPres" type="button" class="btn btn-primary">Cargar presentaciones</button>
-                <br>            
+                <button onclick="presentationForm()" id="cargarPres" name="cargarPres"  type="button" class="btn btn-primary">Cargar presentaciones</button>
+                <br>
+                <hr>
+                <div id="presentationsAdded" class="box">        
+                  <div class="box-header with-border">
+                    <h3 class="box-title">Presentaciones</h3><div><span class="badge bg-green"></span></div>
+                    <br>
+                  </div>
+                  <div id="presentationContent" class="box-body"></div>           
+                </div>
+                <br>
                 <button onclick="$('#prodForm').submit();" type="submit" class="btn btn-success">Guardar</button>
                 <br>
             </div>
             <br>       
         </div>
+        <input type="hidden" id="presentations" name="presentations" value="{{old('presentations')}}"/>
         </form>
 </div>
 
 @stop
-
 
 @section('css')
     <link rel="stylesheet" href="">
@@ -101,27 +103,22 @@
 
 <script>
 
-    $('#cargarPres').on('click', function () {
-        event.preventDefault();//this will hold the url
-        swal({
-          button: {
-            confirm: true,
-            content: "holaaaa",
-            text: "cargaaaaa",
-          },
-        });
+  function presentationForm () {
+    event.preventDefault();
+    Swal.fire({
+      title: "<i style='font-size:25px;'>Presentaciones del producto</i>", 
+      html: presentationsForm,  
+      confirmButtonText: "Agregar +", 
+      closeOnConfirm: false,
+    }).then((result) => {
+      if (result.value == true){
+        addPres();
+      };
     });
+};
 
-    swal({
-          title: 'El examen fue enviado con éxito',
-          text: data["mensaje"],
-          html: true,
-          type:'info',
-          allowOutsideClick:false,
-          confirmButtonColor: '#DD6B55',
-          confirmButtonText: 'Ok',
-      });
-       
+
+
 </script>
 
 @stop

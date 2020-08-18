@@ -25,22 +25,39 @@ class ProductsController extends Controller
         return view ("Admin/products/Form", ['brands'=>$brands, 'categories'=>$categories]);
     }
 
-    public function store(App\Http\Requests\productForm $request)
+    public function store(Request $request)
     {
-        $validated = $request->validated();
-        dd($request);
+        //$validated = $request->validated();
+        
         $product = new Product();
         $product->name = $request->name;
         $product->category_id = $request->category_id;
         $product->brand_id = $request->brand_id;
         $product->description = $request->description;
-        $product->for_celiacs = $request->for_celiacs;
-        $product->organic = $request->organic;
-        $product->agroecological = $request->agroecological;
-        $product->vegan = $request->vegan;
-        $product->presentations = $request->presentations;
-        $product->offer = $request->offer;
-        $product->highlighted = $request->highlighted;
+        $product->presentations = json_decode($request->presentations);
+        //dd($product->presentations);
+        $product->celiacs = data_get($request, 'celiacs', 0);
+        $product->organic = data_get($request, 'organic', 0);
+        $product->agroecological = data_get($request, 'agroecological', 0);
+        $product->vegan = data_get($request, 'vegan', 0);
+        $stock = 0;
+        $offer = 0;
+        $highlighted = 0;
+        foreach ($product->presentations as $presentation){
+            $stock += $presentation['stock'];
+            if ($presentation['offer'] == true){
+                $offer += 1;
+            }
+            if ($presentation['highlighted'] == true){
+                $offer += 1;
+            }
+        }    
+        $product->stock = $stock;
+        $product->offer = $offer != 0 ? 1 : 0;
+        $product->highlighted = $highlighted != 0 ? 1 : 0;
+        $product->price = 0;
+        $product->promo_price = 0;
+        //dd($product);
         $product->save();
         return redirect()->route("products")->with('success','Excelente, registro guardado!');
     }

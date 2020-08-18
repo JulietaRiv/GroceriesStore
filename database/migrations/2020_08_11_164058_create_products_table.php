@@ -20,12 +20,13 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('photo')->nullable();
             $table->decimal('price', 8, 2)->nullable();
+            $table->decimal('promo_price', 8, 2)->nullable();
             $table->string('description', 2000);
             $table->text('presentations');
             $table->boolean('stock')->default(1);
             $table->boolean('offer')->nullable();
             $table->boolean('highlighted')->nullable();
-            $table->boolean('for_celiacs')->nullable();
+            $table->boolean('celiacs')->nullable();
             $table->boolean('organic')->nullable();
             $table->boolean('agroecological')->nullable();
             $table->boolean('vegan')->nullable();
