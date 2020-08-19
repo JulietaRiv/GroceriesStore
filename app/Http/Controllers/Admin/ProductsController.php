@@ -95,4 +95,10 @@ class ProductsController extends Controller
         return view ('Admin/products/Highlighted', ['highlightedProducts'=>$highlightedProducts]);
     }
 
+    public function offerProducts()
+    {
+        $offerProducts = Product::where('offer', 1)->get();
+        return view ('Admin/products/Offer', ['offerProducts'=>$offerProducts]);
+    }
+
 }

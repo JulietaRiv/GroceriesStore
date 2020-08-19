@@ -287,7 +287,7 @@ return [
         [
             'text'       => 'Ofertas',
             'icon_color' => 'blue',
-            'url'        => '',
+            'url'        => 'admin/products/offer',
         ],
     ],
 

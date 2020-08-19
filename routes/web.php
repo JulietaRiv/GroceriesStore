@@ -32,6 +32,7 @@ Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {
         Route::get('/detail/{id}', "ProductsController@detail")->name("productsDetail");
         Route::get('/delete/{id}', "ProductsController@delete")->name("productsDelete");
         Route::get('/highlighted', "ProductsController@highlightedProducts")->name("highlightedProducts");
+        Route::get('/offer', "ProductsController@offerProducts")->name("offerProducts");
         
     });
 
