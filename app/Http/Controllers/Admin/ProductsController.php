@@ -89,4 +89,10 @@ class ProductsController extends Controller
         return redirect()->route("products")->with('success','Excelente, registro guardado!');
     }
 
+    public function highlightedProducts()
+    {
+        $highlightedProducts = Product::where('highlighted', 1)->get();
+        return view ('Admin/products/Highlighted', ['highlightedProducts'=>$highlightedProducts]);
+    }
+
 }

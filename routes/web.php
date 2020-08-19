@@ -31,6 +31,8 @@ Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {
         Route::post('/update', "ProductsController@update")->name("productsUpdate");
         Route::get('/detail/{id}', "ProductsController@detail")->name("productsDetail");
         Route::get('/delete/{id}', "ProductsController@delete")->name("productsDelete");
+        Route::get('/highlighted', "ProductsController@highlightedProducts")->name("highlightedProducts");
+        
     });
 
     Route::group(['prefix' => "/categories"], function() {

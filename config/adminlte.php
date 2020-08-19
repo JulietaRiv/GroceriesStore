@@ -282,7 +282,7 @@ return [
         [
             'text'       => 'Destacados',
             'icon_color' => 'green',
-            'url'        => '',
+            'url'        => 'admin/products/highlighted',
         ],
         [
             'text'       => 'Ofertas',

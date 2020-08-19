@@ -38,16 +38,14 @@
 								<option value="null">Items por página 9</option>
 								<option value="null">Items por página 18</option> 
 								<option value="null">Items por página 32</option>					
-								<option value="null">All</option>								
+								<option value="null">Todo</option>								
 							</select>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
-                </div>
-               
+                </div>       
 				<div class="agile_top_brands_grids">
                 @foreach ( $products as $product )
-
                 <div class="col-md-4 top_brand_left">
 						<div class="hover14 column">
 							<div class="agile_top_brand_left_grid">
