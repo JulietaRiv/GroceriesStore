@@ -102,7 +102,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li class="active"><a href="index.html" class="act">Home</a></li>	
 									<!-- Mega Menu -->
 									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorías<b class="caret"></b></a>
+										<a href="#categoriesSite" class="dropdown-toggle" data-toggle="dropdown">Categorías<b class="caret"></b></a>
 										<ul class="dropdown-menu multi-column columns-3">
 											<div class="row">
 												<div class="multi-gd-img">
@@ -129,10 +129,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 										</ul>
 									</li>						
-									<li><a href="">Destacados</a></li>	
-									<li><a href="">Nosotros</a></li>
-									<li><a href="">Ofertas</a></li>
-									<li><a href="">Contacto</a></li>
+									<li><a href="#highlightedProducts">Destacados</a></li>	
+									<li><a href="#aboutUs">Nosotros</a></li>
+									<li><a href="#offers">Ofertas</a></li>
+									<li><a href="#contact">Contacto</a></li>
 								</ul>
 							</div>
 							</nav>
@@ -188,7 +188,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 @include('Site/aboutUs')
 
 <!-- //footer -->
-<div class="footer">
+<div id="contact" class="footer">
 		<div class="container">
 			<div class="w3_footer_grids">
 				<div class="col-md-6 w3_footer_grid">
@@ -202,10 +202,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-6 w3_footer_grid">
 					<h3></h3>
 					<ul class="info"> 
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="about.html">Destacados</a></li>
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="contact.html">Nosotros</a></li>
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="products.html">Ofertas</a></li>
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="products.html">Categorías</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#highlightedProducts">Destacados</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#aboutUs">Nosotros</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#offers">Ofertas</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#categoriesSite">Categorías</a></li>
 					</ul>
 				</div>			
 			</div>

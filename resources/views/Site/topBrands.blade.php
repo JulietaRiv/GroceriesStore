@@ -1,5 +1,5 @@
 <!-- top-brands -->
-<div class="top-brands">
+<div id="highlightedProducts" class="top-brands">
 		<div class="container">
 		<h2>Destacados</h2>				
 			<div class="agile_top_brands_grids">

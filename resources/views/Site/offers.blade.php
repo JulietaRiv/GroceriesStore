@@ -1,5 +1,5 @@
 <!-- new -->
-<div class="newproducts-w3agile">
+<div id="offers" class="newproducts-w3agile">
 		<div class="container">
 			<h3>Ofertas</h3>
 				<div class="agile_top_brands_grids">

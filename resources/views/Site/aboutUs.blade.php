@@ -1,4 +1,4 @@
-<div class="brands">
+<div id="aboutUs" class="brands">
 		<div class="container">
 		<h3>Nosotros</h3>
 			<div class="brands-agile">
