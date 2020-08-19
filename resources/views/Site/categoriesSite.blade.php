@@ -16,9 +16,11 @@
 						<div class="sorting">
 							<select id="country" onchange="change_country(this.value)" class="frm-field required sect">
 								<option value="null">Default sorting</option>
-								<option value="null">Sort by popularity</option> 
-								<option value="null">Sort by average rating</option>					
-								<option value="null">Sort by price</option>								
+                                <option value="null">Orgánicos</option>
+                                <option value="null">Agroecológicos</option> 
+                                <option value="null">Sin Tacc</option>
+                                <option value="null">Veganos</option>
+								<option value="null">Ordenar por precio</option>								
 							</select>
 						</div>
 						<div class="sorting-left">
