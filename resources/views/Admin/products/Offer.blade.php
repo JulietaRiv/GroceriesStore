@@ -32,6 +32,7 @@
                         <td>{{ $offerProduct->brand->name }}</td>
                         <td>{{ $offerProduct->price }}</td>
                         <td>{{ $offerProduct->description }}</td>
+                        <!-- /aca iria la presentacion en cuestion -->
                     </tr>
                     @endforeach
                 </tbody>
