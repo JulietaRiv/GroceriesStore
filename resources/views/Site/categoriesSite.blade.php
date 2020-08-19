@@ -1,3 +1,13 @@
+@extends('Site/layout')
+
+@section('title', "Products")
+
+@section('content_header')
+    
+@stop
+
+@section('content')
+
 <div id="categoriesSite" class="products">
 		<div class="container">
 			<div class="col-md-4 products-left">
@@ -5,8 +15,8 @@
 					<h2>Categorías</h2>		
                         <ul>
                             @foreach ( $categories as $category )
-                            <li><a href="products.html"><i class="fa fa-arrow-right" aria-hidden="true"></i>{{ $category->name }}</a></li>
-                            @endif
+                            <li><a href=""><i class="fa fa-arrow-right" aria-hidden="true"></i>{{ $category->name }}</a></li>
+                            @endforeach
                         </ul>
 				</div>																																												
 			</div>
@@ -170,4 +180,13 @@
 			</div>
 			<div class="clearfix"> </div>
 		</div>
-	</div>
+    </div>
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> </script>
+@stop
