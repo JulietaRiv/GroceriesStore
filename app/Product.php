@@ -13,7 +13,7 @@ class Product extends Model
         'organic'=> 'boolean',
         'offer'=> 'boolean',
         'highlighted'=> 'boolean',
-        'for_celiacs'=> 'boolean',
+        'celiacs'=> 'boolean',
         'organic'=> 'boolean',
         'agroecological'=> 'boolean',
         'active'=> 'boolean'

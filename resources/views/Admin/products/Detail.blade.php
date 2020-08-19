@@ -34,7 +34,9 @@
                             <li>Vegano: {{ $product->vegan  == 1 ? 'Si' : 'No' }}</li>
                             <li>Activo: {{ $product->active  == 1 ? 'Si' : 'No' }}</li>
                             <!-- /aca va las presentaciones -->
+                            <li>Presentaciones: </li>
                         </ul>
+                        <div id="presentationsTable"></div>
                     </tbody>
                 </table>
             </div>
@@ -50,5 +52,41 @@
 @stop
 
 @section('js')
-    <script> </script>
+    <script>
+let presentations = [];
+        if (presentations.length > 0){
+            html = `
+<table border='1' style='width:90%';>
+    <thead>
+        <tr>
+            <th>Default</th>
+            <th>Presentación</th>
+            <th>Precio</th>
+            <th>Precio Promo</th>
+            <th>Es oferta</th>
+            <th>Es destacado</th>
+            <th>Stock</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>`;
+            presentations.forEach(function(presentation){
+                let offer = presentation.offer == true ? 'Si' : 'No';
+                let highlighted = presentation.highlighted == true ? 'Si' : 'No';
+                //let checked = presentation.main == 1 ? 'checked' : '' ;   <td><input ${ checked } type="radio" name="default"/></td>
+                html += `<tr>
+                            <td>${ presentation.presentation }</td>
+                            <td>${ presentation.price }</td>
+                            <td>${ presentation.promo_price }</td>
+                            <td>${ offer }</td>
+                            <td>${ highlighted  }</td>
+                            <td>${ presentation.stock  }</td>
+                        </tr>`;
+                });
+                html += `</tbody></table>`;
+        } else {
+            html = 'Aun no hay presentaciones cargadas';
+
+    </script>
+
 @stop

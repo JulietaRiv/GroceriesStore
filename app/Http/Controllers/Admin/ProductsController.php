@@ -33,14 +33,14 @@ class ProductsController extends Controller
         $product->category_id = $request->category_id;
         $product->brand_id = $request->brand_id;
         $product->description = $request->description;
-        $product->presentations = json_decode($request->presentations);
+        $product->presentations = json_decode($request->presentations, true);
         $product->celiacs = data_get($request, 'celiacs', 0);
         $product->organic = data_get($request, 'organic', 0);
         $product->agroecological = data_get($request, 'agroecological', 0);
         $product->vegan = data_get($request, 'vegan', 0);
         $stock = 0;
         $product->offer = 0;
-        $product->highlighted = 0;
+        $product->highlighted = 0;  
         foreach ($product->presentations as $presentation){
             $stock += $presentation['stock'];
             if ($presentation['offer'] == true){
@@ -54,8 +54,7 @@ class ProductsController extends Controller
                 $product->promo_price = $presentation['promo_price'];
             }
         }    
-        $product->stock = $stock != 0 ? 1 : 0;
-        //dd($product);
+        $product->stock = $stock != 0 ? 1 : 0;        
         $product->save();
         return redirect()->route("products")->with('success','Excelente, registro guardado!');
     }

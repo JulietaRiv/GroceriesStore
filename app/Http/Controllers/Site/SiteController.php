@@ -18,10 +18,12 @@ class SiteController extends Controller
         'offer_products'=>$offer_products, 'categories'=>$categories]);
     }
 
-    public function products()
+    public function products($category_slug_name = 'especias-salsas-sal-y-pimienta')
     {
         $categories = Category::where('active', 1)->get();
-        return view('Site/categoriesSite', ['categories'=>$categories]);
+        $category_id = Category::where('slug_name', $category_slug_name)->first()->id;
+        $products = Product::where('category_id', $category_id)->get();
+        return view('Site/categoriesSite', ['categories'=>$categories, 'products'=>$products]);
     }
     
 }
