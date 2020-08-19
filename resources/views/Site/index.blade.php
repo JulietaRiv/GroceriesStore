@@ -185,6 +185,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //ACA INCLUYO OFFERS -->
 @include('Site/offers')
 
+@include('Site/aboutUs')
+
 <!-- //footer -->
 <div class="footer">
 		<div class="container">
