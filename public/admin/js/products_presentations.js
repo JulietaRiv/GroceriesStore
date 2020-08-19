@@ -39,6 +39,7 @@ let presentationsForm = `
 
     function addPres(){         
         let presentation = {
+            'main': presentations.length == 0 ? 1 : 0,
             'presentation': $('#pres_presentation').val(), 
             'price': $('#pres_price').val(), 
             'promo_price': $('#pres_promo_price').val(), 
@@ -62,7 +63,7 @@ let presentationsForm = `
 <table border='1' style='width:90%';>
     <thead>
         <tr>
-            <th>Principal</th>
+            <th>Default</th>
             <th>Presentación</th>
             <th>Precio</th>
             <th>Precio Promo</th>
@@ -76,20 +77,21 @@ let presentationsForm = `
             presentations.forEach(function(presentation, i){
                 let offer = presentation.offer == true ? 'Si' : 'No';
                 let highlighted = presentation.highlighted == true ? 'Si' : 'No';
-                if (i == 0){
-                    html += `<tr><td><input checked type="radio" name="default"/></td>`;
-                } else {
-                    html += `<tr><td><input type="radio" name="default"/></td>`;
-                }
-                html +=`<td>${ presentation.presentation }</td>
-                        <td>${ presentation.price }</td>
-                        <td>${ presentation.promo_price }</td>
-                        <td>${ offer }</td>
-                        <td>${ highlighted  }</td>
-                        <td>${ presentation.stock  }</td>
-                        <td style='width:10%;'><a href='#' onclick='deletePres(${ i });'><span class='badge bg-red'>Eliminar</span></a>
-                                            <a href='#' onclick='editPres(${ i });'><span class='badge bg-green'>Editar</span></a></td>
-                    </tr>`;  
+                let checked = presentation.main == 1 ? 'checked' : '' ;
+               
+                html += `<tr>
+                            <td><input ${ checked } type="radio" onclick="setMain(${ i })" name="default"/></td>
+                            <td>${ presentation.presentation }</td>
+                            <td>${ presentation.price }</td>
+                            <td>${ presentation.promo_price }</td>
+                            <td>${ offer }</td>
+                            <td>${ highlighted  }</td>
+                            <td>${ presentation.stock  }</td>
+                            <td style='width:10%;'>
+                                <a href='#' onclick='deletePres(${ i });'><span class='badge bg-red'>Eliminar</span></a>
+                                <a href='#' onclick='editPres(${ i });'><span class='badge bg-green'>Editar</span></a>
+                            </td>
+                        </tr>`;  
             });
             html += "</tbody></table>";
         } else {
@@ -111,6 +113,13 @@ let presentationsForm = `
                 renderPres();
             };
           });    
+    }
+
+    function setMain(param){
+        presentations.forEach(function(presentation){
+            presentation.main = 0;
+        })
+        presentations[param].main = 1;
     }
 
     function editPres(param){

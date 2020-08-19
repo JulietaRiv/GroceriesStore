@@ -27,36 +27,34 @@ class ProductsController extends Controller
 
     public function store(Request $request)
     {
-        //$validated = $request->validated();
-        
+        //$validated = $request->validated();   
         $product = new Product();
         $product->name = $request->name;
         $product->category_id = $request->category_id;
         $product->brand_id = $request->brand_id;
         $product->description = $request->description;
         $product->presentations = json_decode($request->presentations);
-        //dd($product->presentations);
         $product->celiacs = data_get($request, 'celiacs', 0);
         $product->organic = data_get($request, 'organic', 0);
         $product->agroecological = data_get($request, 'agroecological', 0);
         $product->vegan = data_get($request, 'vegan', 0);
         $stock = 0;
-        $offer = 0;
-        $highlighted = 0;
+        $product->offer = 0;
+        $product->highlighted = 0;
         foreach ($product->presentations as $presentation){
             $stock += $presentation['stock'];
             if ($presentation['offer'] == true){
-                $offer += 1;
+                $product->offer = 1;
             }
             if ($presentation['highlighted'] == true){
-                $offer += 1;
+                $product->highlighted = 1;
+            }
+            if ($presentation['main'] == true){
+                $product->price = $presentation['price'];
+                $product->promo_price = $presentation['promo_price'];
             }
         }    
-        $product->stock = $stock;
-        $product->offer = $offer != 0 ? 1 : 0;
-        $product->highlighted = $highlighted != 0 ? 1 : 0;
-        $product->price = 0;
-        $product->promo_price = 0;
+        $product->stock = $stock != 0 ? 1 : 0;
         //dd($product);
         $product->save();
         return redirect()->route("products")->with('success','Excelente, registro guardado!');
