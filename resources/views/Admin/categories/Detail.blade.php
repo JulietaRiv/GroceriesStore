@@ -21,12 +21,16 @@
                     <tbody>
                         <tr>
                             <th>Productos</th>
+                            <th>Marcas</th>
                             <th style="width: 20%">Stock</th>
                         </tr>
+                        @foreach ( $products as $product )
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $product->name }}</td>
+                            <td>{{ $product->brand->name }}</td>
+                            <td>@if ( $product->stock == 1) Si @else No @endif</td>
                         </tr>          
+                        @endforeach
                     </tbody>
                 </table>
             </div>

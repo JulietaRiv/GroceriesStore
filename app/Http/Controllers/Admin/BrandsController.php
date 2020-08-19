@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App;
 use App\Brand;
+use App\Product;
 use App\Http\Controllers\Controller;
 
 
@@ -32,8 +33,8 @@ class BrandsController extends Controller
     public function detail ($id)
     {
         $brand = Brand::where('id', '=', $id)->first();
-        //aca quiza hacer query a products y traer los q pertenezcan
-        return view ("Admin/brands/Detail", ["brand" => $brand] );
+        $products = Product::where('brand_id', $id)->get();
+        return view ("Admin/brands/Detail", ["brand" => $brand, "products"=>$products]);
     }
 
     public function delete ($id)

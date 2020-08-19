@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App;
 use App\Http\Controllers\Controller;
 use App\Category;
+use App\Product;
 use Illuminate\Support\Str;
 
 
@@ -34,8 +35,8 @@ class CategoriesController extends Controller
     public function detail ($id)
     {
         $category = Category::where('id', '=', $id)->first();
-        //aca quiza hacer query a products y traer los q pertenezcan
-        return view ("Admin/categories/Detail", ["category" => $category] );
+        $products = Product::where('category_id', $id)->get();
+        return view ("Admin/categories/Detail", ["category" => $category, 'products'=>$products]);
     }
 
     public function delete ($id)
