@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'Site'], function () {
     Route::get('/', 'SiteController@index')->name('index');
     Route::get('/products', 'SiteController@products')->name('siteProducts');
+    Route::get('/category/{slug_name}', 'SiteController@products')->name('siteCategories');
 });    
 
 Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {

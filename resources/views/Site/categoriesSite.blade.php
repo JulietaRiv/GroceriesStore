@@ -15,7 +15,7 @@
 					<h2>Categorías</h2>		
                         <ul>
                             @foreach ( $categories as $category )
-                            <li><a href=""><i class="fa fa-arrow-right" aria-hidden="true"></i>{{ $category->name }}</a></li>
+                            <li><a href="{{route('siteCategories', $category->slug_name)}}"><i class="fa fa-arrow-right" aria-hidden="true"></i>{{ $category->name }}</a></li>
                             @endforeach
                         </ul>
 				</div>																																												
@@ -25,7 +25,7 @@
 					<div class="products-right-grids">
 						<div class="sorting">
 							<select id="country" onchange="change_country(this.value)" class="frm-field required sect">
-								<option value="null">Default sorting</option>
+								<option value="null">Filtrar/ ordenar</option>
                                 <option value="null">Orgánicos</option>
                                 <option value="null">Agroecológicos</option> 
                                 <option value="null">Sin Tacc</option>
@@ -35,9 +35,9 @@
 						</div>
 						<div class="sorting-left">
 							<select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
-								<option value="null">Item on page 9</option>
-								<option value="null">Item on page 18</option> 
-								<option value="null">Item on page 32</option>					
+								<option value="null">Items por página 9</option>
+								<option value="null">Items por página 18</option> 
+								<option value="null">Items por página 32</option>					
 								<option value="null">All</option>								
 							</select>
 						</div>

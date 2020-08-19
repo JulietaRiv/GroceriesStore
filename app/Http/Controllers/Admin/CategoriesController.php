@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App;
 use App\Http\Controllers\Controller;
 use App\Category;
+use Illuminate\Support\Str;
+
 
 class CategoriesController extends Controller
 {
@@ -24,6 +26,7 @@ class CategoriesController extends Controller
     {
         $category = new Category();
         $category->name = $request->name;
+        $category->slug_name = Str::of($category->name)->slug('-');
         $category->save();
         return redirect()->route("categories")->with('Excelente, registro guardado!');
     }
@@ -55,6 +58,7 @@ class CategoriesController extends Controller
     {
         $category = Category::where('id', '=', $request->id)->first();
         $category->name = $request->nameEdit;
+        $category->slug_name = Str::of($category->name)->slug('-');
         $category->update();
         return redirect()->route("categories")->with('success','Excelente, registro guardado!');
     }

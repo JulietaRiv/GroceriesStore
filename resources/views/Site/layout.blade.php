@@ -108,24 +108,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<ul class="dropdown-menu multi-column columns-3">
 											<div class="row">
 												<div class="multi-gd-img">
-													<ul class="multi-column-dropdown">	
-														<li><a href="{{route('siteProducts')}}">Especias, salsas, sal y pimienta</a></li>
-														<li><a href="">Aceites y acetos</a></li>
-														<li><a href="">Endulzantes</a></li>
-														<li><a href="">Kiosko</a></li>
-														<li><a href="">Dulces y mermeladas</a></li>
-														<li><a href="">Miel</a></li>
-														<li><a href="">Yerbas e infusiones</a></li>
-														<li><a href="">Frutos secos y granolas</a></li>
-														<li><a href="">Legumbres, cereales y semillas</a></li>
-														<li><a href="">Harinas</a></li>
-														<li><a href="">Galletas y tostadas</a></li>
-														<li><a href="">Pastas secas</a></li>
-														<li><a href="">Tomate triturado</a></li>
-														<li><a href="">Conservas y untables</a></li>
-														<li><a href="">Hongos y algas</a></li>
-														<li><a href="">Bebidas</a></li>
-														<li><a href="">Caldos y deshidratados</a></li>
+													<ul class="multi-column-dropdown">
+														@foreach ( $categories as $category )
+														<li><a href="{{route('siteProducts')}}">{{ $category->name }}</a></li>
+														@endforeach
 													</ul>
 												</div>					
 											</div>
