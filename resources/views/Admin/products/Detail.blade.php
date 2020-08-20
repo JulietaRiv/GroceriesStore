@@ -59,7 +59,7 @@
                                     <td>{{ $pres['highlighted'] }}</td>
                                     <td>{{ $pres['stock'] }}</td>
                                 </tr>
-                        @endforeach
+                            @endforeach
                             </tbody>
                         </table>
 

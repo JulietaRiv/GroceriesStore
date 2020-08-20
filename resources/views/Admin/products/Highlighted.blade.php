@@ -13,7 +13,10 @@
 <div class="box">
     <div class="box-header">
         <h3 class="box-title">Destacados</h3>
+        <br>
+        <button class="btn btn-success">Aplicar</button>
     </div>
+    <br>
         <!-- /.box-header -->
         <div class="box-body no-padding">
             <table class="table table-condensed">
