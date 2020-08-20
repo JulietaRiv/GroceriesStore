@@ -17,6 +17,7 @@ Route::group(['namespace' => 'Site'], function () {
     Route::get('/', 'SiteController@index')->name('index');
     Route::get('/products', 'SiteController@products')->name('siteProducts');
     Route::get('/category/{slug_name}', 'SiteController@products')->name('siteCategories');
+    Route::get('/detail/{id}', 'SiteController@detailProduct')->name('detailProduct');
 });    
 
 Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {

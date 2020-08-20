@@ -35,8 +35,8 @@ class products_table_seeder extends Seeder
                 {'presentation'=>'Cacao 100 %', 'stock'=>10, 'price'=>90, 'promo_price'=>'', 'offer'=>0, 'highlighted'=>0}]", 
                     'stock'=>1, 'offer'=>0, 'highlighted'=>0, 'celiacs'=>0, 'organic'=>0, 'agroecological'=>0, 'vegan'=>0],
 
-            ['id'=>6, 'category_id'=>10, 'brand_id'=>11, 'name'=>'Trigo integral', 'photo'=>'', 'price'=>500, 'promo_price'=>0, 'description'=>'Molido fino', 
-            'presentations'=>"[{'presentation'=>'1kg', 'stock'=>3, 'price'=>500, 'promo_price'=>0, 'offer'=>0, 'highlighted'=1}]", 
+            ['id'=>6, 'category_id'=>10, 'brand_id'=>11, 'name'=>'Trigo integral', 'photo'=>'', 'price'=>500, 'promo_price'=>null, 'description'=>'Molido fino', 
+            'presentations'=>"[{'presentation'=>'1kg', 'stock'=>3, 'price'=>500, 'promo_price'=>null, 'offer'=>0, 'highlighted'=1}]", 
                     'stock'=>1, 'offer'=>0, 'highlighted'=>1, 'celiacs'=>0, 'organic'=>1, 'agroecological'=>0, 'vegan'=>0]
                 
             /*['id'=>, 'category_id'=>, 'brand_id'=>, 'name'=>'', 'photo'=>'', 'description'=>'', 

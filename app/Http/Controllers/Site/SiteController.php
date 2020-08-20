@@ -25,11 +25,17 @@ class SiteController extends Controller
         $products = Product::where('category_id', $category_id)->get();
         return view('Site/categoriesSite', ['categories'=>$categories, 'products'=>$products]);
     }
+
+    public function detailProduct($id)
+    {
+        $product = Product::where('id', $id)->get();
+        return view('Site/detailProduct', ['product'=>$product]);
+    }
     
     public function filters($param)
     {
         $products = Product::where($param, 1)->get();
-        return $products;
+        //return $products;
     }
 
 }

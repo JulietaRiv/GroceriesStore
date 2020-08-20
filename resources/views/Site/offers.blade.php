@@ -15,7 +15,7 @@
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
 												<a href="products.html"><img title=" " alt=" " src="site/images/14.png"></a>		
-												<p>{{ $offer_product->name }}</p>
+												<p>{{ $offer_product->name }} - {{ $offer_product->main_presentation }}</p>
 													<h4>{{ $offer_product->price }} <span>{{ $offer_product->promo_price }}</span></h4>
 											</div>
 											<div class="snipcart-details top_brand_home_details">

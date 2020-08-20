@@ -12,7 +12,7 @@
 									<div class="snipcart-item block" >
 										<div class="snipcart-thumb">
 											<a href="products.html"><img title=" " alt=" " src="images/7.png" /></a>		
-											<p>{{ $highlighted_product->name }}</p>
+											<p>{{ $highlighted_product->name }} - {{ $highlighted_product->main_presentation }}</p>
 											<div class="stars">
 												<i class="fa fa-star blue-star" aria-hidden="true"></i>
 												<i class="fa fa-star blue-star" aria-hidden="true"></i>
