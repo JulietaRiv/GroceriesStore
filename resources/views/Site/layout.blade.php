@@ -104,22 +104,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div> 
 							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 								<ul class="nav navbar-nav">
-									<li class="active"><a href="index.html" class="act">Home</a></li>	
-									<!-- Mega Menu -->
-									<li class="dropdown">
-										<a href="{{route('siteProducts')}}" class="dropdown-toggle" data-toggle="dropdown">Categorías<b class="caret"></b></a>
-										<ul class="dropdown-menu multi-column columns-3">
-											<div class="row">
-												<div class="multi-gd-img">
-													<ul class="multi-column-dropdown">
-														@foreach ( $categories as $category )
-														<li><a href="{{route('siteProducts')}}">{{ $category->name }}</a></li>
-														@endforeach
-													</ul>
-												</div>					
-											</div>
-										</ul>
-									</li>						
+									<li class="active"><a href="/" class="act">Home</a></li>
+									<li><a href="{{route('siteProducts')}}">Categorías</a></li>				
 									<li><a href="/#highlightedProducts">Destacados</a></li>	
 									<li><a href="/#aboutUs">Nosotros</a></li>
 									<li><a href="/#offers">Ofertas</a></li>
