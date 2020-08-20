@@ -58,6 +58,8 @@ class ProductsController extends Controller
         }    
         $product->stock = $stock != 0 ? 1 : 0;        
         $product->save();
+        $product->slug_name = Str::of($product->name)->slug('-').'-'.$product->id;
+        $product->save();
         return redirect()->route("products")->with('success','Excelente, registro guardado!');
     }
 

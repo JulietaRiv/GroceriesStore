@@ -69,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 		<div class="w3ls_logo_products_left1">
 				<ul class="phone_email">
-					<li><i class="fa fa-phone" aria-hidden="true"></i>Llamanos : (+011) 153-505-1213</li>
+					<li><i class="fa fa-phone" aria-hidden="true"></i>Hace tu pedido: (+011) 153-505-1213</li>
 				</ul>
 			</div>
 			<div class="w3ls_logo_products_left">

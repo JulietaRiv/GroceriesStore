@@ -26,9 +26,10 @@ class SiteController extends Controller
         return view('Site/categoriesSite', ['categories'=>$categories, 'products'=>$products]);
     }
 
-    public function detailProduct($id)
+    public function detailProduct($slug_name)
     {
-        $product = Product::where('id', $id)->get();
+        $product = Product::where('slug_name', $slug_name)->first();
+        //dd($product);
         return view('Site/detailProduct', ['product'=>$product]);
     }
     

@@ -1,10 +1,10 @@
+
 <div class="products">
-		<div class="container">
-			<div class="agileinfo_single">
-				
-				<div class="col-md-4 agileinfo_single_left">
-					<img id="example" src="images/si1.jpg" alt=" " class="img-responsive">
-				</div>
+	<div class="container">
+		<div class="agileinfo_single">		
+            <div class="col-md-4 agileinfo_single_left">
+                <img id="example" src="images/si1.jpg" alt=" " class="img-responsive">
+            </div>
 				<div class="col-md-8 agileinfo_single_right">
 				<h2>{{ $product->name }}</h2>
 					<div class="w3agile_description">
@@ -12,7 +12,6 @@
 						<p>{{ $product->description }}</p>
 					</div>
                     {{ $product->presentations }}
-
 					<div class="snipcart-item block">
 						<div class="snipcart-thumb agileinfo_single_right_snipcart">
 							<h4 class="m-sing">$ <span>$</span></h4>
@@ -34,6 +33,6 @@
 					</div>
 				</div>
 				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
+        </div>
+    </div>
+</div>
