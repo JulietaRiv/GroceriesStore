@@ -7,6 +7,7 @@ use App;
 use App\Product;
 use App\Category;
 use App\Brand;
+use Str;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\productForm;
 

@@ -53,7 +53,7 @@
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="/product/{{$product->slug_name}}"><img title=" " alt="Ver detalle" src=""></a>		
+												<a href="{{route('siteDetailProduct', $product->slug_name)}}"><img title=" " alt="Ver detalle" src=""></a>		
 												<p>{{ $product->name }} - {{ $product->main_presentation }}</p>
 												<h4>{{ $product->price }} <span>{{ $product->promo_price }}</span></h4>
 											</div>
