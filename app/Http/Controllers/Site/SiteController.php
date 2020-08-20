@@ -30,6 +30,7 @@ class SiteController extends Controller
     {
         $product = Product::where('slug_name', $slug_name)->first();
         $presentations = $product->presentations;
+        //dd($presentations);
         return view('Site/detailProduct', ['product'=>$product, 'presentations'=>$presentations]);
     }
     
