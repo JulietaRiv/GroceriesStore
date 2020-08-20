@@ -11,7 +11,7 @@ class products_table_seeder extends Seeder
      */
     public function run()
     {
-        DB::table('products')->insert([
+        $data = [
             ['id'=>1, 'category_id'=>18, 'brand_id'=>1, 'name'=>'Aceite de Oliva', 'photo'=>'', 'price'=>70, 'promo_price'=>75, 'description'=>'Sin conservantes', 
                 'presentations'=>"[{'presentation'=>'Botella de vidrio de 500ml', 'stock'=>3, 'price'=>70, 'promo_price'=>75, 'offer'=>0, 'highlighted'=>0}, 
                     {'presentation'=>'Botella de vidrio de 1000ml', 'stock'=>2, 'price'=>100, 'promo_price'=>120, 'offer'=>0, 'highlighted'=>0}]", 
@@ -43,6 +43,11 @@ class products_table_seeder extends Seeder
             'presentations'=>"{['presentation'=>'', 'stock'=>, 'price'=>, 'promo_price'=>, 'offer'=>, 'highlighted'=>], 
                 ['presentation'=>'', 'stock'=>, 'price'=>, 'promo_price'=>, 'offer'=>, 'highlighted'=>]}", 
                     'stock'=>1, 'offer'=>0, 'highlighted'=>0, 'celiacs'=>0, 'organic'=>0, 'agroecological'=>0, 'vegan'=>0],*/
-        ]);
+        ];
+        foreach ($data as $i=>$d){
+            $data[$i]['slug_name'] = Str::of($d['name'])->slug('-');
+            $data[$i]['created_at'] = new DateTime();
+        }
+        DB::table('products')->insert($data);
     }
 }

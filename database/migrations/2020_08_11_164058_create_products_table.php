@@ -18,11 +18,13 @@ class CreateProductsTable extends Migration
             $table->foreignId('category_id')->references('id')->on('categories');
             $table->foreignId('brand_id')->references('id')->on('brands');
             $table->string('name');
+            $table->string('slug_name');
             $table->string('photo')->nullable();
             $table->decimal('price', 8, 2)->nullable();
             $table->decimal('promo_price', 8, 2)->nullable();
             $table->string('description', 2000);
             $table->text('presentations');
+            $table->string('main_presentation');
             $table->boolean('stock')->default(1);
             $table->boolean('offer')->nullable();
             $table->boolean('highlighted')->nullable();

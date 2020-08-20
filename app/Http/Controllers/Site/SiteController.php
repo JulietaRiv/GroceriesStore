@@ -26,4 +26,10 @@ class SiteController extends Controller
         return view('Site/categoriesSite', ['categories'=>$categories, 'products'=>$products]);
     }
     
+    public function filters($param)
+    {
+        $products = Product::where($param, 1)->get();
+        return $products;
+    }
+
 }

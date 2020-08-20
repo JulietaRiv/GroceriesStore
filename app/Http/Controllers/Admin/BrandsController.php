@@ -26,6 +26,7 @@ class BrandsController extends Controller
     {
         $brand = new Brand();
         $brand->name = $request->name;
+        $brand->slug_name = Str::of($brand->name)->slug('-');
         $brand->save();
         return redirect()->route("brands")->with('success','Excelente, registro guardado!');
     }

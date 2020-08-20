@@ -30,6 +30,7 @@ class ProductsController extends Controller
         //$validated = $request->validated();   
         $product = new Product();
         $product->name = $request->name;
+        $product->slug_name = Str::of($product->name)->slug('-');
         $product->category_id = $request->category_id;
         $product->brand_id = $request->brand_id;
         $product->description = $request->description;
@@ -50,6 +51,7 @@ class ProductsController extends Controller
                 $product->highlighted = 1;
             }
             if ($presentation['main'] == true){
+                $product->main_presentation = $presentation['presentation'];
                 $product->price = $presentation['price'];
                 $product->promo_price = $presentation['promo_price'];
             }
