@@ -19,6 +19,7 @@
             <table class="table table-condensed">
                 <tbody>
                     <tr>
+                        <th style="width:5">Orden</th>
                         <th>Nombre</th>
                         <th>Categoría</th>
                         <th>Marca</th>
@@ -27,6 +28,7 @@
                     </tr>
                     @foreach ( $highlightedProducts as $highProduct )
                     <tr>
+                        <td style="width:5"><input type="checkbox"/></td>
                         <td>{{ $highProduct->name }}</td>
                         <td>{{ $highProduct->category->name }}</td>
                         <td>{{ $highProduct->brand->name }}</td>
