@@ -32,9 +32,13 @@ class CreateProductsTable extends Migration
             $table->boolean('vegan')->nullable();
             $table->boolean('active')->default(1);
             $table->timestamps();
+            $table->index('celiacs');
+            $table->index('organic');
+            $table->index('agroecological');
+            $table->index('vegan');
         });
     }
-//claves foraneas
+
     /**
      * Reverse the migrations.
      *
