@@ -18,6 +18,7 @@ Route::group(['namespace' => 'Site'], function () {
     Route::get('/products', 'SiteController@products')->name('siteProducts');
     Route::get('/category/{slug_name}', 'SiteController@products')->name('siteCategories');
     Route::get('/product/{slug_name}', 'SiteController@detailProduct')->name('siteDetailProduct');
+    
 });    
 
 Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {
@@ -32,9 +33,10 @@ Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {
         Route::post('/update', "ProductsController@update")->name("productsUpdate");
         Route::get('/detail/{id}', "ProductsController@detail")->name("productsDetail");
         Route::get('/delete/{id}', "ProductsController@delete")->name("productsDelete");
-        Route::get('/highlighted', "ProductsController@highlightedProducts")->name("highlightedProducts");
-        Route::get('/offer', "ProductsController@offerProducts")->name("offerProducts");
-        
+        Route::get('/highlighted', "ProductsController@highlightedProducts")->name("productsHighlighted");
+        Route::get('/offer', "ProductsController@offerProducts")->name("productsOffer");
+        Route::get('/offerSelected/{ids}', "ProductsController@offerSelected")->name("productsOfferSelected");
+        Route::get('/highlightedSelected/{ids}', "ProductsController@highlightedSelected")->name("productsHighlightedSelected");
     });
 
     Route::group(['prefix' => "/categories"], function() {

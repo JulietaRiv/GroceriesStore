@@ -14,7 +14,7 @@
     <div class="box-header">
         <h3 class="box-title">Ofertas</h3>
         <br>
-        <button class="btn btn-success">Aplicar</button>
+        <button type="button" onclick="location.href='/admin/products/offerSelected/'+orderProducts" class="btn btn-success">Aplicar</button>
     </div>
     <br>
         <!-- /.box-header -->
@@ -27,17 +27,18 @@
                         <th>Categoría</th>
                         <th>Marca</th>
                         <th>Precio</th>
-                        <th>Descripción</th>
+                        <th>Presentación en oferta</th>
                     </tr>
                     @foreach ( $offerProducts as $offerProduct )        
                     <tr>
-                        <td style="width:5"><input type="checkbox" name="{{$offerProduct->name}}"/></td>
+                        <td style="width:5"><input type="checkbox" onclick="selectProduct(this)" value="{{$offerProduct->id}}" name="order"/><span id="orderNum{{$offerProduct->id}}"></span></td>
                         <td>{{ $offerProduct->name }}</td>
                         <td>{{ $offerProduct->category->name }}</td>
                         <td>{{ $offerProduct->brand->name }}</td>
                         <td>{{ $offerProduct->price }}</td>
-                        <td>{{ $offerProduct->description }}</td>
-                        <!-- /aca iria la presentacion en cuestion -->
+                        @foreach ( $offerProduct->presentations as $offerPresentation )
+                        <td>@if ( $offerPresentation['offer'] == 1 ){{ $offerPresentation['presentation'] }}@endif</td>
+                        @endforeach
                     </tr>
                     @endforeach
                 </tbody>
@@ -56,11 +57,29 @@
 
 <script>
 
-function checked() {
-   for (i=0; i<5; i++){
+let orderProducts = [];
 
-   }
-}  
+function selectProduct(e)
+{
+    let num = 0;
+    if (e.checked){
+        if (orderProducts.length > 3){
+            alert('máximo 4');
+            event.preventDefault();
+        } else {
+            orderProducts.push(e.value);
+            orderProducts.forEach(function(a, i){
+                $("#orderNum" + a).html(i + 1);
+            });           
+        }
+    } else {
+        orderProducts = orderProducts.filter(elem => elem != e.value);
+        $("#orderNum" + e.value).html('');
+        orderProducts.forEach(function(a, i){
+                $("#orderNum" + a).html(i + 1);
+            });
+    }  
+} 
 
 </script>
 
