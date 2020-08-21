@@ -15,11 +15,13 @@ class SiteController extends Controller
     {
         $categories = Category::where('active', 1)->get();
         $offer = Offer::all()->pluck('product_id');
+        $orderOffer = Offer::whereIn('product_id', $offer)->get();
         $offer_products = Product::whereIn('id', $offer)->get();
         $highlighted = Highlighted::all()->pluck('product_id');
         $highlighted_products = Product::whereIn('id', $highlighted)->get();
-        return view('Site/index', ['highlighted_products'=>$highlighted_products, 
-        'offer_products'=>$offer_products, 'categories'=>$categories]);
+        $orderhighlighted = Highlighted::whereIn('product_id', $highlighted)->get();
+        return view('Site/index', ['highlighted_products'=>$highlighted_products, 'orderhighlighted'=>$orderhighlighted,
+        'orderOffer'=>$orderOffer, 'offer_products'=>$offer_products, 'categories'=>$categories]);
     }
 
     public function products($category_slug_name = 'especias-salsas-sal-y-pimienta')

@@ -4,6 +4,7 @@
 		<h2>Destacados</h2>				
 			<div class="agile_top_brands_grids">
 				@foreach ( $highlighted_products as $highlighted_product )
+		<!--aca tendria q ordenar x num orden -->
 				<div class="col-md-4 top_brand_left">
 					<div class="hover14 column">
 						<div class="agile_top_brand_left_grid">
