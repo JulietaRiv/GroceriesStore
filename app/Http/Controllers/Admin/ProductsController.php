@@ -99,7 +99,6 @@ class ProductsController extends Controller
     public function highlightedProducts()
     {
         $highlightedProducts = Product::where('highlighted', 1)->get();
-        //dd($highlightedProducts);
         return view ('Admin/products/Highlighted', ['highlightedProducts'=>$highlightedProducts]);
     }
 
@@ -111,40 +110,46 @@ class ProductsController extends Controller
 
     public function offerSelected($ids)
     {
-        $aids = $ids;
-        $arrids = explode(",", $aids);
-        foreach ( $arrids as $i=>$id )
+        Offer::all();
+        Offer::query()->truncate();
+        $arrids = explode(",", $ids);
+        foreach ( $arrids as $i=>$id ){
             $eachOffer = new Offer();
             $eachOffer->product_id = $id;
             $eachOffer->presentation_name = '';
             $product = Product::where('id', $id)->first();   
             $presentations = $product->presentations;
-                foreach ( $presentations as $pres )      
+            foreach ( $presentations as $pres ) {     
                 if ( $pres['offer'] == 1 ){                
-                  $eachOffer->presentation_name = $pres['presentation'];
+                    $eachOffer->presentation_name = $pres['presentation'];
                 }
-            $eachOffer->order_num = $i + 1;
+            }
+            $eachOffer->order_num = $i;
             $eachOffer->save();
-            return view ('Admin/products/Offer');
+        }
+        return redirect()->back();
     }
 
     public function highlightedSelected($ids)
     {
-        $aids = $ids;
-        $arrids = explode(",", $aids);
-        foreach ( $arrids as $i=>$id )
+        Highlighted::all();
+        Highlighted::query()->truncate();
+        $arrids = explode(",", $ids);
+        foreach ( $arrids as $i=>$id ){
             $eachHighlighted = new Highlighted();
             $eachHighlighted->product_id = $id;
+            $eachHighlighted->order_num = $i;
             $eachHighlighted->presentation_name = '';
             $product = Product::where('id', $id)->first();  
             $presentations = $product->presentations;
-                foreach ( $presentations as $pres )        
+            foreach ( $presentations as $pres ) {  
                 if ( $pres['highlighted'] == 1 ){                
                   $eachHighlighted->presentation_name = $pres['presentation'];
                 }
-            $eachHighlighted->order_num = $i + 1;
+            }
             $eachHighlighted->save();
-            return view ('Admin/products/Highlighted');
+        }
+        return redirect()->back();
     }
 
 }
