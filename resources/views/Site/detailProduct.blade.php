@@ -43,7 +43,7 @@
 									<input type="hidden" name="amount" value="{{ $presen['price'] }}">
 									<input type="hidden" name="return" value="">
 									<input type="hidden" name="cancel_return" value=" ">
-									<input type="submit" name="submit" value="Add to cart" class="button">
+									<input type="submit" name="submit" value="Agregar al carro" class="button">
 								</fieldset>
 							</form>
 						</div>
