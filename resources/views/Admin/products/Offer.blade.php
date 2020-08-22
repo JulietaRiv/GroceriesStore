@@ -4,6 +4,7 @@
 
 @section('content_header')
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="/admin/js/products_presentations.js"></script>
 
 @stop
@@ -64,8 +65,12 @@ function selectProduct(e)
     let num = 0;
     if (e.checked){
         if (orderProducts.length > 3){
-            alert('máximo 4');
             event.preventDefault();
+            Swal.fire({
+            text: "Las ofertas en el sitio no pueden ser más de 4.",
+            confirmButtonText: "Ok", 
+            closeOnConfirm: true,
+          })
         } else {
             orderProducts.push(e.value);
             orderProducts.forEach(function(a, i){

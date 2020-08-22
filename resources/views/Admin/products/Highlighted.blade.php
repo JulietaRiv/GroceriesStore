@@ -4,6 +4,7 @@
 
 @section('content_header')
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="/admin/js/products_presentations.js"></script>
 
 @stop
@@ -71,8 +72,12 @@ function selectProduct(e)
     let num = 0;
     if (e.checked){
         if (orderProducts.length > 2){
-            alert('máximo 3');
             event.preventDefault();
+            Swal.fire({
+            text: "Los destacados en el sitio no pueden ser más de 3.",
+            confirmButtonText: "Ok", 
+            closeOnConfirm: true,
+          })
         } else {
             orderProducts.push(e.value);
             orderProducts.forEach(function(a, i){
