@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'Site'], function () {
     Route::get('/', 'SiteController@index')->name('index');
-    Route::get('/products', 'SiteController@products')->name('siteProducts');
     Route::get('/category/{slug_name}', 'SiteController@products')->name('siteCategories');
     Route::get('/product/{slug_name}', 'SiteController@detailProduct')->name('siteDetailProduct');
-    
+    Route::get('/orderProduct/{order}', 'SiteController@orderProduct')->name('siteOrderProduct');
+    Route::get('/filterProduct/{filter}', 'SiteController@filterProduct')->name('siteFilterProduct');
 });    
 
 Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {

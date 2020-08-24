@@ -104,12 +104,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</button>
 							</div> 
 							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-								<ul class="nav navbar-nav">
-									<li class="active"><a href="/" class="act">Home</a></li>
-									<li><a href="{{route('siteProducts')}}">Categorías</a></li>				
+								<ul class="nav navbar-nav">				
 									<li><a href="/#highlightedProducts">Destacados</a></li>	
 									<li><a href="/#aboutUs">Nosotros</a></li>
 									<li><a href="/#offers">Ofertas</a></li>
+									<li><a href="{{route('siteCategories', 'especias-salsas-sal-y-pimienta')}}">Categorías</a></li>
+									<li><a href="/filterProduct/organic">Orgánicos</a></li>
+									<li><a href="/filterProduct/agroecological">Agroecológicos</a></li>
+									<li><a href="/filterProduct/celiacs">Sin Tacc</a></li>
+									<li><a href="/filterProduct/vegan">Veganos</a></li>
 									<li><a href="/#contact">Contacto</a></li>
 								</ul>
 							</div>
@@ -141,7 +144,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#highlightedProducts">Destacados</a></li>
 						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#aboutUs">Nosotros</a></li>
 						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#offers">Ofertas</a></li>
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{route('siteProducts')}}">Categorías</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{route('siteCategories', 'especias-salsas-sal-y-pimienta')}}">Categorías</a></li>
 					</ul>
 				</div>			
 			</div>

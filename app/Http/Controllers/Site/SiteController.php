@@ -39,16 +39,36 @@ class SiteController extends Controller
         return view('Site/detailProduct', ['product'=>$product, 'presentations'=>$presentations]);
     }
     
-    public function filters($param)
+    public function filterProduct($param)
     {
+        if ($param == 'organic'){
+            $type = 'orgánicos';
+            $type_icon = 'organicos.jpg';
+        } else if ($param == 'celiacs'){
+            $type = 'sin tacc';
+            $type_icon = 'celiacs.png';
+        } else if ($param == 'agroecological'){
+            $type = 'agroecológicos';
+            $type_icon = 'agroecologicos.png';
+        } else {
+            $type = 'veganos';
+            $type_icon = 'veganos.jpg';
+        }
         $products = Product::where($param, 1)->get();
-        //return $products;
+        return view('Site/productsList', ['products'=>$products, 'type'=>$type, 'type_icon'=>$type_icon]); 
     }
 
-    public function order($param)
+    public function orderProduct($param)
     {
-        $products = Product::orderBy('price', 'DESC')->get();
         
+        if ($param == 'precio_desc'){
+            $products = Product::orderBy('price', 'DESC')->get();
+        } else if ($param == 'precio_asc'){
+            $products = Product::orderBy('price', 'ASC')->get();
+        } else if ($param == 'alf_a'){
+            $products = Product::orderBy('name', 'ASC')->get();
+        }
+        return view('Site/categoriesSite', ['categories'=>$categories, 'products'=>$products]);
     }
     
 

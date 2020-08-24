@@ -25,10 +25,9 @@
 					<div class="products-right-grids">
 						<div class="sorting">
 							<select id="country" onchange="change_country(this.value)" class="frm-field required sect">
-								<option selected value="precio_desc">Ordenar por precio descendente</option>
-								<option value="precio_asc">Ordenar por precio ascendente</option>
-								<option value="alf_a">Ordenar alfabéticamente a-z</option>
-								<option value="alf_z">Ordenar alfabéticamente z-a</option>		
+								<option selected value="precio_desc">Ordenar por menor precio</option>
+								<option value="precio_asc">Ordenar por mayor precio</option>
+								<option value="alf_a">Ordenar por A-Z</option>
 							</select>
 						</div>
 						<div class="sorting-left">
