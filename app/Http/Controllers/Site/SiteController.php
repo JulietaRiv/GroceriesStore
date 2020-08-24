@@ -41,10 +41,10 @@ class SiteController extends Controller
     
     public function filterProduct($param)
     {
-        $types['organic'] = ['type'=>'orgánicos', 'type_icon'=>'organicos.jpg'];
+        $types['organic'] = ['type'=>'orgánicos', 'type_icon'=>'organicos.png'];
         $types['celiacs'] = ['type'=>'sin tacc', 'type_icon'=>'celiacs.png'];
         $types['agroecological'] = ['type'=>'agroecológicos', 'type_icon'=>'agroecologicos.png'];
-        $types['vegan'] = ['type'=>'veganos', 'type_icon'=>'veganos.jpg'];   
+        $types['vegan'] = ['type'=>'veganos', 'type_icon'=>'veganos.png'];   
         $products = Product::where($param, 1)->get();
         return view('Site/productsList', ['products'=>$products, 'type'=>$types[$param]['type'], 'type_icon'=>$types[$param]['type_icon']]); 
     }

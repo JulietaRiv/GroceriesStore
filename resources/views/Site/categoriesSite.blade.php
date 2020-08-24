@@ -41,41 +41,12 @@
 						<div class="clearfix"> </div>
 					</div>
                 </div>       
-				<div class="agile_top_brands_grids">
-                @foreach ( $products as $product )
-                <div class="col-md-4 top_brand_left">
-						<div class="hover14 column">
-							<div class="agile_top_brand_left_grid">
-								<div class="agile_top_brand_left_grid1">
-									<figure>
-										<div class="snipcart-item block">
-											<div class="snipcart-thumb">
-												<a href="{{route('siteDetailProduct', $product->slug_name)}}"><img title=" " alt="Ver detalle" src=""></a>		
-												<p>{{ $product->name }} - {{ $product->main_presentation }}</p>
-												<h4>{{ $product->price }} <span>{{ $product->promo_price }}</span></h4>
-											</div>
-											<div class="snipcart-details top_brand_home_details">
-												<form action="#" method="post">
-													<fieldset>
-														<input type="hidden" name="cmd" value="_cart">
-														<input type="hidden" name="add" value="1">
-														<input type="hidden" name="business" value=" ">
-														<input type="hidden" name="item_name" value="{{ $product->name }}">
-														<input type="hidden" name="amount" value="{{$product->price}}">				
-														<input type="hidden" name="return" value=" ">
-														<input type="hidden" name="cancel_return" value=" ">
-														<input type="submit" name="submit" value="Agregar al carro" class="button">
-													</fieldset>
-												</form>
-											</div>
-										</div>
-									</figure>
-								</div>
-							</div>
-						</div>
-					</div>                
-				@endforeach
-                </div>              
+				
+@php 
+$colmd = 4;
+@endphp
+@include('Site/components/product')
+
 				<nav class="numbering">
 					<ul class="pagination paging">
 						<li>

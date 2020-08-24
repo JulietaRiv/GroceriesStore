@@ -32,8 +32,12 @@
 						<div class="clearfix"> </div>
 					</div>
                 </div>       
-            
+
+@php 
+$colmd = 3;
+@endphp
 @include('Site/components/product')
+
 		</div>
 	</div>
 @stop
