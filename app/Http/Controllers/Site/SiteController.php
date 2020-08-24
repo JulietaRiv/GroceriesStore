@@ -50,8 +50,7 @@ class SiteController extends Controller
     }
 
     public function orderProduct($param)
-    {
-        
+    { 
         if ($param == 'precio_desc'){
             $products = Product::orderBy('price', 'DESC')->get();
         } else if ($param == 'precio_asc'){
