@@ -25,12 +25,10 @@
 					<div class="products-right-grids">
 						<div class="sorting">
 							<select id="country" onchange="change_country(this.value)" class="frm-field required sect">
-								<option value="">Filtrar/ ordenar</option>
-                                <option value="">Orgánicos</option>
-                                <option value="">Agroecológicos</option> 
-                                <option value="">Sin Tacc</option>
-                                <option value="">Veganos</option>
-								<option value="">Ordenar por precio</option>								
+								<option selected value="precio_desc">Ordenar por precio descendente</option>
+								<option value="precio_asc">Ordenar por precio ascendente</option>
+								<option value="alf_a">Ordenar alfabéticamente a-z</option>
+								<option value="alf_z">Ordenar alfabéticamente z-a</option>		
 							</select>
 						</div>
 						<div class="sorting-left">

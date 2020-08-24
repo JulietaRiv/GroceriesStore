@@ -22,7 +22,6 @@
                 <div class="form-group">
                   <label>Categoría</label>
                   <select name="category_id" class="form-control">
-                    <option @if ( $category->id == '' ) selected @else style="display:none;" @endif>Seleccionar</option>        
                   @foreach ( $categories as $category )         
                     <option @if ( $category->id == '' ) value="{{$category->id}}" style="display:none;" @else selected @endif>{{ $category->name }}</option>      
                     <option value="{{$category->id}}">{{ $category->name }}</option>
@@ -32,7 +31,6 @@
                 <div class="form-group">
                   <label>Marca</label>
                   <select name="brand_id" class="form-control">
-                    <option @if ( $brand->id == '' ) selected @else style="display:none;" @endif>Seleccionar</option>
                     @foreach ( $brands as $brand )
                     <option @if ( $brand->id == '' ) value="{{$brand->id}}" style="display:none;" @else selected @endif>{{ $brand->name }}</option>
                     <option value="{{$brand->id}}">{{ $brand->name }}</option>

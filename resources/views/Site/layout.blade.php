@@ -67,13 +67,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<div class="logo_products">
 		<div class="container">
-		<div class="w3ls_logo_products_left1">
+			<div class="w3ls_logo_products_left1">
 				<ul class="phone_email">
-					<li><i class="fa fa-phone" aria-hidden="true"></i>Hace tu pedido: (+011) 153-505-1213</li>
+					<li><img style="width:30px;" alt="Hace tu pedido" src="/site/images/whatsapp-color.png"/> Hace tu pedido: (+011) 153-505-1213</li>
+					<br><br><li><img style="width:24px;" alt="Seguinos" src="/site/images/instagram-color.png"/>&nbsp Seguinos @elroblenatural</li>
 				</ul>
 			</div>
 			<div class="w3ls_logo_products_left">
-				<h1><a href="/">El Roble</a></h1>
+				<img style="width:200px;" src="/site/images/logo-roble.jpg" alt="El Roble"/>
 			</div>
 		<div class="w3l_search">
 			<form action="#" method="post">
@@ -131,7 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="address">
 						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Martínez, San Isidro, Buenos Aires<span></span></li>
 						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:ventaelroble@gmail.com">ventaelroble@gmail.com</a></li>
-						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>(+011) 153-505-1213</li>
+						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>(+011) 153-505-1213   <img style="width:20px;" src="/site/images/whatsapp-bn.svg"/>  &nbsp @elroblenatural <img style="width:20px;" src="/site/images/instagram-bn.png"/></li>
 					</ul>
 				</div>
 				<div class="col-md-6 w3_footer_grid">

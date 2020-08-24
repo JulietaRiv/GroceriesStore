@@ -84,8 +84,10 @@ class ProductsController extends Controller
 
     public function edit($id)
     {
+        $categories = Category::where('active', 1)->get();
+        $brands = Brand::where('active', 1)->get();
         $product = Product::where('id', $id)->first();
-        return view ("Admin/products/Edit");       
+        return view ("Admin/products/Edit", ['product'=>$product, 'brands'=>$brands, 'categories'=>$categories]);       
     }
 
     public function update(Request $request)

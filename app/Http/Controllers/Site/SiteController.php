@@ -45,6 +45,11 @@ class SiteController extends Controller
         //return $products;
     }
 
+    public function order($param)
+    {
+        $products = Product::orderBy('price', 'DESC')->get();
+        
+    }
     
 
 }
