@@ -109,10 +109,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li><a href="/#aboutUs">Nosotros</a></li>
 									<li><a href="/#offers">Ofertas</a></li>
 									<li><a href="{{route('siteCategories', 'especias-salsas-sal-y-pimienta')}}">Categorías</a></li>
-									<li><a href="/filterProduct/organic">Orgánicos</a></li>
-									<li><a href="/filterProduct/agroecological">Agroecológicos</a></li>
-									<li><a href="/filterProduct/celiacs">Sin Tacc</a></li>
-									<li><a href="/filterProduct/vegan">Veganos</a></li>
+									<li><a href="{{route('siteFilterProduct', 'organic')}}">Orgánicos</a></li>
+									<li><a href="{{route('siteFilterProduct', 'agroecological')}}">Agroecológicos</a></li>
+									<li><a href="{{route('siteFilterProduct', 'celiacs')}}">Sin Tacc</a></li>
+									<li><a href="{{route('siteFilterProduct', 'vegan')}}">Veganos</a></li>
 									<li><a href="/#contact">Contacto</a></li>
 								</ul>
 							</div>
