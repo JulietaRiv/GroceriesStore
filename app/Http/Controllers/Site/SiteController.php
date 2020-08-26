@@ -61,5 +61,9 @@ class SiteController extends Controller
         return view('Site/categoriesSite', ['categories'=>$categories, 'products'=>$products]);
     }
     
+    public function uniqueMethod($type, $category, $filter, $items)
+    {
+        
+    }
 
 }

@@ -110,7 +110,14 @@
 
 @section('js')
 
+
 <script>
+@if (old('presentations') != '')
+let presentations = {!!old('presentations')!!};
+@else 
+let presentations = [];
+@endif
+
 
   function presentationForm () {
     event.preventDefault();

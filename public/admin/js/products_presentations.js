@@ -34,8 +34,6 @@ let presentationsForm = `
         <input type="hidden" id="presNum" name="presNum" value=""/>
     </form>`;
 
-   
-    let presentations = [];
 
     function addPres(){         
         let presentation = {

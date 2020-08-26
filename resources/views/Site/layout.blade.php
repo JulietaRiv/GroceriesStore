@@ -135,7 +135,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="address">
 						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Martínez, San Isidro, Buenos Aires<span></span></li>
 						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:ventaelroble@gmail.com">ventaelroble@gmail.com</a></li>
-						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>(+011) 153-505-1213   <img style="width:20px;" src="/site/images/whatsapp-bn.svg"/>  &nbsp @elroblenatural <img style="width:20px;" src="/site/images/instagram-bn.png"/></li>
+						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>(+011) 153-505-1213 &nbsp; <img style="width:20px;" src="/site/images/whatsapp-bn.svg"/>  &nbsp @elroblenatural  &nbsp; <img style="width:20px;" src="/site/images/instagram-bn.png"/></li>
 					</ul>
 				</div>
 				<div class="col-md-6 w3_footer_grid">
