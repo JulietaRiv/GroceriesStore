@@ -10,8 +10,10 @@ use App\Brand;
 use App\Offer;
 use App\Highlighted;
 use Str;
+use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\productForm;
+
 
 class ProductsController extends Controller
 {
@@ -30,6 +32,19 @@ class ProductsController extends Controller
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'name'=>'required',
+            'description'=>'required',
+            'presentations'=>'required',
+            'category_id'=>'required',
+            'brand_id'=>'required',
+            'presentations'=>'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        } else {
         //$validated = $request->validated();   
         $product = new Product();
         $product->name = $request->name;
@@ -64,6 +79,7 @@ class ProductsController extends Controller
         $product->slug_name = Str::of($product->name)->slug('-').'-'.$product->id;
         $product->save();
         return redirect()->route("products")->with('success','Excelente, registro guardado!');
+        }
     }
 
     public function detail($id)
