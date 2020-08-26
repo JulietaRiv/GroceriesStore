@@ -45,10 +45,9 @@ class ProductsController extends Controller
                         ->withErrors($validator)
                         ->withInput();
         } else {
-        //$validated = $request->validated();   
         $product = new Product();
         $product->name = $request->name;
-        $product->slug_name = Str::of($product->name)->slug('-');
+        $product->slug_name = '-';
         $product->category_id = $request->category_id;
         $product->brand_id = $request->brand_id;
         $product->description = $request->description;
@@ -57,6 +56,7 @@ class ProductsController extends Controller
         $product->organic = data_get($request, 'organic', 0);
         $product->agroecological = data_get($request, 'agroecological', 0);
         $product->vegan = data_get($request, 'vegan', 0);
+        //$product->photo = $request->hasFile('image')->isValid();
         $stock = 0;
         $product->offer = 0;
         $product->highlighted = 0;  

@@ -17,7 +17,16 @@
     </div>
     <br>
         <div class="box-body">
-          
+        @if (count($errors) > 0)
+          <div class="alert alert-danger">
+            <p>Corrige los siguientes errores:</p>
+              <ul>
+                  @foreach ($errors->all() as $message)
+                      <li>{{ $message }}</li>
+                  @endforeach
+              </ul>
+          </div>
+        @endif
             <div id="totalForm">
             <form id="prodForm" method="post" action="{{route('productsStore')}}" name="prodForm" role="form">
             @csrf            
@@ -89,7 +98,7 @@
             </div>
             <br>       
         </div>
-        <input type="hidden" id="presentations" name="presentations" value="{{old('presentations')}}"/>
+        <input type="hidden" id="presentations" name="presentations" value="{{old('presentations')}}">
         </form>
 </div>
 

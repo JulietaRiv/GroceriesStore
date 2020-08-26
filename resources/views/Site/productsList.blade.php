@@ -40,6 +40,7 @@ $colmd = 3;
 
 		</div>
 	</div>
+	
 @stop
 
 @section('css')

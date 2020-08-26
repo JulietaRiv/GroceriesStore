@@ -5,7 +5,7 @@
 					<div class="agile_top_brand_left_grid">
 						<div class="agile_top_brand_left_grid_pos">
 							@if ($product->offer == 1)<img style="width:27px;" src="/site/images/rebaja.png" title="Oferta" class="img-responsive">@endif
-							@if ($product->organic == 1)<img style="width:30px;" src="/site/images/organicos.png" title="Organicos" class="img-responsive">@endif
+							@if ($product->organic == 1)<img style="width:30px;" src="/site/images/organicos.png" title="Organicos"  class="img-responsive">@endif
 							@if ($product->agroecological == 1)<img style="width:30px;" src="/site/images/agroecologicos.png" title="Agroecologicos" class="img-responsive">@endif
 							@if ($product->celiacs == 1)<img style="width:30px;" src="/site/images/celiacs.png" title="Sin tacc" class="img-responsive">@endif
 							@if ($product->vegan == 1)<img style="width:30px;" src="/site/images/veganos.png" title="Veganos" class="img-responsive">@endif
@@ -14,7 +14,7 @@
 						<figure>
 							<div class="snipcart-item block">
 								<div class="snipcart-thumb">
-									<a href=""><img title=" " alt=" " src="site/images/14.png"></a>		
+									<a href="{{Route('siteDetailProduct', $product->slug_name)}}"><img title="" alt="{{$product->slug_name}}" src="site/images/14.png"></a>		
 									<p>{{ $product->name }} - {{ $product->main_presentation }}</p>
 									@if ( $stars ?? '' )
 										<div class="stars">

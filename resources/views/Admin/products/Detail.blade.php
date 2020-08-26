@@ -19,6 +19,7 @@
                 <table class="table table-bordered">
                     <tbody>
                         <ul>
+                            {{ $product->photo }}
                             <!-- /aca va la foto -->
                             <li>Categoría: {{ $product->category->name }}</li>
                             <li>Marca: {{ $product->brand->name }}</li>
