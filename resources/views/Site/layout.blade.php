@@ -77,9 +77,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<img style="width:200px;" src="/site/images/logo-roble.jpg" alt="El Roble"/>
 			</div>
 		<div class="w3l_search">
-			<form action="#" method="post">
-				<input type="search" name="Search" placeholder="Buscar..." required="">
-				<button type="submit" class="btn btn-default search" aria-label="Left Align">
+			<form id="searchForm" action="{{Route('siteProducts', ['search', 'q'])}}" method="get">
+				<input value="{{$search}}" type="search" name="search" placeholder="Buscar..." required="">
+				<button type="submit"  class="btn btn-default search" aria-label="Left Align">
 					<i class="fa fa-search" aria-hidden="true"> </i>
 				</button>
 				<div class="clearfix"></div>
@@ -108,7 +108,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li><a href="/#highlightedProducts">Destacados</a></li>	
 									<li><a href="/#aboutUs">Nosotros</a></li>
 									<li><a href="/#offers">Ofertas</a></li>
-									<li><a href="{{route('siteProducts', ['category' , 'especias-salsas-sal-y-pimienta'])}}">Categorías</a></li>
+									<li><a href="{{route('siteProducts', ['category' , 'conservas-y-untables'])}}">Categorías</a></li>
 									<li><a href="{{route('siteProducts', ['type', 'organic'])}}">Orgánicos</a></li>
 									<li><a href="{{route('siteProducts', ['type', 'agroecological'])}}">Agroecológicos</a></li>
 									<li><a href="{{route('siteProducts', ['type', 'celiacs'])}}">Sin Tacc</a></li>
@@ -144,7 +144,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#highlightedProducts">Destacados</a></li>
 						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#aboutUs">Nosotros</a></li>
 						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#offers">Ofertas</a></li>
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{route('siteProducts', ['category', 'especias-salsas-sal-y-pimienta'])}}">Categorías</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{route('siteProducts', ['category', 'conservas-y-untables'])}}">Categorías</a></li>
 					</ul>
 				</div>			
 			</div>
@@ -197,6 +197,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 			
 		});
+
+		function search()
+		{
+			//$("#searchForm").
+			console.log('pppppppppppppppp');
+		}
 </script>	
 <!-- //main slider-banner --> 
 </body>

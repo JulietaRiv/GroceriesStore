@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    use FullTextSearch;
+
     protected $table = 'products';
 
     protected $casts = [
@@ -17,6 +19,11 @@ class Product extends Model
         'organic'=> 'boolean',
         'agroecological'=> 'boolean',
         'active'=> 'boolean'
+    ];
+
+    protected $searchable = [
+        'name',
+        'description',
     ];
 
     public function category()

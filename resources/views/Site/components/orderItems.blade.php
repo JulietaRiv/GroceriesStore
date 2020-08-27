@@ -11,18 +11,20 @@
                 </select>
             </div>
             <div class="sorting-left">
-                <select id="country1" onchange="changeItemspp(this.value)" class="frm-field required sect">
-                @if ( $colmd == 3 )
-                    <option @if ($items == '12') selected @endif value="12">Items por página 12</option>
-                    <option @if ($items == '24') selected @endif value="24">Items por página 24</option>
-                    <option @if ($items == '36') selected @endif value="36">Items por página 36</option>
-                    <option @if ($items == '42') selected @endif value="42">Items por página 42</option>
-                @else 
-                    <option @if ($items == '9') selected @endif value="9">Items por página 9</option>
-                    <option @if ($items == '18') selected @endif value="18">Items por página 18</option> 
-                    <option @if ($items == '27') selected @endif value="27">Items por página 27</option>
-                    <option @if ($items == '36') selected @endif value="36">Items por página 36</option>
-                @endif
+                <select id="country1" onchange="changeItemspp(this.value)" class="frm-field required sect">    
+
+                @php
+                $cols = ( $colmd == 3 ) ? 4 : 3 ;
+                @endphp
+                @for ($i = 1; $i <= 4; $i++)
+                
+                @php
+                $val = $i * 3;
+                @endphp
+
+                    <option @if ($items == $val) selected @endif value="{{$val}}">Items por página {{$val * $cols}}</option>
+                  
+                @endfor
                 </select>
             </div>
             <div class="clearfix"> </div>

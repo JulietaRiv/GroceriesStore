@@ -26,14 +26,6 @@ class SiteController extends Controller
         'orderOffer'=>$orderOffer, 'offer_products'=>$offer_products, 'categories'=>$categories]);
     }
 
-  /*  public function products($category_slug_name = 'especias-salsas-sal-y-pimienta')
-    {
-        $categories = Category::where('active', 1)->get();
-        $category_id = Category::where('slug_name', $category_slug_name)->first()->id;
-        $products = Product::where('category_id', $category_id)->get();
-        return view('Site/categoriesSite', ['categories'=>$categories, 'products'=>$products]);
-    }*/
-
     public function detailProduct($slug_name)
     {
         $product = Product::where('slug_name', $slug_name)->first();
@@ -74,16 +66,25 @@ class SiteController extends Controller
             $title = $types[$slug_name];
             $products = $products->where($slug_name, 1);
             $colmd = 3;
+            $cols = 4;
+        } 
+        if ($criteria == 'search'){
+            $title = [];
+            $title = ['title'=>'buscador: '.$request->search, 'type_icon'=>0];
+            $products = Product::search($request->search);
+            $colmd = 3;
+            $cols = 4;
         } 
         if ($criteria == 'category'){
             $category = Category::where('slug_name', $slug_name)->first();
             $title = ['title'=>$category->name, 'type_icon'=>0];
             $products = $products->where('category_id', $category->id);
             $colmd = 4;
+            $cols = 3;
             $categories = Category::where('active', 1)->get();
         }
         $products = $products->orderBy(session('orderField'), session('orderDirection'));
-        $products = $products->paginate(session('items'));
+        $products = $products->paginate(session('items') * $cols);
         
         return view('Site/productsList', [
             'products'=>$products, 
@@ -92,7 +93,9 @@ class SiteController extends Controller
             'title'=>$title, 
             'categories'=>$categories,
             'colmd'=>$colmd,
+            'search'=>$request->search,
         ]); 
     }
    
+    
 }

@@ -9,27 +9,13 @@
 @section('content')
 
 
-@if ( $colmd == 4 )
-
-<div id="categoriesSite" class="products">
-
-@else
-
-<div id="offers" class="newproducts-w3agile">
-
-@endif
-
+	<div id="offers" class="newproducts-w3agile">
 		<div class="container">
-		<h3>{{ $title['title'] }} @if ($title['type_icon'] != 0)<img style="width:50px;" src="/site/images/{{$title['type_icon']}}" alt=""/>@endif</h3>
+		<h3>{{ $title['title'] }} @if ($title['type_icon'] !== 0)<img style="width:50px;" src="/site/images/{{$title['type_icon']}}" alt=""/>@endif</h3>
 		<br>
 
 @include('Site/components/orderItems')
-@if ( $colmd == 3 )
-@php 
-$colmd = 3;
-@endphp
-@include('Site/components/product')
-@else
+@if ( $colmd == 4 )
 
 	<div class="col-md-4 products-left">
 		<div class="categories">
@@ -42,16 +28,16 @@ $colmd = 3;
 		</div>																																												
 	</div>
 	<div class="col-md-8 products-right">
-				
-@php 
-$colmd = 4;
-@endphp
-@include('Site/components/product')
 
-			</div>
-			<div class="clearfix"> </div>
+@else
+
+	<div class="col-md-12 products-right">
 
 @endif
+@include('Site/components/product')
+
+	</div>
+		<div class="clearfix"> </div>
 
 		</div>
 	</div>
