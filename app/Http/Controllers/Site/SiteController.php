@@ -48,7 +48,11 @@ class SiteController extends Controller
             $request->session()->put('items', $request->items);
         } else {
             if (!$request->session()->has('items')){
-                $request->session()->put('items', 12);
+                if ($criteria == 'category'){
+                    $request->session()->put('items', 9);
+                } else {
+                    $request->session()->put('items', 12);
+                } 
             }
         }
         if ($request->order){
