@@ -10,8 +10,9 @@
 
 <div id="offers" class="newproducts-w3agile">
 		<div class="container">
-			<h3>Productos {{ $type }} <img style="width:50px;" src="/site/images/{{$type_icon}}" alt=""/></h3>
+			<h3>Productos {{ $title['title'] }} @if ($title['type_icon'] != 0)<img style="width:50px;" src="/site/images/{{$title['type_icon']}}" alt=""/>@endif</h3>
             <br>
+			
 @include('Site/components/orderProducts&Items')
 
 @php 

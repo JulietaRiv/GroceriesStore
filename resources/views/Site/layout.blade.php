@@ -108,11 +108,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li><a href="/#highlightedProducts">Destacados</a></li>	
 									<li><a href="/#aboutUs">Nosotros</a></li>
 									<li><a href="/#offers">Ofertas</a></li>
-									<li><a href="{{route('siteCategories', 'especias-salsas-sal-y-pimienta')}}">Categorías</a></li>
-									<li><a href="{{route('siteFilterProduct', 'organic')}}">Orgánicos</a></li>
-									<li><a href="{{route('siteFilterProduct', 'agroecological')}}">Agroecológicos</a></li>
-									<li><a href="{{route('siteFilterProduct', 'celiacs')}}">Sin Tacc</a></li>
-									<li><a href="{{route('siteFilterProduct', 'vegan')}}">Veganos</a></li>
+									<li><a href="{{route('siteProducts', ['category' , 'especias-salsas-sal-y-pimienta'])}}">Categorías</a></li>
+									<li><a href="{{route('siteProducts', ['type', 'organic'])}}">Orgánicos</a></li>
+									<li><a href="{{route('siteProducts', ['type', 'agroecological'])}}">Agroecológicos</a></li>
+									<li><a href="{{route('siteProducts', ['type', 'celiacs'])}}">Sin Tacc</a></li>
+									<li><a href="{{route('siteProducts', ['type', 'vegan'])}}">Veganos</a></li>
 									<li><a href="/#contact">Contacto</a></li>
 								</ul>
 							</div>
@@ -144,7 +144,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#highlightedProducts">Destacados</a></li>
 						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#aboutUs">Nosotros</a></li>
 						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#offers">Ofertas</a></li>
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{route('siteCategories', 'especias-salsas-sal-y-pimienta')}}">Categorías</a></li>
+						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{route('siteProducts', ['category', 'especias-salsas-sal-y-pimienta'])}}">Categorías</a></li>
 					</ul>
 				</div>			
 			</div>

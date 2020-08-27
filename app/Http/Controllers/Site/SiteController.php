@@ -7,6 +7,8 @@ use App\Product;
 use App\Category;
 use App\Offer;
 use App\Highlighted;
+use \Illuminate\Http\Request;
+use \Illuminate\Pagination\LengthAwarePaginator;
 
 
 class SiteController extends Controller
@@ -24,13 +26,13 @@ class SiteController extends Controller
         'orderOffer'=>$orderOffer, 'offer_products'=>$offer_products, 'categories'=>$categories]);
     }
 
-    public function products($category_slug_name = 'especias-salsas-sal-y-pimienta')
+  /*  public function products($category_slug_name = 'especias-salsas-sal-y-pimienta')
     {
         $categories = Category::where('active', 1)->get();
         $category_id = Category::where('slug_name', $category_slug_name)->first()->id;
         $products = Product::where('category_id', $category_id)->get();
         return view('Site/categoriesSite', ['categories'=>$categories, 'products'=>$products]);
-    }
+    }*/
 
     public function detailProduct($slug_name)
     {
@@ -39,31 +41,52 @@ class SiteController extends Controller
         return view('Site/detailProduct', ['product'=>$product, 'presentations'=>$presentations]);
     }
     
-    public function filterProduct($param)
+   public function products($criteria, $slug_name, Request $request)
     {
-        $types['organic'] = ['type'=>'orgánicos', 'type_icon'=>'organicos.png'];
-        $types['celiacs'] = ['type'=>'sin tacc', 'type_icon'=>'celiacs.png'];
-        $types['agroecological'] = ['type'=>'agroecológicos', 'type_icon'=>'agroecologicos.png'];
-        $types['vegan'] = ['type'=>'veganos', 'type_icon'=>'veganos.png'];   
-        $products = Product::where($param, 1)->get();
-        return view('Site/productsList', ['products'=>$products, 'type'=>$types[$param]['type'], 'type_icon'=>$types[$param]['type_icon']]); 
-    }
-
-    public function orderProduct($param)
-    { 
-        if ($param == 'precio_desc'){
-            $products = Product::orderBy('price', 'DESC')->get();
-        } else if ($param == 'precio_asc'){
-            $products = Product::orderBy('price', 'ASC')->get();
-        } else if ($param == 'alf_a'){
-            $products = Product::orderBy('name', 'ASC')->get();
+        if ($request->items){
+            $request->session()->put('items', $request->items);
+        } else {
+            if (!$request->session()->has('items')){
+                $request->session()->put('items', 12);
+            }
         }
-        return view('Site/categoriesSite', ['categories'=>$categories, 'products'=>$products]);
-    }
-    
-    public function uniqueMethod($type, $category, $filter, $items)
-    {
+        if ($request->order){
+            $order = explode(',', $request->order);
+            $request->session()->put('orderField', $order[0]);
+            $request->session()->put('orderDirection', $order[1]);
+        } else {
+            if (!$request->session()->has('orderField')) {
+                $request->session()->put('orderField', 'price');
+                $request->session()->put('orderDirection', 'asc');
+            }
+        }
+        $products = Product::where('active', 1);
+        if ($criteria == 'type'){
+            $types['organic'] = ['title'=>'orgánicos', 'type_icon'=>'organicos.png'];     
+            $types['celiacs'] = ['title'=>'sin tacc', 'type_icon'=>'celiacs.png'];
+            $types['agroecological'] = ['title'=>'agroecológicos', 'type_icon'=>'agroecologicos.png'];
+            $types['vegan'] = ['title'=>'veganos', 'type_icon'=>'veganos.png'];   
+            $title = $types[$slug_name];
+            $products = $products->where($slug_name, 1);
+            $col = 4;
+        } 
+        if ($criteria == 'category'){
+            $category = Category::where('slug_name', $slug_name)->first();
+            $title = ['title'=>$category->name, 'type_icon'=>0];
+            $products = $products->where('category_id', $category->id);
+            $col = 3;
+            $categories = Category::where('active', 1)->get();
+        }
+        $products = $products->orderBy(session('orderField'), session('orderDirection'));
+        $products = $products->paginate(session('items'));
         
+        return view($view, [
+            'products'=>$products, 
+            'items'=>session('items'), 
+            'order'=>session('orderField').','.session('orderDirection'), 
+            'title'=>$title, 
+            'categories'=>$categories,
+        ]); 
     }
-
+   
 }

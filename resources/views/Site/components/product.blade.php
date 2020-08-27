@@ -49,4 +49,5 @@
 			</div>
 		@endforeach
 		<div class="clearfix"> </div>
+		{!! $products->links() !!}
 	</div>
