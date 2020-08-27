@@ -43,6 +43,7 @@ class SiteController extends Controller
     
    public function products($criteria, $slug_name, Request $request)
     {
+        $categories = Category::where('active', 1)->get();
         if ($request->items){
             $request->session()->put('items', $request->items);
         } else {
@@ -68,24 +69,25 @@ class SiteController extends Controller
             $types['vegan'] = ['title'=>'veganos', 'type_icon'=>'veganos.png'];   
             $title = $types[$slug_name];
             $products = $products->where($slug_name, 1);
-            $col = 4;
+            $colmd = 3;
         } 
         if ($criteria == 'category'){
             $category = Category::where('slug_name', $slug_name)->first();
             $title = ['title'=>$category->name, 'type_icon'=>0];
             $products = $products->where('category_id', $category->id);
-            $col = 3;
+            $colmd = 4;
             $categories = Category::where('active', 1)->get();
         }
         $products = $products->orderBy(session('orderField'), session('orderDirection'));
         $products = $products->paginate(session('items'));
         
-        return view($view, [
+        return view('Site/productsList', [
             'products'=>$products, 
             'items'=>session('items'), 
             'order'=>session('orderField').','.session('orderDirection'), 
             'title'=>$title, 
             'categories'=>$categories,
+            'colmd'=>$colmd,
         ]); 
     }
    
