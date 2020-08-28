@@ -39,7 +39,7 @@
                     <td>{{ $product->brand->name }}</td>
                     <td>{{ $product->price }}</td>   
                     <td>{{ $product->organic  == 1 ? 'Si' : 'No' }}</td>
-                    <td>{{ $product->for_celiacs  == 1 ? 'Si' : 'No' }}</td>
+                    <td>{{ $product->celiacs  == 1 ? 'Si' : 'No' }}</td>
                     <td>{{ $product->agroecological  == 1 ? 'Si' : 'No' }}</td>
                     <td>{{ $product->vegan  == 1 ? 'Si' : 'No' }}</td>
                     <td>{{ $product->stock  == 1 ? 'Si' : 'No' }}</td>

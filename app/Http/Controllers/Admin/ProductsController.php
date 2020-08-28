@@ -115,7 +115,7 @@ class ProductsController extends Controller
             $product->description = \Illuminate\Support\Facades\Request::old('description');
             $product->presentations = json_decode(\Illuminate\Support\Facades\Request::old('presentations'));
             $product->celiacs = \Illuminate\Support\Facades\Request::old('celiacs') == true ? '1' : '0';
-            $product->organics = \Illuminate\Support\Facades\Request::old('organic') == true ? '1' : '0';
+            $product->organic = \Illuminate\Support\Facades\Request::old('organic') == true ? '1' : '0';
             $product->agroecological = \Illuminate\Support\Facades\Request::old('agroecological') == true ? '1' : '0';
             $product->vegan = \Illuminate\Support\Facades\Request::old('vegan') == true ? '1' : '0';
         }
