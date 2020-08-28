@@ -36,20 +36,18 @@
                 <div class="form-group">
                   <label>Categoría</label>
                   <select id="category_id" name="category_id" class="form-control">
-                    <option @if ( old('category_id') == '') selected @else style="display:none;" @endif>Seleccionar</option>        
+                    <option value="" >- Seleccionar -</option>        
                   @foreach ( $categories as $category )         
-                    <option @if ( old('category_id') == '') value="{{old('category_id')}}" style="display:none;" @else selected @endif>{{ $category->name }}</option>      
-                    <option value="{{$category->id}}">{{ $category->name }}</option>
+                    <option value="{{$category->id}}" @if ( old('category_id') ==  $category->id ) selected @endif>{{ $category->name }}</option>      
                   @endforeach
                   </select>
                 </div>
                 <div class="form-group">
                   <label>Marca</label>
                   <select id="barnd_id" name="brand_id" class="form-control">
-                  <option @if ( old('brand_id') == '') selected @else style="display:none;" @endif>Seleccionar</option>
+                  <option value="" >- Seleccionar -</option>
                   @foreach ( $brands as $brand )
-                  <option @if ( old('brand_id') == '') value="" style="display:none;" @else selected @endif>{{ $brand->name }}</option>
-                    <option value="{{$brand->id}}">{{ $brand->name }}</option>
+                  <option value="{{$brand->id}}" @if ( old('brand_id') == $brand->id ) selected @endif>{{$brand->name}}</option>
                   @endforeach
                   </select>
                 </div>
@@ -63,22 +61,22 @@
                 <br>
                 <div class="checkbox">
                   <label>
-                    <input id="celiacs" name="celiacs" type="checkbox" value="1"> Sin Tacc
+                    <input id="celiacs" name="celiacs" value="1" type="checkbox" @if (old('celiacs')) checked @endif> Sin Tacc
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input id="organic" name="organic" type="checkbox" value="1"> Orgánico
+                    <input id="organic" name="organic" type="checkbox" value="1" @if (old('organic')) checked @endif> Orgánico
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input id="agroecological" name="agroecological" type="checkbox" value="1"> Agroecológico
+                    <input id="agroecological" name="agroecological" type="checkbox" value="1" @if (old('agroecological')) checked @endif> Agroecológico
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input id="vegan" name="vegan" type="checkbox" value="1"> Vegano
+                    <input id="vegan" name="vegan" type="checkbox" value="1" @if (old('vegan')) checked @endif> Vegano
                   </label>
                 </div>
                 <br>
@@ -117,22 +115,6 @@ let presentations = {!!old('presentations')!!};
 @else 
 let presentations = [];
 @endif
-
-
-  function presentationForm () {
-    event.preventDefault();
-    Swal.fire({
-      title: "<i style='font-size:25px;'>Presentaciones del producto</i>", 
-      html: presentationsForm,  
-      confirmButtonText: "Agregar +", 
-      closeOnConfirm: false,
-    }).then((result) => {
-      if (result.value == true){
-        addPres();
-      };
-    });
-};
-
 
 
 </script>

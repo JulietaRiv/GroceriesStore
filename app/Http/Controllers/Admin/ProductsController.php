@@ -102,26 +102,30 @@ class ProductsController extends Controller
     {
         $categories = Category::where('active', 1)->get();
         $brands = Brand::where('active', 1)->get();
-
-        $product = Product::where('id', $id)->first();
-        //dd($product->organic);
-        $product->name = \Illuminate\Support\Facades\Request::old('name') != '' ? \Illuminate\Support\Facades\Request::old('name') : $product->name ; 
-        $product->slug_name = \Illuminate\Support\Facades\Request::old('slug_name') != '' ? \Illuminate\Support\Facades\Request::old('slug_name') : $product->slug_name ; 
-        $product->category_id = \Illuminate\Support\Facades\Request::old('category_id') != '' ? \Illuminate\Support\Facades\Request::old('category_id') : $product->category_id ; 
-        $product->brand_id = \Illuminate\Support\Facades\Request::old('brand_id') != '' ? \Illuminate\Support\Facades\Request::old('brand_id') : $product->brand_id ; 
-        $product->description = \Illuminate\Support\Facades\Request::old('description') != '' ? \Illuminate\Support\Facades\Request::old('description') : $product->description ; 
-        $product->presentations = \Illuminate\Support\Facades\Request::old('presentations') != '' ? \Illuminate\Support\Facades\Request::old('presentations') : json_encode($product->presentations) ; 
-        $product->celiacs = \Illuminate\Support\Facades\Request::old('celiacs') != '0' ? \Illuminate\Support\Facades\Request::old('celiacs') : $product->celiacs ; 
-        $product->organic = \Illuminate\Support\Facades\Request::old('organic') == true ? '1' : $product->organic ; 
-        $product->agroecological = \Illuminate\Support\Facades\Request::old('agroecological') == true ? \Illuminate\Support\Facades\Request::old('agroecological') : $product->agroecological ; 
-        $product->vegan = \Illuminate\Support\Facades\Request::old('vegan') != 'on' ? \Illuminate\Support\Facades\Request::old('vegan') : $product->vegan ; 
-
-        return view ("Admin/products/Edit", ['product'=>$product, 'brands'=>$brands, 'categories'=>$categories]);       
+        if ( \Illuminate\Support\Facades\Request::old('name') == ''){
+            $product = Product::where('id', $id)->first();
+            
+        } else {
+            $product = new Product();
+            $product->id = $id;
+            $product->name = \Illuminate\Support\Facades\Request::old('name');
+            $product->slug_name = \Illuminate\Support\Facades\Request::old('slug_name');
+            $product->category_id = \Illuminate\Support\Facades\Request::old('category_id');
+            $product->brand_id = \Illuminate\Support\Facades\Request::old('brand_id');
+            $product->description = \Illuminate\Support\Facades\Request::old('description');
+            $product->presentations = json_decode(\Illuminate\Support\Facades\Request::old('presentations'));
+            $product->celiacs = \Illuminate\Support\Facades\Request::old('celiacs') == true ? '1' : '0';
+            $product->organics = \Illuminate\Support\Facades\Request::old('organic') == true ? '1' : '0';
+            $product->agroecological = \Illuminate\Support\Facades\Request::old('agroecological') == true ? '1' : '0';
+            $product->vegan = \Illuminate\Support\Facades\Request::old('vegan') == true ? '1' : '0';
+        }
+        //dd($product->presentations);
+        return view ("Admin/products/Edit", ['product'=>$product, 'brands'=>$brands, 'categories'=>$categories]);
     }
 
     public function update(Request $request)
-    {
-        dd($request);
+    {   
+        //dd($request);
         $validator = Validator::make($request->all(), [
             'name'=>'required',
             'description'=>'required',

@@ -3,7 +3,11 @@
 @section('title', "Productos")
 
 @section('content_header')
-    
+  
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+<script src="/admin/js/products_presentations.js"></script>
+
 @stop
 
 @section('content')
@@ -13,7 +17,17 @@
         <h3 class="box-title">Editar producto</h3>
     </div>
         <div class="box-body">
-            <form  role="form">
+        @if (count($errors) > 0)
+          <div class="alert alert-danger">
+            <p>Corrige los siguientes errores:</p>
+              <ul>
+                  @foreach ($errors->all() as $message)
+                      <li>{{ $message }}</li>
+                  @endforeach
+              </ul>
+          </div>
+        @endif
+          <form id="prodForm" method="post" action="{{route('productsUpdate')}}" name="prodForm" role="form">
                 <input type="hidden" name="_token" value="">      
                 @csrf            
                 <label>Nombre</label>
@@ -47,22 +61,22 @@
                 <br>
                 <div class="checkbox">
                   <label>
-                    <input id="celiacs" name="celiacs" type="checkbox" @if( old('celiacs', $product->celiacs) =="1" ) checked @endif> Sin Tacc
+                    <input id="celiacs" name="celiacs" type="checkbox" @if( $product->celiacs == "1" ) checked @endif> Sin Tacc
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input id="organic" name="organic" type="checkbox" @if( old('organic', $product->organic) =="1" ) checked @endif> Orgánico
+                    <input id="organic" name="organic" type="checkbox" @if( $product->organic == "1" ) checked @endif> Orgánico
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input id="agroecological" name="agroecological" type="checkbox" @if( old('agroecological', $product->agroecological) =="1" ) checked @endif> Agroecológico
+                    <input id="agroecological" name="agroecological" type="checkbox" @if( $product->agroecological == "1" ) checked @endif> Agroecológico
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input id="vegan" name="vegan" type="checkbox" @if( old('vegan', $product->vegan) =="1" ) checked @endif> Vegano
+                    <input id="vegan" name="vegan" type="checkbox" @if( $product->vegan == "1" ) checked @endif> Vegano
                   </label>
                 </div>
                 <br>
@@ -77,10 +91,10 @@
                   <div id="presentationContent" class="box-body"></div>           
                 </div>
                 <br>
-                <button onclick="$('#prodForm').submit();" type="submit" class="btn btn-success">Guardar</button>
+                <button onclick="presString() $('#prodForm').submit();" type="submit" class="btn btn-success">Guardar</button>
                 <br>
                 <input type="hidden" id="productId" name="productId" value="{{$product->id}}"/>
-                <input type="hidden" id="presentations" name="presentations" value="{{ Session::getOldInput('presentations') }}"/>      
+                <input type="hidden" id="presentations" name="presentations" value=""/>      
             </form>
         </div>
 </div>
@@ -94,11 +108,16 @@
 @section('js')
     <script>
 
-    @if (old('presentations') != '')
-    let presentations = {!!old('presentations')!!};
+    @if ($product->presentations != '')
+    let presentations = {!! json_encode($product->presentations) !!};
     @else 
     let presentations = [];
     @endif
+
+    function presString()
+    {
+      $('#presentations').val(JSON.stringify(presentations)); 
+    }
 
     </script>
 @stop

@@ -55,7 +55,7 @@ let presentationsForm = `
     }
 
     window.onload = function() { 
-        renderPres()
+        renderPres();
     } 
 
     function renderPres(){    
@@ -149,3 +149,17 @@ let presentationsForm = `
                 $('#pres_stock').val(presentations[param].stock);
                 $('#presNum').val(param);
     }
+
+    function presentationForm () {
+        event.preventDefault();
+        Swal.fire({
+          title: "<i style='font-size:25px;'>Presentaciones del producto</i>", 
+          html: presentationsForm,  
+          confirmButtonText: "Agregar +", 
+          closeOnConfirm: false,
+        }).then((result) => {
+          if (result.value == true){
+            addPres();
+          };
+        });
+    };
