@@ -17,7 +17,7 @@
                 <input type="hidden" name="_token" value="">      
                 @csrf            
                 <label>Nombre</label>
-                <input id="productName" class="form-control input-lg" value="{{ old('name') }}" name="name" type="text">
+                <input id="name" class="form-control input-lg" value="{{$product->name}}" name="name" type="text">
                 <br>
                 <div class="form-group">
                   <label>Categoría</label>
@@ -43,30 +43,30 @@
                   <input id="photo" name="photo" type="file" value="">
                 </div>
                 <label>Descripción</label>
-                <input id="editDescription" name="editDescription" class="form-control input-lg" type="text" value="">
+                <input id="description" name="description" class="form-control input-lg" type="text" value="{{$product->description}}">
                 <br>
                 <div class="checkbox">
                   <label>
-                    <input id="editCeliacs" name="editCeliacs" type="checkbox" @if ( $product->celiacs == 1 ) value= 1 @endif> Sin Tacc
+                    <input id="celiacs" name="celiacs" type="checkbox" @if( old('celiacs', $product->celiacs) =="1" ) checked @endif> Sin Tacc
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input id="editOrganic" name="editOrganic" type="checkbox" @if ( $product->organic == 1 ) value= 1 @endif> Orgánico
+                    <input id="organic" name="organic" type="checkbox" @if( old('organic', $product->organic) =="1" ) checked @endif> Orgánico
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input id="editAgroecological" name="editAgroecological" type="checkbox" @if ( $product->agroecological == 1 ) value= 1 @endif> Agroecológico
+                    <input id="agroecological" name="agroecological" type="checkbox" @if( old('agroecological', $product->agroecological) =="1" ) checked @endif> Agroecológico
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input id="editVegan" name="editVegan" type="checkbox" @if ( $product->vegan == 1 ) value= 1 @endif> Vegano
+                    <input id="vegan" name="vegan" type="checkbox" @if( old('vegan', $product->vegan) =="1" ) checked @endif> Vegano
                   </label>
                 </div>
                 <br>
-                <button onclick="presentationEditForm()" id="cargarEditPres" name="cargarEditPres"  type="button" class="btn btn-primary">Cargar presentaciones</button>
+                <button onclick="presentationForm()" id="cargarPres" name="cargarPres"  type="button" class="btn btn-primary">Cargar presentaciones</button>
                 <br>
                 <hr>
                 <div id="presentationsAdded" class="box">        
@@ -74,12 +74,13 @@
                     <h3 class="box-title">Presentaciones</h3><div><span class="badge bg-green"></span></div>
                     <br>
                   </div>
-                  <div id="presentationEditContent" class="box-body"></div>           
+                  <div id="presentationContent" class="box-body"></div>           
                 </div>
                 <br>
                 <button onclick="$('#prodForm').submit();" type="submit" class="btn btn-success">Guardar</button>
                 <br>
-                <input type="hidden" id="editPresentations" name="editPresentations" value=""/>      
+                <input type="hidden" id="productId" name="productId" value="{{$product->id}}"/>
+                <input type="hidden" id="presentations" name="presentations" value="{{ Session::getOldInput('presentations') }}"/>      
             </form>
         </div>
 </div>
@@ -91,5 +92,13 @@
 @stop
 
 @section('js')
-    <script> </script>
+    <script>
+
+    @if (old('presentations') != '')
+    let presentations = {!!old('presentations')!!};
+    @else 
+    let presentations = [];
+    @endif
+
+    </script>
 @stop

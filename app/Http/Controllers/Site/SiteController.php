@@ -17,13 +17,15 @@ class SiteController extends Controller
     {
         $categories = Category::where('active', 1)->get();
         $offer = Offer::all()->pluck('product_id');
-        $orderOffer = Offer::whereIn('product_id', $offer)->get();
-        $offer_products = Product::whereIn('id', $offer)->get();
+        //$orderOffer = Offer::whereIn('product_id', $offer)->get();
+        $offer_products = Product::whereIn('id', $offer)->paginate(4);
         $highlighted = Highlighted::all()->pluck('product_id');
-        $highlighted_products = Product::whereIn('id', $highlighted)->get();
-        $orderhighlighted = Highlighted::whereIn('product_id', $highlighted)->get();
-        return view('Site/index', ['highlighted_products'=>$highlighted_products, 'orderhighlighted'=>$orderhighlighted,
-        'orderOffer'=>$orderOffer, 'offer_products'=>$offer_products, 'categories'=>$categories]);
+        $highlighted_products = Product::whereIn('id', $highlighted)->paginate(3);
+        //$orderhighlighted = Highlighted::whereIn('product_id', $highlighted)->paginate();
+        return view('Site/index', [
+            'highlighted_products'=>$highlighted_products, 
+            'offer_products'=>$offer_products, 
+            'categories'=>$categories]);
     }
 
     public function detailProduct($slug_name)
@@ -96,6 +98,5 @@ class SiteController extends Controller
             'search'=>$request->search,
         ]); 
     }
-   
     
 }

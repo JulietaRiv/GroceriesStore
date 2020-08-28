@@ -64,7 +64,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"> </div>
 		</div>
 	</div>
-
 	<div class="logo_products">
 		<div class="container">
 			<div class="w3ls_logo_products_left1">
@@ -76,16 +75,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="w3ls_logo_products_left">
 				<img style="width:200px;" src="/site/images/logo-roble.jpg" alt="El Roble"/>
 			</div>
-		<div class="w3l_search">
-			<form id="searchForm" action="{{Route('siteProducts', ['search', 'q'])}}" method="get">
-				<input value="{{$search}}" type="search" name="search" placeholder="Buscar..." required="">
-				<button type="submit"  class="btn btn-default search" aria-label="Left Align">
-					<i class="fa fa-search" aria-hidden="true"> </i>
-				</button>
-				<div class="clearfix"></div>
-			</form>
-		</div>
-			
+			<div class="w3l_search">
+				<form id="searchForm" action="{{Route('siteProducts', ['search', 'q'])}}" method="get">
+					<input value="{{$search ?? ''}}" type="search" name="search" placeholder="Buscar..." required="">
+					<button type="submit"  class="btn btn-default search" aria-label="Left Align">
+						<i class="fa fa-search" aria-hidden="true"> </i>
+					</button>
+					<div class="clearfix"></div>
+				</form>
+			</div>		
 			<div class="clearfix"> </div>
 		</div>
 	</div>
@@ -198,11 +196,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 		});
 
-		function search()
-		{
-			//$("#searchForm").
-			console.log('pppppppppppppppp');
-		}
 </script>	
 <!-- //main slider-banner --> 
 </body>

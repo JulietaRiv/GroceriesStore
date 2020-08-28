@@ -54,6 +54,10 @@ let presentationsForm = `
         renderPres();
     }
 
+    window.onload = function() { 
+        renderPres()
+    } 
+
     function renderPres(){    
         let html = '';
         if (presentations.length > 0){

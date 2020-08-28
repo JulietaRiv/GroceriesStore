@@ -25,7 +25,9 @@
                     <th>Precio</th>
                     <th>Orgánico</th>
                     <th>Sin Tacc</th>
-                    <th>Agroecológico</th>
+                    <th>Agro ecológico</th>
+                    <th>Vegano</th>
+                    <th>Stock</th>
                     <th>Ofertas</th>
                     <th>Destacados</th>
                     <th style="width: 10%">Acción</th>
@@ -39,6 +41,8 @@
                     <td>{{ $product->organic  == 1 ? 'Si' : 'No' }}</td>
                     <td>{{ $product->for_celiacs  == 1 ? 'Si' : 'No' }}</td>
                     <td>{{ $product->agroecological  == 1 ? 'Si' : 'No' }}</td>
+                    <td>{{ $product->vegan  == 1 ? 'Si' : 'No' }}</td>
+                    <td>{{ $product->stock  == 1 ? 'Si' : 'No' }}</td>
                     <td>{{ $product->offer  == 1 ? 'Si' : 'No' }}</td>
                     <td>{{ $product->highlighted  == 1 ? 'Si' : 'No' }}</td>
                     <td><a href="/admin/products/edit/{{ $product->id }}"><span class="badge bg-green">Editar</span></a>

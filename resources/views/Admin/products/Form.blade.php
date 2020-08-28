@@ -98,7 +98,7 @@
             </div>
             <br>       
         </div>
-        <input type="hidden" id="presentations" name="presentations" value="{{old('presentations')}}">
+        <input type="hidden" id="presentations" name="presentations" value="">
         </form>
 </div>
 
