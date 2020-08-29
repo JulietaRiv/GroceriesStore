@@ -99,10 +99,5 @@ class SiteController extends Controller
         ]); 
     }
     
-    public function checkout()
-    {
-        //dd($itemsList);
-        return view('Site/checkoutForm');
-    }
-
+   
 }

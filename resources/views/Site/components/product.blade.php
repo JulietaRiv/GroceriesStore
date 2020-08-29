@@ -32,10 +32,10 @@
 										<fieldset>
 											<input type="hidden" name="cmd" value="_cart">
 											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="business" value=" ">
+											<input type="hidden" name="presentation" value="{{ $product->main_presentation }}">
 											<input type="hidden" name="item_name" value="{{ $product->name }}">
 											<input type="hidden" name="amount" value="{{ $product->price }}">
-											<input type="hidden" name="return" value=" ">
+											<input type="hidden" name="id" value="{{ $product->id }}">
 											<input type="hidden" name="cancel_return" value=" ">
 											<input type="submit" name="submit" value="Agregar al carro" class="button">
 										</fieldset>

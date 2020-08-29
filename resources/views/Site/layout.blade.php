@@ -179,10 +179,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	paypal.minicart.render({
 		action: '/checkout',
 		strings: {
-			button: "Comprar",
+			button: 'Comprar @csrf',
 			buttonAlt: "Enviar pedido",
 		}
-		//$(".minicart-submit").show();
 	});
 
 	if (~window.location.search.indexOf('reset=true')) {

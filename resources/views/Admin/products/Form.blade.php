@@ -91,7 +91,7 @@
                   <div id="presentationContent" class="box-body"></div>           
                 </div>
                 <br>
-                <button onclick="$('#prodForm').submit();" type="submit" class="btn btn-success">Guardar</button>
+                <button type="submit" class="btn btn-success">Guardar</button>
                 <br>
             </div>
             <br>       
