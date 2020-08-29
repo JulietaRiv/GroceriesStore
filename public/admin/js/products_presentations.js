@@ -50,7 +50,6 @@ let presentationsForm = `
         } else {
             presentations.push(presentation);
         }
-        $("#presentations").val(JSON.stringify(presentations));
         renderPres();
     }
 
@@ -122,6 +121,7 @@ let presentationsForm = `
             presentation.main = 0;
         })
         presentations[param].main = 1;
+        $("#presentations").val(JSON.stringify(presentations));
     }
 
     function editPres(param){

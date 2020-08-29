@@ -61,22 +61,22 @@
                 <br>
                 <div class="checkbox">
                   <label>
-                    <input id="celiacs" name="celiacs" type="checkbox" @if( $product->celiacs == "1" ) checked @endif> Sin Tacc
+                    <input value="1" id="celiacs" name="celiacs" type="checkbox" @if( $product->celiacs == "1" ) checked @endif> Sin Tacc
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input id="organic" name="organic" type="checkbox" @if( $product->organic == "1" ) checked @endif> Orgánico
+                    <input value="1" id="organic" name="organic" type="checkbox" @if( $product->organic == "1" ) checked @endif> Orgánico
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input id="agroecological" name="agroecological" type="checkbox" @if( $product->agroecological == "1" ) checked @endif> Agroecológico
+                    <input value="1" id="agroecological" name="agroecological" type="checkbox" @if( $product->agroecological == "1" ) checked @endif> Agroecológico
                   </label>
                 </div>
                 <div class="checkbox">
                   <label>
-                    <input id="vegan" name="vegan" type="checkbox" @if( $product->vegan == "1" ) checked @endif> Vegano
+                    <input value="1" id="vegan" name="vegan" type="checkbox" @if( $product->vegan == "1" ) checked @endif> Vegano
                   </label>
                 </div>
                 <br>
@@ -91,7 +91,7 @@
                   <div id="presentationContent" class="box-body"></div>           
                 </div>
                 <br>
-                <button onclick="presString() $('#prodForm').submit();" type="submit" class="btn btn-success">Guardar</button>
+                <button onclick="$('#prodForm').submit();" type="submit" class="btn btn-success">Guardar</button>
                 <br>
                 <input type="hidden" id="productId" name="productId" value="{{$product->id}}"/>
                 <input type="hidden" id="presentations" name="presentations" value=""/>      
@@ -114,10 +114,7 @@
     let presentations = [];
     @endif
 
-    function presString()
-    {
-      $('#presentations').val(JSON.stringify(presentations)); 
-    }
+    
 
     </script>
 @stop
