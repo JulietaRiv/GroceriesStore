@@ -17,6 +17,7 @@ Route::group(['namespace' => 'Site'], function () {
     Route::get('/', 'SiteController@index')->name('index');
     Route::get('/products/{criteria}/{slug_name}', 'SiteController@products')->name('siteProducts');
     Route::get('/product/{slug_name}', 'SiteController@detailProduct')->name('siteDetailProduct');
+    Route::get('/checkout', 'SiteController@checkout')->name('siteCheckout');
     
 });    
 

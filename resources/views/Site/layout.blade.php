@@ -177,7 +177,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>
 	// Mini Cart
 	paypal.minicart.render({
-		action: '#'
+		action: '/checkout',
+		strings: {
+			button: "Comprar",
+			buttonAlt: "Enviar pedido",
+		}
+		//$(".minicart-submit").show();
 	});
 
 	if (~window.location.search.indexOf('reset=true')) {
@@ -185,15 +190,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	}
 </script>
 <!-- main slider-banner -->
-<script src="js/skdslider.min.js"></script>
-<link href="css/skdslider.css" rel="stylesheet">
+<script src="/site/js/skdslider.min.js"></script>
+<link href="/site/css/skdslider.css" rel="stylesheet">
 <script type="text/javascript">
 		jQuery(document).ready(function(){
 			jQuery('#demo1').skdslider({'delay':5000, 'animationSpeed': 2000,'showNextPrev':true,'showPlayButton':true,'autoSlide':true,'animationType':'fading'});						
 			jQuery('#responsive').change(function(){
 			  $('#responsive_wrapper').width(jQuery(this).val());
-			});
-			
+			});		
 		});
 
 </script>	
