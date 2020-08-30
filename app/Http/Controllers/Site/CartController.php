@@ -16,7 +16,7 @@ class CartController extends Controller
 
     public function checkout(Request $request)
     {
-        dd($request->all());
+        //dd($request->all());
         /*
         1levantar todos los campos del carrito
         2componer un array a medida (levantando precio de la base)
@@ -36,21 +36,22 @@ class CartController extends Controller
         3 guardar en base
         4 envio de mail con aviso
         5 gracias    
-        6 reset de carro
-      /*  $validator = Validator::make($request->all(), [
-            'name'=>'required',
-            'description'=>'required',
-            'presentations'=>'required',
-            'category_id'=>'required',
+        6 reset de carro*/
+        $validator = Validator::make($request->all(), [
+            'completeName'=>'required',
+            'adress'=>'required',
+            'cel'=>'required',
+            'payment_method'=>'required',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
                         ->withErrors($validator)
                         ->withInput();
         } else {
+            //aca me dispongo a guardar los campos en un registro nuevo de orders
+            //y swal con mensaje de gracias x tu compra
             return redirect()->route('index');
-        }*/
-        return redirect()->route('index');
+        }
     }
 
 
