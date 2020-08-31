@@ -18,12 +18,24 @@
             <table class="table table-bordered">
                 <tbody>
                 <tr>
-                    <th>Nombre</th>
+                    <th>N°</th>
+                    <th>Cliente</th>
+                    <th>Cel</th>
+                    <th>Dirección</th>
+                    <th>Medio de Pago</th>
+                    <th>Armado</th>
+                    <th>Entregado</th>
                     <th style="width: 20%">Acción</th>
                 </tr>
                 @foreach ( $orders as $order)
                 <tr>
-                    <td>{{ $category->name }}</td>    
+                    <td>{{ $order->id }}</td>    
+                    <td>{{ $order->name }}</td>
+                    <td>{{ $order->cel }}</td>
+                    <td>{{ $order->adress }}</td>    
+                    <td>{{ $order->payment_method }}</td>
+                    <td></td>
+                    <td></td>
                     <td><a href="/admin/orders/edit/{{ $order->id }}"><span class="badge bg-green">Editar</span></a>
                     <a href="/admin/orders/detail/{{ $order->id }}"><span class="badge bg-blue">Ver</span></a>
                     <a href="/admin/orders/delete/{{ $order->id }}"><span class="badge bg-red">Eliminar</span></a></td>
@@ -46,7 +58,7 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+
 @stop
 
 @section('js')

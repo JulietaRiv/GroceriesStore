@@ -36,8 +36,7 @@
 								<fieldset>
 									<input type="hidden" name="cmd" value="_cart">
 									<input type="hidden" name="add" value="1">
-									<input type="hidden" name="pres" value=@if ( count($presentations) > 1 ) "{{ $presen['presentation'] }}" @else "{{ $product->main_presentation }}" @endif> 
-									<input type="hidden" name="item_name" value="{{ $product->id }}-{{ $product->name }}-">
+									<input type="hidden" name="item_name" value="{{ $product->id }}-{{ $product->name }}-" @if (count($presentations) > 1) "{{ $presen['presentation'] }}" @else "{{ $product->main_presentation }}" @endif>
 									<input type="hidden" name="amount" value="{{ $presen['price'] }}">
 									<input type="submit" name="submit" value="Agregar al carro" class="button">
 								</fieldset>

@@ -58,4 +58,9 @@ Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {
         Route::get('/detail/{id}', "BrandsController@detail")->name("brandsDetail");
         Route::get('/delete/{id}', "BrandsController@delete")->name("brandsDelete");
     });
+
+    Route::group(['prefix' => "/orders"], function() {
+        Route::get('/index', "OrdersController@index")->name("orders");
+    });
+
 });

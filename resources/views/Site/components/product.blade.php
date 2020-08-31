@@ -34,7 +34,6 @@
 											<input type="hidden" name="add" value="1">
 											<input type="hidden" name="item_name" value="{{ $product->id }}-{{ $product->name }}-{{ $product->main_presentation }}">
 											<input type="hidden" name="amount" value="{{ $product->price }}">
-											<input type="hidden" name="cancel_return" value=" ">
 											<input type="submit" name="submit" value="Agregar al carro" class="button">
 										</fieldset>
 									</form>

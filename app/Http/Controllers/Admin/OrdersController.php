@@ -15,14 +15,14 @@ class OrdersController extends Controller
 {
     public function index()
     {
-        $orders = Order::where('active', 1)->get();
+        $orders = Order::where('id', '!=', '')->get();
         return view ("Admin/orders/Index", ["orders" => $orders]);
     }
 
 
     public function delete ($id)
     {
-        if ($order = Category::where('id', '=', $id)->first()){       
+        if ($order = Order::where('id', '=', $id)->first()){       
             $order->delete();
             return redirect()->route("orders")->with('success','Excelente, registro guardado!');
         } else {

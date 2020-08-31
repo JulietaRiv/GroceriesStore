@@ -277,7 +277,7 @@ return [
         [
             'text'       => 'Pedidos',
             'icon_color' => 'purple',
-            'url'        => '',
+            'url'        => 'admin/orders/index',
         ],
         [
             'text'       => 'Destacados',
