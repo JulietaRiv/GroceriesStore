@@ -24,7 +24,6 @@ class CreateProductsTable extends Migration
             $table->decimal('promo_price', 8, 2)->nullable();
             $table->string('description', 2000);
             $table->text('presentations');
-            $table->string('main_presentation');
             $table->boolean('stock')->default(1);
             $table->boolean('offer')->nullable();
             $table->boolean('highlighted')->nullable();

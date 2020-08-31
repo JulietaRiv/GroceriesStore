@@ -40,8 +40,8 @@ class products_table_seeder extends Seeder
                     "main_presentation"=>"", "stock"=>1, "offer"=>0, "highlighted"=>1, "celiacs"=>0, "organic"=>1, "agroecological"=>0, "vegan"=>0]
                 
             /*["id"=>, "category_id"=>, "brand_id"=>, "name"=>"", "photo"=>"", "description"=>"", 
-            "presentations"=>'{["presentation":"", "stock":, "price":, "promo_price":, "offer":, "highlighted":], 
-                ["presentation":"", "stock":, "price":, "promo_price":, "offer":, "highlighted":]}', 
+            "presentations"=>'[{"presentation":"", "stock":, "price":, "promo_price":, "offer":, "highlighted":}, 
+                {"presentation":"", "stock":, "price":, "promo_price":, "offer":, "highlighted":}]', 
                     "stock"=>1, "offer"=>0, "highlighted"=>0, "celiacs"=>0, "organic"=>0, "agroecological"=>0, "vegan"=>0],*/
         ];
         foreach ($data as $i=>$d){
