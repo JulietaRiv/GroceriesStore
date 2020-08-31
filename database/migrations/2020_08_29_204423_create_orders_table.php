@@ -20,7 +20,7 @@ class createOrdersTable extends Migration
             $table->string('cel');
             $table->string('payment_method');
             $table->text('comment')->nullable();
-            $table->text('order');
+            $table->text('items');
             $table->timestamps();
         });
     }

@@ -25,7 +25,6 @@
 					<br>
 					<h4>Presentaciones:</h4>
 					<br>
-					@if ( $presentations != null ) 
                     @foreach ( $presentations as $presen )
                     * {{ $presen['presentation'] }}
 					<div class="snipcart-item block">
@@ -37,16 +36,22 @@
 								<fieldset>
 									<input type="hidden" name="cmd" value="_cart">
 									<input type="hidden" name="add" value="1">
-									<input type="hidden" name="item_name" value="{{ $product->id }} - {{ $product->name }} - {{ $presen['presentation'] }}">
+									<input type="hidden" name="business" value=" ">
+									<input type="hidden" name="item_name" value="{{ $product->name }} - {{ $presen['presentation'] }}">
 									<input type="hidden" name="amount" value="{{ $presen['price'] }}">
-									<input type="submit" name="submit" value="Agregar al carro" class="button">
+									<input type="hidden" name="discount_amount" value="1.00">
+									<input type="hidden" name="currency_code" value="USD">
+									<input type="hidden" name="return" value=" ">
+									<input type="hidden" name="cancel_return" value=" ">
+									<input type="hidden" name="shipping" value="{{ $product->id }}">
+									<input type="hidden" name="shipping2" value="{{ $presen['presentation'] }}">
+									<input type="submit" name="submit" value="Add to cart" class="button">
 								</fieldset>
 							</form>
 						</div>
 					</div>
 					<br>
                     @endforeach
-					@endif
 				</div>
 				<div class="clearfix"> </div>
         </div>
