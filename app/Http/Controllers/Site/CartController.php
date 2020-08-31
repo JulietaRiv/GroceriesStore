@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\Order;
+use Illuminate\Support\Facades\Validator;
 use \Illuminate\Http\Request;
 
 
@@ -57,10 +58,11 @@ class CartController extends Controller
         4 envio de mail con aviso
     */
         $validator = Validator::make($request->all(), [
-            'completeName'=>'required',
+            'name'=>'required',
             'adress'=>'required',
             'cel'=>'required',
             'payment_method'=>'required',
+            'items'=>'required'
         ]);
         if ($validator->fails()) {
             return redirect()->back()

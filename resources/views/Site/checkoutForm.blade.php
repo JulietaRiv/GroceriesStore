@@ -16,10 +16,10 @@
             <h3 style="text-align:center;">Finalizar compra</h3>
         </div>
         <br>
-        <form role="form" id="checkoutForm" name="checkoutForm" method="post" action="{{Route('cartSendOrder')}}" style="margin-right:80px; margin-left:80px;">
+        <form role="form" id="checkoutForm2" name="checkoutForm2" method="post" action="{{Route('cartSendOrder')}}" style="margin-right:80px; margin-left:80px;">
         @csrf
             <label>Nombre completo</label>
-                <input name="completeName" class="form-control" type="text" placeholder="Nombre Apellido">
+                <input name="name" class="form-control" type="text" placeholder="Nombre Apellido">
             <br>
             <label>Dirección de envío</label>
                 <input name="adress" class="form-control" type="text" placeholder="Calle n°, Localidad, aclaraciones">
@@ -41,7 +41,8 @@
                     <textarea class="form-control" rows="4" placeholder="Dejanos un mensaje ..."></textarea>
             </div>
             <input id="closeOrderList" name="closeOrderList" type="hidden"/>
-            <button type="submit" class="btn btn-success">Finalizar</button>
+            <input id="cmd" name="cmd" value="false" type="hidden"/>
+            <button name="sendOrder" type="submit" class="btn btn-success">Finalizar</button>
             <br>
             <br>
         </form>
