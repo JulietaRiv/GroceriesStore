@@ -17,10 +17,10 @@ class CartController extends Controller
         //1levantar todos los campos del carrito
         //2componer un array a medida (levantando precio de la base)
         $claves = array_keys( $request->all());
-        $items = [];
+        $itemsList = [];
         foreach ($claves as $clave){
             $itemNum = substr($clave, -1);
-            if ( !$items.$itemNum ){
+            if ( !$itemsList.$itemNum ){
                 if ( is_numeric($itemNum) ){
                     $price = 0;
                     $product = Product::where('id', $request->{'shipping_' . $itemNum})->first();
@@ -29,7 +29,7 @@ class CartController extends Controller
                             $price = $presentation['price'];
                         }
                     }
-                    $items[$itemNum] = [
+                    $itemsList[$itemNum] = [
                         'product_id' =>$request->{'shipping_' . $itemNum}, 
                         'name' =>$request->{'item_name_' . $itemNum}, 
                         'presentation' =>$request->{'shipping2_' . $itemNum}, 
@@ -40,14 +40,8 @@ class CartController extends Controller
             }
         } 
         //3guardar en variable de session
-        $request->session()->put('items', $items);
-        /*
-        4asignar a la vista la variable de sesion
-        5dividir el form en 2 y renderizar el pedido
-        6disable de carro / reset
-        $('view-cart').disabled = true;
-        */
-        //dd($items);
+        $request->session()->put('itemsList', $itemsList);
+       // 4asignar a la vista la variable de sesion
         return view('Site/checkoutForm', ['items'=> $items]);
     }
 
@@ -76,6 +70,7 @@ class CartController extends Controller
             $order->payment_method = $request->payment_method;
             $order->comment = $request->message;
             $order->items = "pedido stringifiado";
+            //aca mostrar gracias x tu compra!
             return redirect()->route('index');
         }
     }

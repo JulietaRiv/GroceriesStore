@@ -292,7 +292,7 @@ return [
         [
             'text'       => 'Stock',
             'icon_color' => 'orange',
-            'url'        => '',
+            'url'        => 'admin/products/stock',
         ],
     ],
 

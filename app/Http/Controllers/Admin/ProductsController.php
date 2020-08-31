@@ -201,4 +201,11 @@ class ProductsController extends Controller
         return redirect()->back();
     }
 
+    public function stock()
+    {
+        $products = Product::where('id', '!=', '')->orderBy('name')->get();
+        //dd($products);
+        return view('Admin/products/Stock', ['products'=>$products]);
+    }
+
 }

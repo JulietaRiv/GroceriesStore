@@ -62,7 +62,7 @@
                             </tr>
                         </thead>  
                         <tbody>
-                            @foreach ( $items as $item )
+                            @foreach ( $itemsList as $item )
                             <tr>    
                                 <td>{{ $item['name'] }}</td>
                                 <td>{{ $item['quantity'] }}</td>
