@@ -58,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<form action="#" method="post" class="last"> 
 						<input type="hidden" name="cmd" value="_cart">
 						<input type="hidden" name="display" value="1">
-						<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+						<button id="view-cart" class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
 					</form>  
 			</div>
 			<div class="clearfix"> </div>
@@ -73,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</ul>
 			</div>
 			<div class="w3ls_logo_products_left">
-				<img style="width:200px;" src="/site/images/logo-roble.jpg" alt="El Roble"/>
+				<a href="/"><img style="width:200px;" src="/site/images/logo-roble.jpg" alt="El Roble"/></a>
 			</div>
 			<div class="w3l_search">
 				<form id="searchForm" action="{{Route('siteProducts', ['search', 'q'])}}" method="get">

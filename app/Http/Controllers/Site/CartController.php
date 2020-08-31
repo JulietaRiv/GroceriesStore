@@ -16,7 +16,8 @@ class CartController extends Controller
 
     public function checkout(Request $request)
     {
-        //dd($request->all());
+        dd($request->all());
+        
         /*
         1levantar todos los campos del carrito
         2componer un array a medida (levantando precio de la base)
@@ -24,6 +25,7 @@ class CartController extends Controller
         4asignar a la vista la variable de sesion
         5dividir el form en 2 y renderizar el pedido
         6disable de carro / reset
+        $('view-cart').disabled = true;
         */
         return view('Site/checkoutForm');
     }
@@ -31,12 +33,9 @@ class CartController extends Controller
     public function sendOrder(Request $request)
     {
         /*
-        1 validar los datos recibidos
-        2 levantar el carrito de la sesion
-        3 guardar en base
+        2 levantar el carrito de la sesion    
         4 envio de mail con aviso
-        5 gracias    
-        6 reset de carro*/
+    */
         $validator = Validator::make($request->all(), [
             'completeName'=>'required',
             'adress'=>'required',
@@ -48,8 +47,13 @@ class CartController extends Controller
                         ->withErrors($validator)
                         ->withInput();
         } else {
-            //aca me dispongo a guardar los campos en un registro nuevo de orders
-            //y swal con mensaje de gracias x tu compra
+            $order = Order::create();
+            $order->name = $request->completeName;
+            $order->adress = $request->adress;
+            $order->cel = $request->cel;
+            $order->payment_method = $request->payment_method;
+            $order->comment = $request->message;
+            $order->order = "pedido stringifiado";
             return redirect()->route('index');
         }
     }

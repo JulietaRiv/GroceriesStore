@@ -4,6 +4,8 @@
 
 @section('content_header')
     
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
 @stop
 
 @section('content')
@@ -38,7 +40,8 @@
                 <label name="message">Tu opinión nos importa!</label>
                 <textarea class="form-control" rows="4" placeholder="Dejanos un mensaje ..."></textarea>
             </div>
-            <button type="submit" class="btn btn-success">Finalizar</button>
+            <input id="closeOrderList" name="closeOrderList" type="hidden"/>
+            <button onclick="thanksForPurchase() $('#checkoutForm').submit();" type="submit" class="btn btn-success">Finalizar</button>
             <br>
             <br>
         </form>
@@ -46,6 +49,8 @@
     <div class="col-md-6">
     <div id="offers" class="newproducts-w3agile">
             <h3 style="text-align:center;">Pedido</h3>
+            <div id="showOrderList">
+            </div>
         </div>
     </div>
 </div>
@@ -58,5 +63,17 @@
 
 @section('js')
 	<script> 
+        function thanksForPurchase()
+        {
+            let orderList = paypal.minicart.cart.items();
+            $("#closeOrderList").val(JSON.stringify(orderList));
+            Swal.fire({
+            title: "Muchas gracias por tu compra!",
+            text: "Proximamente nos estaremos contactando con vos.",
+            confirmButtonText: "Ok", 
+            closeOnConfirm: true,
+          });
+            paypal.minicart.reset();
+        }
 	</script>
 @stop

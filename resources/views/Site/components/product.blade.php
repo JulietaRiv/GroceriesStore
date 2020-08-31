@@ -14,7 +14,7 @@
 						<figure>
 							<div class="snipcart-item block">
 								<div class="snipcart-thumb">
-									<a href="{{Route('siteDetailProduct', $product->slug_name)}}"><img title="" alt="{{$product->name}}" src="site/images/14.png"></a>		
+									<a href="{{Route('siteDetailProduct', $product->slug_name)}}"><img title="" alt="{{$product->name}}" src="/site/images/icon1.png"></a>		
 									<p>{{ $product->name }} - {{ $product->main_presentation }}</p>
 									@if ( $stars ?? '' )
 										<div class="stars">
@@ -32,10 +32,8 @@
 										<fieldset>
 											<input type="hidden" name="cmd" value="_cart">
 											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="presentation" value="{{ $product->main_presentation }}">
-											<input type="hidden" name="item_name" value="{{ $product->name }}">
+											<input type="hidden" name="item_name" value="{{ $product->id }}-{{ $product->name }}-{{ $product->main_presentation }}">
 											<input type="hidden" name="amount" value="{{ $product->price }}">
-											<input type="hidden" name="id" value="{{ $product->id }}">
 											<input type="hidden" name="cancel_return" value=" ">
 											<input type="submit" name="submit" value="Agregar al carro" class="button">
 										</fieldset>

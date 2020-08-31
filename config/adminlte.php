@@ -289,6 +289,11 @@ return [
             'icon_color' => 'blue',
             'url'        => 'admin/products/offer',
         ],
+        [
+            'text'       => 'Stock',
+            'icon_color' => 'orange',
+            'url'        => '',
+        ],
     ],
 
     /*
