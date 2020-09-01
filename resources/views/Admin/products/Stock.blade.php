@@ -46,7 +46,6 @@ $( "#brand_id" ).change(function()   {
             url: "{{Route('productsStockPerBrand')}}",
             data : {brand_id : $(this).val()}
         }).done(function(response) {
-            console.log(response)
             $('#productResult').html(response);
         });
     });

@@ -33,7 +33,6 @@ class OrdersController extends Controller
     {
         $order = Order::where('id', $id)->first();
         $items = json_decode($order->items, true);
-        //dd($items);
         return view ("Admin/orders/Detail", ["order" => $order, 'items'=>$items] );
     }
 

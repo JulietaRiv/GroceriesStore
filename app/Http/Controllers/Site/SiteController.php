@@ -73,7 +73,7 @@ class SiteController extends Controller
         if ($criteria == 'search'){
             $title = [];
             $title = ['title'=>'buscador: '.$request->search, 'type_icon'=>0];
-            $products = Product::search($request->search);
+            $products = $products->search($request->search);
             $colmd = 3;
             $cols = 4;
         } 

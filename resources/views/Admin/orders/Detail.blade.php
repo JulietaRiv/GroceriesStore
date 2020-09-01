@@ -28,6 +28,7 @@
                             <td>{{ $order->payment_method }}</td>
                         </tr>
                         <tr>
+                            <td>{{ $order->created_at }}</td>
                             <td>{{ $order->comment }}</td>
                         </tr>          
                     </tbody>

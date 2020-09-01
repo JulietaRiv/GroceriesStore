@@ -77,7 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="w3l_search">
 				<form id="searchForm" action="{{Route('siteProducts', ['search', 'q'])}}" method="get">
-					<input value="{{$search ?? ''}}" type="search" name="search" placeholder="Buscar..." required="">
+					<input value="{{$search ?? ''}}" type="search" name="search" placeholder="Buscar..." >
 					<button type="submit"  class="btn btn-default search" aria-label="Left Align">
 						<i class="fa fa-search" aria-hidden="true"> </i>
 					</button>

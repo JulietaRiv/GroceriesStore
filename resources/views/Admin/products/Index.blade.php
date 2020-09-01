@@ -13,8 +13,8 @@
         <h3 class="box-title">Productos</h3>
         <br>
         <h4><a href="/admin/products/add"><span class="badge bg-green">Agregar +</span></a></h4>
-            <form style="position:absolute; right:5px;" id="searchForm" action="{{Route('productsSearch', ['search', 'q'])}}" method="get">
-                <input value="{{$search ?? ''}}" type="search" name="search" placeholder="Buscar..." required="">
+            <form style="position:absolute; right:5px;" id="searchForm" action="{{Route('products')}}" method="get">
+                <input value="{{$search ?? ''}}" type="search" name="search" placeholder="Buscar...">
                 <button type="submit"  class="btn btn-default search" aria-label="Left Align">
                     <i class="fa fa-search" aria-hidden="true"> </i>
                 </button>
@@ -63,13 +63,7 @@
             </table>
             </div>
             <div class="box-footer clearfix">
-            <ul class="pagination pagination-sm no-margin pull-right">
-                <li><a href="#">«</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">»</a></li>
-            </ul>
+                {!! $links !!}
             </div>
     </div>
 
