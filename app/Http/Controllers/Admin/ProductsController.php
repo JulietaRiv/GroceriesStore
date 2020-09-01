@@ -9,7 +9,7 @@ use App\Category;
 use App\Brand;
 use App\Offer;
 use App\Highlighted;
-use Str;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\productForm;
@@ -69,7 +69,6 @@ class ProductsController extends Controller
                 $product->highlighted = 1;
             }
             if ($presentation['main'] == true){
-                $product->main_presentation = $presentation['presentation'];
                 $product->price = $presentation['price'];
                 $product->promo_price = $presentation['promo_price'];
             }
@@ -104,7 +103,6 @@ class ProductsController extends Controller
         $brands = Brand::where('active', 1)->get();
         if ( \Illuminate\Support\Facades\Request::old('name') == ''){
             $product = Product::where('id', $id)->first();
-            
         } else {
             $product = new Product();
             $product->id = $id;
@@ -119,13 +117,11 @@ class ProductsController extends Controller
             $product->agroecological = \Illuminate\Support\Facades\Request::old('agroecological') != null ? '1' : '0';
             $product->vegan = \Illuminate\Support\Facades\Request::old('vegan') != null ? '1' : '0';
         }
-        //dd($product->presentations);
         return view ("Admin/products/Edit", ['product'=>$product, 'brands'=>$brands, 'categories'=>$categories]);
     }
 
     public function update(Request $request)
     {   
-        //dd($request);
         $validator = Validator::make($request->all(), [
             'name'=>'required',
             'description'=>'required',
@@ -140,6 +136,37 @@ class ProductsController extends Controller
                         ->withInput();
         } else {
             $product = Product::where('id', 10)->first();
+            $product->name = $request->name;
+            $product->slug_name = '-';
+            $product->category_id = $request->category_id;
+            $product->brand_id = $request->brand_id;
+            $product->description = $request->description;
+            $product->presentations = json_decode($request->presentations, true);
+            $product->celiacs = data_get($request, 'celiacs', 0);
+            $product->organic = data_get($request, 'organic', 0);
+            $product->agroecological = data_get($request, 'agroecological', 0);
+            $product->vegan = data_get($request, 'vegan', 0);
+            //$product->photo = $request->hasFile('image')->isValid();
+            $stock = 0;
+            $product->offer = 0;
+            $product->highlighted = 0;  
+            foreach ($product->presentations as $presentation){
+                $stock += $presentation['stock'];
+                if ($presentation['offer'] == true){
+                    $product->offer = 1;
+                }
+                if ($presentation['highlighted'] == true){
+                    $product->highlighted = 1;
+                }
+                if ($presentation['main'] == true){
+                    $product->price = $presentation['price'];
+                    $product->promo_price = $presentation['promo_price'];
+                }
+            }    
+            $product->stock = $stock != 0 ? 1 : 0;        
+            $product->save();
+            $product->slug_name = Str::of($product->name)->slug('-').'-'.$product->id;
+            $product->save();
             $product->update();      
             return redirect()->route("products")->with('success','Excelente, registro guardado!');
         }
@@ -211,7 +238,13 @@ class ProductsController extends Controller
     {
         $products = Product::where('brand_id', '=', $request->brand_id)->get();
         return view('Admin/products/ProductStock', ['products'=>$products]);
+    }
 
+    public function searchProducts(Request $request)
+    {
+        $products = Product::where('active', 1)->get();
+        $productsSearched = Product::search($request->search);
+        return view('Admin/products/Index', ['products' => $products, 'productsSearched'=>$productsSearched]);     
     }
 
 }

@@ -13,7 +13,15 @@
         <h3 class="box-title">Productos</h3>
         <br>
         <h4><a href="/admin/products/add"><span class="badge bg-green">Agregar +</span></a></h4>
+            <form style="position:absolute; right:5px;" id="searchForm" action="{{Route('productsSearch', ['search', 'q'])}}" method="get">
+                <input value="{{$search ?? ''}}" type="search" name="search" placeholder="Buscar..." required="">
+                <button type="submit"  class="btn btn-default search" aria-label="Left Align">
+                    <i class="fa fa-search" aria-hidden="true"> </i>
+                </button>
+				<div class="clearfix"></div>
+			</form>
         </div>  
+        <br>
         <br>
             <div class="box-body">
             <table class="table table-bordered">

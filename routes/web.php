@@ -40,6 +40,7 @@ Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {
         Route::get('/highlightedSelected/{ids}', "ProductsController@highlightedSelected")->name("productsHighlightedSelected");
         Route::get('/stock', "ProductsController@stock")->name("productsStock");
         Route::get('/stockPerBrand', "ProductsController@stockPerBrand")->name("productsStockPerBrand");
+        Route::get('/searchProducts/{param}', "ProductsController@searchProducts")->name("productsSearch");
     });
 
     Route::group(['prefix' => "/categories"], function() {

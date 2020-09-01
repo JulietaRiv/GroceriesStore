@@ -42,24 +42,21 @@ class CartController extends Controller
         } 
         //3guardar en variable de session
         $request->session()->put('itemsList', $itemsList);
-       // 4asignar a la vista la variable de sesion
+        // 4asignar a la vista la variable de sesion
+        //$itemsList = $_SESSION['itemsList'];
         return view('Site/checkoutForm', ['itemsList'=> $itemsList]);
     }
 
     public function sendOrder(Request $request)
     {
-
-       // dd('holaaa');
-        /*
-        2 levantar el carrito de la sesion    
-        4 envio de mail con aviso
-    */
+      //  2 levantar el carrito de la sesion    
+      //  4 envio de mail con aviso
         $validator = Validator::make($request->all(), [
             'name'=>'required',
             'adress'=>'required',
             'cel'=>'required',
             'payment_method'=>'required',
-            'items'=>'required'
+            'orderList'=>'required'
         ]);
         if ($validator->fails()) {
             return redirect()->back()

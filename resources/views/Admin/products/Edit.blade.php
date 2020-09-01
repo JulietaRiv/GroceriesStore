@@ -114,7 +114,5 @@
     let presentations = [];
     @endif
 
-    
-
     </script>
 @stop

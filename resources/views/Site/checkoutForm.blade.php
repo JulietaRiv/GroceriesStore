@@ -16,6 +16,13 @@
             <h3 style="text-align:center;">Finalizar compra</h3>
         </div>
         <br>
+        @if (count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    <p>Todos los campos son requeridos para finalizar la compra!</p>
+                </ul>
+            </div>
+        @endif
         <form role="form" id="checkoutForm2" name="checkoutForm2" method="post" action="{{Route('cartSendOrder')}}" style="margin-right:80px; margin-left:80px;">
         @csrf
             <label>Nombre completo</label>
@@ -25,22 +32,22 @@
                 <input value="{{ old('adress') }}" name="adress" class="form-control" type="text" placeholder="Calle n°, Localidad, aclaraciones">
             <br>
             <label>Celular</label>
-                <input valsue="{{ old('cel') }}" name="cel" class="form-control" type="text" placeholder="011 155 555 5555">
+                <input value="{{ old('cel') }}" name="cel" class="form-control" type="text" placeholder="011 155 555 5555">
             <br>
             <div class="form-group">
                 <label>Seleccionar Medio de pago</label>
                     <select name="payment_method" class="form-control">
-                        <option >Efectivo</option>
-                        <option>Mercado Pago</option>
-                        <option>Transferencia bancaria</option>
+                        <option value="efectivo" @if ( old('payment_method') == 'efectivo' ) selected @endif>Efectivo</option>
+                        <option value="mercadoPago" @if ( old('payment_method') == 'mercadoPago' ) selected @endif>Mercado Pago</option>
+                        <option value="transferencia" @if ( old('payment_method') == 'transferencia' ) selected @endif>Transferencia bancaria</option>
                     </select>
             </div>
             <br>
             <div class="form-group">
                 <label>Tu opinión nos importa!</label>
-                    <textarea value="{{ old('message') }}" name="message" class="form-control" rows="4" placeholder="Dejanos un mensaje ..."></textarea>
+                    <textarea name="message" class="form-control" rows="4" placeholder="Dejanos un mensaje ...">{{ old('message') }}</textarea>
             </div>
-            <input id="closeOrderList" name="closeOrderList" type="hidden"/>
+            <input id="orderList" name="orderList" type="hidden"/>
             <input id="cmd" name="cmd" value="false" type="hidden"/>
             <button onclick="sendOrder();" type="button" class="btn btn-success">Finalizar</button>
             <br>
@@ -63,23 +70,29 @@
                             </tr>
                         </thead>  
                         <tbody>
+                            @php
+                                $total = 0;
+                                $unidades = 0;
+                            @endphp
                             @foreach ( $itemsList as $item )
                             @php
-                            $total += {{ $item['price'] }}
+                                $total += $item['price'];
+                                $unidades += $item['quantity'];
                             @endphp
                             <tr>    
                                 <td>{{ $item['name'] }}</td>
                                 <td>{{ $item['quantity'] }}</td>
-                                <td>{{ $item['unitPrice'] }}</td>
-                                <td>{{ $item['price'] }}</td>
+                                <td>${{ $item['unit_price'] }}</td>
+                                <td>${{ $item['price'] }}</td>
                             </tr>
                             @endforeach
                         </tbody>
                         <tfoot>
                             <tr>
                                 <td>Precio final</td>
+                                <td>{{ $unidades }}</td>
                                 <td></td>
-                                <td>{{ $total }}</td>
+                                <td>${{ $total }}</td>
                             </tr>
                         </tfoot>
                     </table>
@@ -96,6 +109,12 @@
 
 @section('js')
 	<script> 
+    
+    $(document).ready(function() 
+    {   
+        $("#itemsList").val($itemsList);
+    });
+
         function thanksForPurchase()
         {
             Swal.fire({
@@ -109,7 +128,6 @@
 
         function sendOrder()
         {
-            //$("#closeOrderList").val(JSON.stringify($itemsList));
             $.ajax({
                 type:'POST',
                 url: "{{Route('cartSendOrder')}}",      
