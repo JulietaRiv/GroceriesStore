@@ -17,8 +17,9 @@ Route::group(['namespace' => 'Site'], function () {
     Route::get('/', 'SiteController@index')->name('index');
     Route::get('/products/{criteria}/{slug_name}', 'SiteController@products')->name('siteProducts');
     Route::get('/product/{slug_name}', 'SiteController@detailProduct')->name('siteDetailProduct');
-    Route::post('/checkout', 'CartController@checkout')->name('cartCheckout');
+    Route::match(['get', 'post'], '/checkout', 'CartController@checkout')->name('cartCheckout');
     Route::post('/sendOrder', 'CartController@sendOrder')->name('cartSendOrder');
+    
 });    
 
 Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {
@@ -38,6 +39,7 @@ Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {
         Route::get('/offerSelected/{ids}', "ProductsController@offerSelected")->name("productsOfferSelected");
         Route::get('/highlightedSelected/{ids}', "ProductsController@highlightedSelected")->name("productsHighlightedSelected");
         Route::get('/stock', "ProductsController@stock")->name("productsStock");
+        Route::get('/stockPerBrand', "ProductsController@stockPerBrand")->name("productsStockPerBrand");
     });
 
     Route::group(['prefix' => "/categories"], function() {

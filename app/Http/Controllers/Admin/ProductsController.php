@@ -203,9 +203,15 @@ class ProductsController extends Controller
 
     public function stock()
     {
-        $products = Product::where('id', '!=', '')->orderBy('name')->get();
-        //dd($products);
-        return view('Admin/products/Stock', ['products'=>$products]);
+        $brands = Brand::where('active', 1)->orderBy('name')->get();
+        return view('Admin/products/Stock', ['brands'=>$brands]);
+    }
+
+    public function stockPerBrand(Request $request)
+    {
+        $products = Product::where('brand_id', '=', $request->brand_id)->get();
+        return view('Admin/products/ProductStock', ['products'=>$products]);
+
     }
 
 }

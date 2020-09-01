@@ -17,31 +17,17 @@
         <br>
     </div>
     <br>
+    <div class="form-group">
+        <label>Seleccionar marca</label>
+        <select name="brand_id" id="brand_id" class="form-control">
+            @foreach ($brands as $brand)
+            <option value="{{$brand->id}}">{{$brand->name}}</option>
+            @endforeach
+        </select>
+    </div>
         <!-- /.box-header -->
-        <div class="box-body no-padding">
-            <table class="table table-condensed">
-                <tbody>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Presentación</th>
-                        <th>Stock</th>
-                        <th>Estado</th>
-                    </tr>
-                    @foreach ( $products as $product )                
-                    @foreach ( $product->presentations as $productPresentation )
-                    <tr>
-                        <td>{{ $product->name }}</td>
-                        <td>{{ $productPresentation['presentation'] }}</td>
-                        <td>{{ $productPresentation['stock'] }}</td>
-                        <td>@if ($productPresentation['stock'] <= 3)<span class="badge bg-red">- 3</span>@endif
-                        @if ($productPresentation['stock'] > 3 & $productPresentation['stock'] < 10) <span class="badge bg-yellow">5 - 10</span>@endif
-                        @if ($productPresentation['stock'] >= 10) <span class="badge bg-green">+ 10</span>@endif</td>
-                        @endforeach
-                    @endforeach
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+       <div id="productResult">
+       </div>
         <!-- /.box-body -->
 </div>
 
@@ -53,5 +39,17 @@
 @stop
 
 @section('js')
+<script>
 
+$( "#brand_id" ).change(function()   {
+        $.ajax({
+            url: "{{Route('productsStockPerBrand')}}",
+            data : {brand_id : $(this).val()}
+        }).done(function(response) {
+            console.log(response)
+            $('#productResult').html(response);
+        });
+    });
+
+</script>
 @stop

@@ -19,30 +19,30 @@
         <form role="form" id="checkoutForm2" name="checkoutForm2" method="post" action="{{Route('cartSendOrder')}}" style="margin-right:80px; margin-left:80px;">
         @csrf
             <label>Nombre completo</label>
-                <input name="name" class="form-control" type="text" placeholder="Nombre Apellido">
+                <input value="{{ old('name') }}" name="name" class="form-control" type="text" placeholder="Nombre Apellido">
             <br>
             <label>Dirección de envío</label>
-                <input name="adress" class="form-control" type="text" placeholder="Calle n°, Localidad, aclaraciones">
+                <input value="{{ old('adress') }}" name="adress" class="form-control" type="text" placeholder="Calle n°, Localidad, aclaraciones">
             <br>
             <label>Celular</label>
-                <input name="cel" class="form-control" type="text" placeholder="011 155 555 5555">
+                <input valsue="{{ old('cel') }}" name="cel" class="form-control" type="text" placeholder="011 155 555 5555">
             <br>
             <div class="form-group">
                 <label>Seleccionar Medio de pago</label>
                     <select name="payment_method" class="form-control">
-                        <option>Efectivo</option>
+                        <option >Efectivo</option>
                         <option>Mercado Pago</option>
                         <option>Transferencia bancaria</option>
                     </select>
             </div>
             <br>
             <div class="form-group">
-                <label name="message">Tu opinión nos importa!</label>
-                    <textarea class="form-control" rows="4" placeholder="Dejanos un mensaje ..."></textarea>
+                <label>Tu opinión nos importa!</label>
+                    <textarea value="{{ old('message') }}" name="message" class="form-control" rows="4" placeholder="Dejanos un mensaje ..."></textarea>
             </div>
             <input id="closeOrderList" name="closeOrderList" type="hidden"/>
             <input id="cmd" name="cmd" value="false" type="hidden"/>
-            <button name="sendOrder" type="submit" class="btn btn-success">Finalizar</button>
+            <button onclick="sendOrder();" type="button" class="btn btn-success">Finalizar</button>
             <br>
             <br>
         </form>
@@ -58,14 +58,19 @@
                             <tr>           
                                 <th>Items</th>
                                 <th>Unidades</th>
+                                <th>Precio por unidad</th>
                                 <th>Precio</th>
                             </tr>
                         </thead>  
                         <tbody>
                             @foreach ( $itemsList as $item )
+                            @php
+                            $total += {{ $item['price'] }}
+                            @endphp
                             <tr>    
                                 <td>{{ $item['name'] }}</td>
                                 <td>{{ $item['quantity'] }}</td>
+                                <td>{{ $item['unitPrice'] }}</td>
                                 <td>{{ $item['price'] }}</td>
                             </tr>
                             @endforeach
@@ -74,7 +79,7 @@
                             <tr>
                                 <td>Precio final</td>
                                 <td></td>
-                                <td>unejemplo</td>
+                                <td>{{ $total }}</td>
                             </tr>
                         </tfoot>
                     </table>
@@ -93,8 +98,6 @@
 	<script> 
         function thanksForPurchase()
         {
-            
-            $("#closeOrderList").val(JSON.stringify(items));
             Swal.fire({
             title: "Muchas gracias por tu compra!",
             text: "Proximamente nos estaremos contactando con vos.",
@@ -103,5 +106,19 @@
           });
             paypal.minicart.reset();
         }
+
+        function sendOrder()
+        {
+            //$("#closeOrderList").val(JSON.stringify($itemsList));
+            $.ajax({
+                type:'POST',
+                url: "{{Route('cartSendOrder')}}",      
+                data : $('#checkoutForm2').serialize()
+            }).done(function(response) {
+                console.log('ok');
+                document.body.innerHTML = response;
+            });
+        }
+
 	</script>
 @stop

@@ -30,11 +30,12 @@ class CartController extends Controller
                         }
                     }
                     $itemsList[$itemNum] = [
-                        'product_id' =>$request->{'shipping_' . $itemNum}, 
-                        'name' =>$request->{'item_name_' . $itemNum}, 
-                        'presentation' =>$request->{'shipping2_' . $itemNum}, 
-                        'quantity' =>$request->{'quantity_' . $itemNum},
-                        'price' => $price
+                        'product_id' => $request->{'shipping_' . $itemNum}, 
+                        'name' => $request->{'item_name_' . $itemNum}, 
+                        'presentation' => $request->{'shipping2_' . $itemNum}, 
+                        'quantity' => $request->{'quantity_' . $itemNum},
+                        'unit_price' => $price,
+                        'price' => $request->{'quantity_' . $itemNum} * $price,
                     ];
                 }
             }
@@ -42,11 +43,13 @@ class CartController extends Controller
         //3guardar en variable de session
         $request->session()->put('itemsList', $itemsList);
        // 4asignar a la vista la variable de sesion
-        return view('Site/checkoutForm', ['items'=> $items]);
+        return view('Site/checkoutForm', ['itemsList'=> $itemsList]);
     }
 
     public function sendOrder(Request $request)
     {
+
+       // dd('holaaa');
         /*
         2 levantar el carrito de la sesion    
         4 envio de mail con aviso
