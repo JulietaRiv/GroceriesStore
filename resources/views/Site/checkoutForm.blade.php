@@ -29,7 +29,7 @@
                 <input value="{{ old('name') }}" name="name" class="form-control" type="text" placeholder="Nombre Apellido">
             <br>
             <label>Dirección de envío</label>
-                <input value="{{ old('adress') }}" name="adress" class="form-control" type="text" placeholder="Calle n°, Localidad, aclaraciones">
+                <input value="{{ old('address') }}" name="address" class="form-control" type="text" placeholder="Calle n°, Localidad, aclaraciones">
             <br>
             <label>Celular</label>
                 <input value="{{ old('cel') }}" name="cel" class="form-control" type="text" placeholder="011 155 555 5555">
@@ -47,7 +47,6 @@
                 <label>Tu opinión nos importa!</label>
                     <textarea name="message" class="form-control" rows="4" placeholder="Dejanos un mensaje ...">{{ old('message') }}</textarea>
             </div>
-            <input id="orderList" name="orderList" type="hidden"/>
             <input id="cmd" name="cmd" value="false" type="hidden"/>
             <button onclick="sendOrder();" type="button" class="btn btn-success">Finalizar</button>
             <br>
@@ -81,18 +80,18 @@
                             @endphp
                             <tr>    
                                 <td>{{ $item['name'] }}</td>
-                                <td>{{ $item['quantity'] }}</td>
-                                <td>${{ $item['unit_price'] }}</td>
-                                <td>${{ $item['price'] }}</td>
+                                <td style="text-align:right;">{{ $item['quantity'] }}</td>
+                                <td style="text-align:right;">${{ $item['unit_price'] }}</td>
+                                <td style="text-align:right;">${{ $item['price'] }}</td>
                             </tr>
                             @endforeach
                         </tbody>
                         <tfoot>
                             <tr>
                                 <td>Precio final</td>
-                                <td>{{ $unidades }}</td>
+                                <td style="text-align:right;">{{ $unidades }}</td>
                                 <td></td>
-                                <td>${{ $total }}</td>
+                                <td style="text-align:right; font-weight:bold;">${{ $total }}</td>
                             </tr>
                         </tfoot>
                     </table>
@@ -109,11 +108,6 @@
 
 @section('js')
 	<script> 
-    
-    $(document).ready(function() 
-    {   
-        $("#itemsList").val($itemsList);
-    });
 
         function thanksForPurchase()
         {

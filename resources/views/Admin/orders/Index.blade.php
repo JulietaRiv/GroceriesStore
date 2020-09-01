@@ -32,7 +32,7 @@
                     <td>{{ $order->id }}</td>    
                     <td>{{ $order->name }}</td>
                     <td>{{ $order->cel }}</td>
-                    <td>{{ $order->adress }}</td>    
+                    <td>{{ $order->address }}</td>    
                     <td>{{ $order->payment_method }}</td>
                     <td></td>
                     <td></td>
