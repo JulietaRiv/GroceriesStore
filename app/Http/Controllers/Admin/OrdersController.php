@@ -15,7 +15,7 @@ class OrdersController extends Controller
 {
     public function index()
     {
-        $orders = Order::where('id', '!=', '')->get();
+        $orders = Order::where('id', '!=', '')->orderBy('id', 'desc')->get();
         return view ("Admin/orders/Index", ["orders" => $orders]);
     }
 

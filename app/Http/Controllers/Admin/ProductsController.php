@@ -13,6 +13,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\productForm;
+use DateTime;
 
 
 class ProductsController extends Controller
@@ -175,7 +176,6 @@ class ProductsController extends Controller
             $product->save();
             $product->slug_name = Str::of($product->name)->slug('-') . '-' . $product->id;
             $product->save();
-            $product->update();
             return redirect()->route("products")->with('success', 'Excelente, registro guardado!');
         }
     }

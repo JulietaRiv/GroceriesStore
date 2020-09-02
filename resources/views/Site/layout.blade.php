@@ -48,12 +48,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- header -->
 <div class="agileits_header">
 		<div class="container">
-			<div class="agile-login">
-				<ul>
-					<li><a href="registered.html"> Create Account </a></li>
-					<li><a href="login.html">Login</a></li>			
-				</ul>
-			</div>
 			<div class="product_list_header">  
 					<form action="#" method="post" class="last"> 
 						<input type="hidden" name="cmd" value="_cart">

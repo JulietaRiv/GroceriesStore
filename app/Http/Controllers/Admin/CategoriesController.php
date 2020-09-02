@@ -14,7 +14,7 @@ class CategoriesController extends Controller
 {
     public function index()
     {
-        $categories = Category::where('active', 1)->get();
+        $categories = Category::where('active', 1)->orderBy('name')->get();
         return view ("Admin/categories/Index", ["categories" => $categories]);
     }
 

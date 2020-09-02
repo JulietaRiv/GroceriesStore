@@ -83,7 +83,7 @@ class SiteController extends Controller
             $products = $products->where('category_id', $category->id);
             $colmd = 4;
             $cols = 3;
-            $categories = Category::where('active', 1)->get();
+            $categories = Category::where('active', 1)->orderBy('name')->get();
         }
         $products = $products->orderBy(session('orderField'), session('orderDirection'));
         $products = $products->paginate(session('items') * $cols);

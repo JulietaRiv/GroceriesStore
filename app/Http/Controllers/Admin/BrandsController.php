@@ -13,7 +13,7 @@ class BrandsController extends Controller
 {
     public function index()
     {
-        $brands = Brand::where('active', 1)->get();
+        $brands = Brand::where('active', 1)->orderBy('name')->get();
         return view ("Admin/brands/Index", ["brands" => $brands]);
     }
 
