@@ -66,6 +66,7 @@ Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {
         Route::get('/index', "OrdersController@index")->name("orders");
         Route::get('/detail/{id}', "OrdersController@detail")->name("ordersDetail");
         Route::get('/edit/{id}', "OrdersController@edit")->name("ordersEdit");
+        Route::get('/delete/{id}', "OrdersController@delete")->name("ordersDelete");
     });
 
 });

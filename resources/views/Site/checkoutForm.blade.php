@@ -11,7 +11,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-md-6">
+    <div style="padding-left:5%;" class="col-md-6">
         <div id="offers" class="newproducts-w3agile">
             <h3 style="text-align:center;">Finalizar compra</h3>
         </div>
@@ -53,7 +53,7 @@
             <br>
         </form>
     </div>
-    <div class="col-md-6">
+    <div style="padding-right:5%;" class="col-md-6">
         <div id="offers" class="newproducts-w3agile">
             <h3 style="text-align:center;">Pedido</h3>
         </div>

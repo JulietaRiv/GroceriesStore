@@ -26,7 +26,7 @@ class ProductsController extends Controller
             $products = $products->search($search)->paginate(10);
             $links = $products->appends(['search' => $search])->links();
         } else {
-            $products = $products->paginate(10); 
+            $products = $products->paginate(30); 
             $links = $products->links();     
         }
         return view('Admin/products/Index', ['products' => $products, 'search' => $search, 'links'=>$links]);

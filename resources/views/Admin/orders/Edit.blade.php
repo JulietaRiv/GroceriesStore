@@ -46,15 +46,12 @@
                 <label>Tu opinión nos importa!</label>
                     <textarea name="message" class="form-control" rows="4" placeholder="Dejanos un mensaje ...">{{ $order->message }}</textarea>
             </div>
-            <input id="cmd" name="cmd" value="false" type="hidden"/>
-            <button onclick=";" type="button" class="btn btn-success">Guardar</button>
-            <br>
             <br>
         </form>
     </div>
-    <div class="col-md-6">
+    <div style="padding-right:3%;" class="col-md-6">
         <div id="offers" class="newproducts-w3agile">
-            <h3 style="text-align:center;">Pedido</h3>
+            <h3 style="text-align:center;">Items</h3>
         </div>
             <div id="showOrderList">
                 <div class="box-body no-padding">
@@ -77,12 +74,13 @@
                                 $total += $item['price'];
                                 $unidades += $item['quantity'];
                             @endphp
-                            <tr>    
+                            <tr>   
                                 <td>{{ $item['name'] }}</td>
-                                <td style="text-align:right;"><input type="text" value="{{ $item['quantity'] }}" id="quantity" name="quantity"/></td>
-                                <td style="text-align:right;" value="{{ $item['unit_price'] }}" id="unit_price" name="unit_price">${{ $item['unit_price'] }}</td>
-                                <td style="text-align:right;" value="{{ $item['price'] }}" id="price" name="price">${{ $item['price'] }}</td>
-                            </tr>
+                                <td style="text-align:right;"><input style="width:40px;" type="text" id="units" value="{{ $item['quantity'] }},{{$item['product_id']}}" name="quantity"/></td>
+                                <td style="text-align:right;" value="{{ $item['unit_price'] }}" name="unit_price">${{ $item['unit_price'] }}</td>
+                                <td style="text-align:right;" value="{{ $item['price'] }}" name="price">${{ $item['price'] }}</td>
+                                <td value="{{$item['product_id']}}" id="deleteItem"><span class="badge bg-red">Eliminar</span></td>
+                            </tr>           
                             @endforeach
                         </tbody>
                         <tfoot>
@@ -94,11 +92,24 @@
                             </tr>
                         </tfoot>
                     </table>
-                    <button type="button" onclick="recalculate();" class="btn btn-primary">Recalcular</button>
+                    <br>
+                    <br>
+                    <label>
+                        <input type="checkbox">  &nbsp Armado
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox">  &nbsp Entregado
+                    </label>
                 </div>
             </div>      
-    </div>
+    </div>  
+    <br>
+    <button onclick="" type="button" class="btn btn-success">Guardar</button>
 </div>
+<br>
+<br>
+<br>
 
 
 @stop
@@ -110,11 +121,35 @@
 @section('js')
     <script>
 
-        function recalculate()
-        {
-            $("#price").val() = $("#quantity").val() * $("#unit_price").val();
-            $("#total_units").val() = '';
-        }
+    $("#deleteItem").onchange = function()
+    {   
+        let newItems = [];
+        items.forEach(function(item){
+            if (item['product_id'] != $("#deleteItem").val()){
+                newItems.push(item);
+            }
+        })
+        items = newItems;
+        recalculate(items);
+    };
+
+    $("#units").onchange = function()
+    {
+        let units = $("#units").val().slice(0, ',');
+        let prod_id =  $("#units").val().slice(',');
+        items.forEach(function(item){
+            if (item['product_id'] == prod_id){
+                item['quantity'] = units; 
+                item['price'] = units * item['unit_price'];
+            }
+        })
+        recalculate(items);
+    };
+
+    function recalculate(items)
+    {
+        //volver a renderizarlo y a calcular el total de unidades y de precio
+    }
 
     </script>
 @stop

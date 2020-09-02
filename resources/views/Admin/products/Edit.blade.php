@@ -37,8 +37,7 @@
                   <label>Categoría</label>
                   <select name="category_id" class="form-control">
                   @foreach ( $categories as $category )         
-                    <option @if ( $category->id == '' ) value="{{$category->id}}" style="display:none;" @else selected @endif>{{ $category->name }}</option>      
-                    <option value="{{$category->id}}">{{ $category->name }}</option>
+                    <option value="{{$category->id}}" @if ( $category->id == $product->category_id )  selected @endif>{{ $category->name }}</option>      
                   @endforeach
                   </select>
                 </div>
@@ -46,8 +45,7 @@
                   <label>Marca</label>
                   <select name="brand_id" class="form-control">
                     @foreach ( $brands as $brand )
-                    <option @if ( $brand->id == '' ) value="{{$brand->id}}" style="display:none;" @else selected @endif>{{ $brand->name }}</option>
-                    <option value="{{$brand->id}}">{{ $brand->name }}</option>
+                    <option value="{{$brand->id}}" @if ( $brand->id == $product->brand_id ) selected @endif>{{ $brand->name }}</option>
                     @endforeach
                   </select>
                 </div>
@@ -80,7 +78,7 @@
                   </label>
                 </div>
                 <br>
-                <button onclick="presentationForm()" id="cargarPres" name="cargarPres"  type="button" class="btn btn-primary">Cargar presentaciones</button>
+                <button onclick="showPresForm(false); return false;" id="cargarPres" name="cargarPres"  type="button" class="btn btn-primary">Cargar presentaciones</button>
                 <br>
                 <hr>
                 <div id="presentationsAdded" class="box">        

@@ -58,8 +58,7 @@
                     <a href="/admin/products/delete/{{ $product->id }}"><span class="badge bg-red">Eliminar</span></a></td>
                 </tr>
                 @endforeach
-                </tbody>
-                
+                </tbody>           
             </table>
             </div>
             <div class="box-footer clearfix">

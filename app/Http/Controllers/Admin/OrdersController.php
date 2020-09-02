@@ -15,8 +15,9 @@ class OrdersController extends Controller
 {
     public function index()
     {
-        $orders = Order::where('id', '!=', '')->orderBy('id', 'desc')->get();
-        return view ("Admin/orders/Index", ["orders" => $orders]);
+        $orders = Order::where('id', '!=', '')->orderBy('id', 'desc')->paginate(30);
+        $links = $orders->links();
+        return view ("Admin/orders/Index", ["orders" => $orders, 'links'=>$links]);
     }
 
     public function delete ($id)
@@ -33,14 +34,14 @@ class OrdersController extends Controller
     {
         $order = Order::where('id', $id)->first();
         $items = json_decode($order->items, true);
-        return view ("Admin/orders/Detail", ["order" => $order, 'items'=>$items] );
+        return view ("Admin/orders/Detail", ["order" => $order, 'items'=>$items]);
     }
 
     public function edit($id)
     {
         $order = Order::where('id', $id)->first();
         $items = json_decode($order->items, true);
-        return view ("Admin/orders/Edit", ["order" => $order, 'items'=>$items] );
+        return view ("Admin/orders/Edit", ["order" => $order, 'items'=>$items]);
     }
 
 }

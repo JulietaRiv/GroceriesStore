@@ -110,11 +110,13 @@
 
 
 <script>
-@if (old('presentations') != '')
-let presentations = {!!old('presentations')!!};
-@else 
-let presentations = [];
-@endif
+
+
+  @if (old('presentations') != '')
+  let presentations = {!!old('presentations')!!};
+  @else 
+  let presentations = [];
+  @endif
 
 
 </script>

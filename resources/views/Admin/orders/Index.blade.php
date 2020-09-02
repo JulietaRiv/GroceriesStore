@@ -12,7 +12,8 @@
         <div class="box-header with-border">
         <h3 class="box-title">Pedidos</h3>
         <br>
-        <h4><a href="/admin/categories/add"><span class="badge bg-green">Agregar +</span></a></h4>
+        <div><a href="/admin/categories/add"><span class="badge bg-green"><i class="fa fa-plus"></i>Agregar</span></a>
+        <a href=""><span class="badge bg-blue"><i class="fa fa-download"></i>Exportar</span></a></div>
         </div>  
             <div class="box-body">
             <table class="table table-bordered">
@@ -45,13 +46,7 @@
             </table>
             </div>
             <div class="box-footer clearfix">
-            <ul class="pagination pagination-sm no-margin pull-right">
-                <li><a href="#">«</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">»</a></li>
-            </ul>
+                {!! $links !!}
             </div>
     </div>
 
