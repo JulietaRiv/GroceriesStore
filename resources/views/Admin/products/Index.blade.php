@@ -13,14 +13,13 @@
         <h3 class="box-title">Productos</h3>
         <br>
         <h4><a href="/admin/products/add"><span class="badge bg-green">Agregar +</span></a></h4>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+        @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
             </div>
+        @endif
+        @if($errors->any())
+            <h4>{{$errors->first()}}</h4>
         @endif
             <form style="position:absolute; right:5px;" id="searchForm" action="{{Route('products')}}" method="get">
                 <input value="{{$search ?? ''}}" type="search" name="search" placeholder="Buscar...">
