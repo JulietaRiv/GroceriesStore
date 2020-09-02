@@ -16,6 +16,16 @@
         <a href=""><span class="badge bg-blue"><i class="fa fa-download"></i>Exportar</span></a></div>
         </div>  
             <div class="box-body">
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <p>Corrige los siguientes errores:</p>
+                    <ul>
+                        @foreach ($errors->all() as $message)
+                            <li>{{ $message }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <table class="table table-bordered">
                 <tbody>
                 <tr>

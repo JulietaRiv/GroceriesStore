@@ -13,6 +13,15 @@
         <h3 class="box-title">Productos</h3>
         <br>
         <h4><a href="/admin/products/add"><span class="badge bg-green">Agregar +</span></a></h4>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
             <form style="position:absolute; right:5px;" id="searchForm" action="{{Route('products')}}" method="get">
                 <input value="{{$search ?? ''}}" type="search" name="search" placeholder="Buscar...">
                 <button type="submit"  class="btn btn-default search" aria-label="Left Align">
@@ -69,7 +78,7 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="">
 @stop
 
 @section('js')

@@ -26,7 +26,7 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="">
 @stop
 
 @section('js')
