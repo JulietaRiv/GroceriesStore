@@ -256,7 +256,7 @@ class ProductsController extends Controller
                 ];
             }
         }
-     //no me fue posible enviar ordenado ni ordenar en blade y me harte
+        $nuevoProducts = collect($nuevoProducts)->sortBy('stock');
         return view('Admin/products/ProductStock', ['nuevoProducts'=>$nuevoProducts]);
     }
 

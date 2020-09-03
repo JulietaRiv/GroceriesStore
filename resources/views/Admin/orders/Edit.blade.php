@@ -64,43 +64,27 @@
                                 <th>Precio</th>
                             </tr>
                         </thead>  
-                        <tbody>
-                            @php
-                                $total = 0;
-                                $unidades = 0;
-                            @endphp
-                            @foreach ( $items as $item )
-                            @php
-                                $total += $item['price'];
-                                $unidades += $item['quantity'];
-                            @endphp
-                            <tr>   
-                                <td>{{ $item['name'] }}</td>
-                                <td style="text-align:right;"><input style="width:40px;" type="text" id="units" value="{{ $item['quantity'] }},{{$item['product_id']}}" name="quantity"/></td>
-                                <td style="text-align:right;" value="{{ $item['unit_price'] }}" name="unit_price">${{ $item['unit_price'] }}</td>
-                                <td style="text-align:right;" value="{{ $item['price'] }}" name="price">${{ $item['price'] }}</td>
-                                <td value="{{$item['product_id']}}" id="deleteItem"><span class="badge bg-red">Eliminar</span></td>
-                            </tr>           
-                            @endforeach
+                        <tbody id="itemsList">
                         </tbody>
                         <tfoot>
                             <tr>
                                 <td>Precio final</td>
-                                <td style="text-align:right;" id="total_units">{{ $unidades }}</td>
+                                <td style="text-align:right;" id="total_units"></td>
                                 <td></td>
-                                <td style="text-align:right; font-weight:bold;" id="total_price">${{ $total }}</td>
+                                <td style="text-align:right; font-weight:bold;" id="total_price"></td>
                             </tr>
                         </tfoot>
                     </table>
                     <br>
                     <br>
-                    <label>
-                        <input type="checkbox">  &nbsp Armado
-                    </label>
-                    <br>
-                    <label>
-                        <input type="checkbox">  &nbsp Entregado
-                    </label>
+                    <div class="form-group">
+                        <label>Estado</label>
+                        <select class="form-control">
+                            <option>Pendiente</option>
+                            <option>Armado</option>
+                            <option>Entregado</option>
+                        </select>
+                </div>
                 </div>
             </div>      
     </div>  
@@ -121,34 +105,51 @@
 @section('js')
     <script>
 
-    $("#deleteItem").onchange = function()
-    {   
-        let newItems = [];
-        items.forEach(function(item){
-            if (item['product_id'] != $("#deleteItem").val()){
-                newItems.push(item);
-            }
-        })
-        items = newItems;
-        recalculate(items);
-    };
+    window.onload = function () {
+        renderItems();
+    }
 
-    $("#units").onchange = function()
-    {
-        let units = $("#units").val().slice(0, ',');
-        let prod_id =  $("#units").val().slice(',');
-        items.forEach(function(item){
-            if (item['product_id'] == prod_id){
-                item['quantity'] = units; 
-                item['price'] = units * item['unit_price'];
-            }
-        })
-        recalculate(items);
-    };
+    @if ($order->items != '')
+    let items = {!! json_encode($order->items) !!};
+    @else 
+    let items = [];
+    @endif
 
-    function recalculate(items)
+    function deleteItem(index)
     {
-        //volver a renderizarlo y a calcular el total de unidades y de precio
+        items.splice(index, 1);
+        renderItems();
+    }
+
+    function quantity(index, quantity)
+    {
+        items[index]['quantity'] = quantity;
+        renderItems();
+    }
+
+    function renderItems()
+    {
+        let total_price2 = 0;
+        let total_units = 0;
+        let html = "";
+        items.forEach(function(item, i){
+            item['price'] = item['quantity'] * item['unit_price'];
+            total_price2 += item['price'];
+            total_units += item['quantity'] * 1;
+            html += `
+        <tr>   
+            <td>${ item['name'] }</td>
+            <td style="text-align:right;"><input style="width:40px;" type="text" id="units" onchange="quantity(${i}, this.value);" value="${ item['quantity'] }"/></td>
+            <td style="text-align:right;">${ item['unit_price'] }</td>
+            <td style="text-align:right;">${ item['price'] }</td>
+            <td><a href="javascript:void deleteItem(${i});" ><span class="badge bg-red">Eliminar</span></a></td>
+        </tr>           
+        `;
+        });
+        $("#itemsList").html(html);
+        $("#total_price").html(total_price2);
+        $("#total_units").html(total_units);
+        console.log(total_price2);
     }
 
     </script>

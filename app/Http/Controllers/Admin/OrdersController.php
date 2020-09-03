@@ -40,8 +40,7 @@ class OrdersController extends Controller
     public function edit($id)
     {
         $order = Order::where('id', $id)->first();
-        $items = json_decode($order->items, true);
-        return view ("Admin/orders/Edit", ["order" => $order, 'items'=>$items]);
+        return view ("Admin/orders/Edit", ["order" => $order]);
     }
 
 }

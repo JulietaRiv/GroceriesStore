@@ -8,4 +8,8 @@ class order extends Model
 {
     protected $table = 'orders';
 
+    protected $casts = [
+        'items' => 'array'
+    ];
+
 }

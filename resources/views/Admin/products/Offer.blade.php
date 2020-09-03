@@ -32,7 +32,7 @@
                     </tr>
                     @foreach ( $offerProducts as $offerProduct )        
                     <tr>
-                        <td style="width:5"><input type="checkbox" onclick="selectProduct(this)" value="{{$offerProduct->id}}" name="order"/><span id="orderNum{{$offerProduct->id}}"></span></td>
+                        <td style="width:5"><input type="checkbox" onclick="selectProduct(this);" value="{{$offerProduct->id}}" name="order"/><span id="orderNum{{$offerProduct->id}}"></span></td>
                         <td>{{ $offerProduct->name }}</td>
                         <td>{{ $offerProduct->category->name }}</td>
                         <td>{{ $offerProduct->brand->name }}</td>

@@ -20,17 +20,17 @@ class CartController extends Controller
             $claves = array_keys($request->all());
             $itemsList = [];
             foreach ($claves as $clave) {
-                $itemNum = substr($clave, -1);
-                if (!$itemsList . $itemNum) {
+                $itemNum = explode('_', $clave);
+                if ($itemNum = array_pop($itemNum)) {
                     if (is_numeric($itemNum)) {
                         $price = 0;
-                        $product = Product::where('id', $request->{'shipping_' . $itemNum})->first();
+                        if ($product = Product::where('id', $request->{'shipping_' . $itemNum})->first()){
                         foreach ($product->presentations as $presentation) {
                             if ($presentation['presentation'] == $request->{'shipping2_' . $itemNum}) {
                                 $price = $presentation['price'];
                             }
                         }
-                        $itemsList[$itemNum] = [
+                        $itemsList[$itemNum - 1] = [
                             'product_id' => $request->{'shipping_' . $itemNum},
                             'name' => $request->{'item_name_' . $itemNum},
                             'presentation' => $request->{'shipping2_' . $itemNum},
@@ -38,9 +38,11 @@ class CartController extends Controller
                             'unit_price' => $price,
                             'price' => $request->{'quantity_' . $itemNum} * $price,
                         ];
+                    } 
                     }
                 }
             }
+            
             //3guardar en variable de session
             $request->session()->put('itemsList', $itemsList);
         } else {
@@ -70,10 +72,9 @@ class CartController extends Controller
             $order->cel = $request->input('cel');
             $order->payment_method = $request->input('payment_method');
             $order->comment = $request->input('message');
-            $order->items = json_encode($request->session()->get('itemsList'));
+            $order->items = $request->session()->get('itemsList');
             $order->save();
             //aca mostrar gracias x tu compra!
-            
             return redirect()->route('index');
         }
     }
