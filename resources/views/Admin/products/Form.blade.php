@@ -28,7 +28,7 @@
           </div>
         @endif
             <div id="totalForm">
-            <form id="prodForm" method="post" action="{{route('productsStore')}}" name="prodForm" role="form">
+            <form id="prodForm" method="post" action="{{route('productsStore')}}" enctype="multipart/form-data" name="prodForm" role="form">
             @csrf            
                 <label>Nombre</label>
                 <input id="productName" class="form-control input-lg" value="{{ old('name') }}" name="name" type="text">
@@ -54,7 +54,7 @@
                 <br>
                 <div class="form-group">
                   <label for="InputFile">Foto</label>
-                  <input id="photo" name="photo" type="file" value="{{ old('photo') }}">
+                  <input id="image" name="image" type="file" value="">
                 </div>
                 <label>Descripción</label>
                 <input id="description" name="description" class="form-control input-lg" type="text" value="{{ old('description') }}">

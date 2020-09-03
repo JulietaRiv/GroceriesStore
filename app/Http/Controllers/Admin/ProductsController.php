@@ -8,6 +8,7 @@ use App\Category;
 use App\Brand;
 use App\Offer;
 use App\Highlighted;
+use App\storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
@@ -44,6 +45,7 @@ class ProductsController extends Controller
             'category_id' => 'required',
             'brand_id' => 'required',
             'presentations' => 'required',
+            'image' => 'mimes:jpeg,png|max:1024',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
@@ -61,7 +63,9 @@ class ProductsController extends Controller
             $product->organic = data_get($request, 'organic', 0);
             $product->agroecological = data_get($request, 'agroecological', 0);
             $product->vegan = data_get($request, 'vegan', 0);
-            //$product->photo = $request->hasFile('image')->isValid();
+            $extension = $request->image->extension();
+            $product->photo = Str::of($product->name)->slug('-').".".$extension;
+            $request->image->storeAs('/images/products', $product->photo, 'public');
             $stock = 0;
             $product->offer = 0;
             $product->highlighted = 0;
@@ -121,6 +125,7 @@ class ProductsController extends Controller
             $product->organic = \Illuminate\Support\Facades\Request::old('organic') != null ? '1' : '0';
             $product->agroecological = \Illuminate\Support\Facades\Request::old('agroecological') != null ? '1' : '0';
             $product->vegan = \Illuminate\Support\Facades\Request::old('vegan') != null ? '1' : '0';
+            $product->photo = \Illuminate\Support\Facades\Request::old('photo');
         }
         return view("Admin/products/Edit", ['product' => $product, 'brands' => $brands, 'categories' => $categories]);
     }
@@ -134,6 +139,7 @@ class ProductsController extends Controller
             'category_id' => 'required',
             'brand_id' => 'required',
             'presentations' => 'required',
+            'image' => 'mimes:jpeg,png|max:1024',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
@@ -151,7 +157,9 @@ class ProductsController extends Controller
             $product->organic = data_get($request, 'organic', 0);
             $product->agroecological = data_get($request, 'agroecological', 0);
             $product->vegan = data_get($request, 'vegan', 0);
-            //$product->photo = $request->hasFile('image')->isValid();
+            $extension = $request->image->extension();
+            $product->photo = Str::of($product->name)->slug('-').".".$extension;
+            $request->image->storeAs('/images/products', $product->photo, 'public');
             $stock = 0;
             $product->offer = 0;
             $product->highlighted = 0;

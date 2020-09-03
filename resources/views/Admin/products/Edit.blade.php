@@ -52,7 +52,7 @@
                 <br>
                 <div class="form-group">
                   <label for="InputFile">Foto</label>
-                  <input id="photo" name="photo" type="file" value="">
+                  <input id="image" name="image" type="file" value="{{$product->photo}}">
                 </div>
                 <label>Descripción</label>
                 <input id="description" name="description" class="form-control input-lg" type="text" value="{{$product->description}}">
@@ -94,6 +94,8 @@
                 <input type="hidden" id="productId" name="productId" value="{{$product->id}}"/>
                 <input type="hidden" id="presentations" name="presentations" value=""/>      
             </form>
+            <br>
+            <br>
         </div>
 </div>
 
