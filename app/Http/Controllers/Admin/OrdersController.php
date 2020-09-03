@@ -17,7 +17,8 @@ class OrdersController extends Controller
     {
         $orders = Order::where('id', '!=', '')->orderBy('id', 'desc')->paginate(30);
         $links = $orders->links();
-        return view ("Admin/orders/Index", ["orders" => $orders, 'links'=>$links]);
+        $status = 'pendiente';
+        return view ("Admin/orders/Index", ["orders" => $orders, 'links'=>$links, 'status'=>$status]);
     }
 
     public function delete ($id)
@@ -41,6 +42,23 @@ class OrdersController extends Controller
     {
         $order = Order::where('id', $id)->first();
         return view ("Admin/orders/Edit", ["order" => $order]);
+    }
+
+    public function update(Request $request)
+    {
+        
+        $order = Order::where('id', $request->input('orderId'))->get();
+        $order->name = $request->input('name2');
+        $order->address = $request->input('address2');
+        $order->cel = $request->input('cel2');
+        $order->payment_method = $request->input('payment_method2');
+        $order->comment = $request->input('message2');
+        $order->status = $request->session()->get('status');
+        $order->items = $request->session()->get('itemsList2');
+        $order->total_units = $request->session()->get('totalUnits');
+        $order->total_price = $request->session()->get('totalPrice');
+        $order->save();
+        return redirect()->route("orders")->with('success', 'Excelente, registro guardado!');
     }
 
 }

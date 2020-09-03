@@ -20,7 +20,10 @@ class createOrdersTable extends Migration
             $table->string('cel');
             $table->string('payment_method');
             $table->text('comment')->nullable();
+            $table->string('status')->default('pendiente');
             $table->text('items');
+            $table->integer('total_units')->nullable();
+            $table->integer('total_price')->nullable();
             $table->timestamps();
         });
     }

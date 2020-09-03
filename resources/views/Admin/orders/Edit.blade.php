@@ -22,20 +22,20 @@
                 </ul>
             </div>
         @endif
-        <form role="form" id="orderEdit" name="orderEdit" method="post" action="{{Route('ordersEdit', [$order->id])}}" style="margin-right:80px; margin-left:80px;">
+        <form role="form" id="orderEdit" name="orderEdit" method="post" action="{{Route('ordersUpdate')}}" style="margin-right:80px; margin-left:80px;">
         @csrf
             <label>Nombre completo</label>
-                <input value="{{ $order->name }}" name="name" class="form-control" type="text" placeholder="Nombre Apellido">
+                <input value="{{ $order->name }}" name="name2" class="form-control" type="text" placeholder="Nombre Apellido">
             <br>
             <label>Dirección de envío</label>
-                <input value="{{ $order->address }}" name="address" class="form-control" type="text" placeholder="Calle n°, Localidad, aclaraciones">
+                <input value="{{ $order->address }}" name="address2" class="form-control" type="text" placeholder="Calle n°, Localidad, aclaraciones">
             <br>
             <label>Celular</label>
-                <input value="{{ $order->cel }}" name="cel" class="form-control" type="text" placeholder="011 155 555 5555">
+                <input value="{{ $order->cel }}" name="cel2" class="form-control" type="text" placeholder="011 155 555 5555">
             <br>
             <div class="form-group">
                 <label>Seleccionar Medio de pago</label>
-                    <select name="payment_method" class="form-control">
+                    <select name="payment_method2" class="form-control">
                         <option value="efectivo" @if ( $order->payment_method == 'efectivo' ) selected @endif>Efectivo</option>
                         <option value="mercadoPago" @if ( $order->payment_method == 'mercadoPago' ) selected @endif>Mercado Pago</option>
                         <option value="transferencia" @if ( $order->payment_method == 'transferencia' ) selected @endif>Transferencia bancaria</option>
@@ -44,7 +44,7 @@
             <br>
             <div class="form-group">
                 <label>Tu opinión nos importa!</label>
-                    <textarea name="message" class="form-control" rows="4" placeholder="Dejanos un mensaje ...">{{ $order->message }}</textarea>
+                    <textarea name="message2" class="form-control" rows="4" placeholder="Dejanos un mensaje ...">{{ $order->message }}</textarea>
             </div>
             <br>
         </form>
@@ -64,7 +64,7 @@
                                 <th>Precio</th>
                             </tr>
                         </thead>  
-                        <tbody id="itemsList">
+                        <tbody id="itemsList2">
                         </tbody>
                         <tfoot>
                             <tr>
@@ -79,17 +79,21 @@
                     <br>
                     <div class="form-group">
                         <label>Estado</label>
-                        <select class="form-control">
-                            <option>Pendiente</option>
-                            <option>Armado</option>
-                            <option>Entregado</option>
+                        <select id="status" class="form-control">
+                            <option value="pendiente" @if ( $order->status == 'pendiente' ) selected @endif>Pendiente</option>
+                            <option value="armado"  @if ( $order->status == 'armado' ) selected @endif>Armado</option>
+                            <option value="entregado"  @if ( $order->status == 'entregado' ) selected @endif>Entregado</option>
                         </select>
-                </div>
+                    </div>
+                    <input id="totalPrice" name="totalPrice" value="" type="hidden"/>
+                    <input id="totalUnits" name="totalUnits" value="" type="hidden"/>
+                    <input type="hidden" name="orderId" value="{{ $order->id }}"/>
+                    <input type="hidden" name="items" value=""/>
                 </div>
             </div>      
     </div>  
     <br>
-    <button onclick="" type="button" class="btn btn-success">Guardar</button>
+    <button onclick="guardarItems(); $('#orderEdit').submit();" type="submit" class="btn btn-success">Guardar</button>
 </div>
 <br>
 <br>
@@ -139,17 +143,23 @@
             html += `
         <tr>   
             <td>${ item['name'] }</td>
-            <td style="text-align:right;"><input style="width:40px;" type="text" id="units" onchange="quantity(${i}, this.value);" value="${ item['quantity'] }"/></td>
+            <td style="text-align:right;"><input style="width:40px;" type="text" onchange="quantity(${i}, this.value);" value="${ item['quantity'] }"/></td>
             <td style="text-align:right;">${ item['unit_price'] }</td>
             <td style="text-align:right;">${ item['price'] }</td>
             <td><a href="javascript:void deleteItem(${i});" ><span class="badge bg-red">Eliminar</span></a></td>
         </tr>           
         `;
         });
-        $("#itemsList").html(html);
+        $("#itemsList2").html(html);
         $("#total_price").html(total_price2);
+        $("#totalPrice").val(total_price2);
         $("#total_units").html(total_units);
-        console.log(total_price2);
+        $("#totalUnits").val(total_units);
+    }
+
+    function guardarItems()
+    {
+        $("#items").val(JSON.stringify(items));
     }
 
     </script>

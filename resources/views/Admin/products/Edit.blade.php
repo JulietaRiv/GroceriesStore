@@ -89,7 +89,7 @@
                   <div id="presentationContent" class="box-body"></div>           
                 </div>
                 <br>
-                <button onclick="$('#prodForm').submit();" type="submit" class="btn btn-success">Guardar</button>
+                <button type="submit" class="btn btn-success">Guardar</button>
                 <br>
                 <input type="hidden" id="productId" name="productId" value="{{$product->id}}"/>
                 <input type="hidden" id="presentations" name="presentations" value=""/>      

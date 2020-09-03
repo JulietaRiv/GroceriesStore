@@ -47,7 +47,6 @@
                 <label>Tu opinión nos importa!</label>
                     <textarea name="message" class="form-control" rows="4" placeholder="Dejanos un mensaje ...">{{ old('message') }}</textarea>
             </div>
-            <input id="cmd" name="cmd" value="false" type="hidden"/>
             <button onclick="sendOrder();" type="button" class="btn btn-success">Finalizar</button>
             <br>
             <br>
@@ -127,7 +126,6 @@
                 url: "{{Route('cartSendOrder')}}",      
                 data : $('#checkoutForm2').serialize()
             }).done(function(response) {
-                console.log('ok');
                 document.body.innerHTML = response;
             });
         }
