@@ -181,6 +181,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	if (~window.location.search.indexOf('reset=true')) {
 		paypal.minicart.reset();
 	}
+
+	function thanksForPurchase()
+{
+    Swal.fire({
+    title: "Muchas gracias por tu compra!",
+    text: "Proximamente nos estaremos contactando con vos.",
+    confirmButtonText: "Ok", 
+    closeOnConfirm: true,
+    });
+    paypal.minicart.reset();
+}
 </script>
 <!-- main slider-banner -->
 <script src="/site/js/skdslider.min.js"></script>

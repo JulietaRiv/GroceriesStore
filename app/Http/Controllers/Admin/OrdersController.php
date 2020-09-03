@@ -45,18 +45,17 @@ class OrdersController extends Controller
     }
 
     public function update(Request $request)
-    {
-        
-        $order = Order::where('id', $request->input('orderId'))->get();
+    {   
+        $order = Order::where('id', $request->input('orderId'))->first();
         $order->name = $request->input('name2');
         $order->address = $request->input('address2');
         $order->cel = $request->input('cel2');
         $order->payment_method = $request->input('payment_method2');
         $order->comment = $request->input('message2');
-        $order->status = $request->session()->get('status');
-        $order->items = $request->session()->get('itemsList2');
-        $order->total_units = $request->session()->get('totalUnits');
-        $order->total_price = $request->session()->get('totalPrice');
+        $order->status = $request->input('status');
+        $order->items = json_decode($request->input('itemsList'), true);
+        $order->total_units = $request->input('totalUnits');
+        $order->total_price = $request->input('totalPrice');
         $order->save();
         return redirect()->route("orders")->with('success', 'Excelente, registro guardado!');
     }

@@ -108,17 +108,6 @@
 @section('js')
 	<script> 
 
-        function thanksForPurchase()
-        {
-            Swal.fire({
-            title: "Muchas gracias por tu compra!",
-            text: "Proximamente nos estaremos contactando con vos.",
-            confirmButtonText: "Ok", 
-            closeOnConfirm: true,
-          });
-            paypal.minicart.reset();
-        }
-
         function sendOrder()
         {
             $.ajax({
@@ -127,6 +116,7 @@
                 data : $('#checkoutForm2').serialize()
             }).done(function(response) {
                 document.body.innerHTML = response;
+                thanksForPurchase();
             });
         }
 

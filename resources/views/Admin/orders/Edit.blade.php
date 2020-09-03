@@ -9,50 +9,50 @@
 @section('content')
 
 
-<div class="row">
-    <div class="col-md-6">
-        <div id="offers" class="newproducts-w3agile">
-            <h3 style="text-align:center;">Editar pedido n° {{ $order->id }}</h3>
+
+<form role="form" id="orderEdit" name="orderEdit" method="post" action="{{Route('ordersUpdate')}}">
+    <div class="row">
+        <div class="col-md-6">
+            <div id="offers" class="newproducts-w3agile">
+                <h3 style="text-align:center;">Editar pedido n° {{ $order->id }}</h3>
+            </div>
+            <br>
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        <p>Todos los campos son requeridos para finalizar la compra!</p>
+                    </ul>
+                </div>
+            @endif         
+            @csrf
+                <label>Nombre completo</label>
+                    <input value="{{ $order->name }}" name="name2" class="form-control" type="text" placeholder="Nombre Apellido">
+                <br>
+                <label>Dirección de envío</label>
+                    <input value="{{ $order->address }}" name="address2" class="form-control" type="text" placeholder="Calle n°, Localidad, aclaraciones">
+                <br>
+                <label>Celular</label>
+                    <input value="{{ $order->cel }}" name="cel2" class="form-control" type="text" placeholder="011 155 555 5555">
+                <br>
+                <div class="form-group">
+                    <label>Seleccionar Medio de pago</label>
+                        <select name="payment_method2" class="form-control">
+                            <option value="efectivo" @if ( $order->payment_method == 'efectivo' ) selected @endif>Efectivo</option>
+                            <option value="mercadoPago" @if ( $order->payment_method == 'mercadoPago' ) selected @endif>Mercado Pago</option>
+                            <option value="transferencia" @if ( $order->payment_method == 'transferencia' ) selected @endif>Transferencia bancaria</option>
+                        </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Tu opinión nos importa!</label>
+                        <textarea name="message2" class="form-control" rows="4" placeholder="Dejanos un mensaje ...">{{ $order->message }}</textarea>
+                </div>
+                <br>
         </div>
-        <br>
-        @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <ul>
-                    <p>Todos los campos son requeridos para finalizar la compra!</p>
-                </ul>
+        <div class="col-md-6">
+            <div id="offers" class="newproducts-w3agile">
+                <h3 style="text-align:center;">Items</h3>
             </div>
-        @endif
-        <form role="form" id="orderEdit" name="orderEdit" method="post" action="{{Route('ordersUpdate')}}" style="margin-right:80px; margin-left:80px;">
-        @csrf
-            <label>Nombre completo</label>
-                <input value="{{ $order->name }}" name="name2" class="form-control" type="text" placeholder="Nombre Apellido">
-            <br>
-            <label>Dirección de envío</label>
-                <input value="{{ $order->address }}" name="address2" class="form-control" type="text" placeholder="Calle n°, Localidad, aclaraciones">
-            <br>
-            <label>Celular</label>
-                <input value="{{ $order->cel }}" name="cel2" class="form-control" type="text" placeholder="011 155 555 5555">
-            <br>
-            <div class="form-group">
-                <label>Seleccionar Medio de pago</label>
-                    <select name="payment_method2" class="form-control">
-                        <option value="efectivo" @if ( $order->payment_method == 'efectivo' ) selected @endif>Efectivo</option>
-                        <option value="mercadoPago" @if ( $order->payment_method == 'mercadoPago' ) selected @endif>Mercado Pago</option>
-                        <option value="transferencia" @if ( $order->payment_method == 'transferencia' ) selected @endif>Transferencia bancaria</option>
-                    </select>
-            </div>
-            <br>
-            <div class="form-group">
-                <label>Tu opinión nos importa!</label>
-                    <textarea name="message2" class="form-control" rows="4" placeholder="Dejanos un mensaje ...">{{ $order->message }}</textarea>
-            </div>
-            <br>
-        </form>
-    </div>
-    <div style="padding-right:3%;" class="col-md-6">
-        <div id="offers" class="newproducts-w3agile">
-            <h3 style="text-align:center;">Items</h3>
-        </div>
             <div id="showOrderList">
                 <div class="box-body no-padding">
                     <table class="table table-condensed">
@@ -79,7 +79,7 @@
                     <br>
                     <div class="form-group">
                         <label>Estado</label>
-                        <select id="status" class="form-control">
+                        <select id="status" name="status" class="form-control">
                             <option value="pendiente" @if ( $order->status == 'pendiente' ) selected @endif>Pendiente</option>
                             <option value="armado"  @if ( $order->status == 'armado' ) selected @endif>Armado</option>
                             <option value="entregado"  @if ( $order->status == 'entregado' ) selected @endif>Entregado</option>
@@ -88,14 +88,15 @@
                     <input id="totalPrice" name="totalPrice" value="" type="hidden"/>
                     <input id="totalUnits" name="totalUnits" value="" type="hidden"/>
                     <input type="hidden" name="orderId" value="{{ $order->id }}"/>
-                    <input type="hidden" name="items" value=""/>
+                    <input type="hidden" id="itemsList" name="itemsList" value=""/>
                 </div>
             </div>      
-    </div>  
-    <br>
-    <button onclick="guardarItems(); $('#orderEdit').submit();" type="submit" class="btn btn-success">Guardar</button>
-</div>
-<br>
+        </div>  
+        <br>
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </div>
+</form>
+
 <br>
 <br>
 
@@ -155,11 +156,7 @@
         $("#totalPrice").val(total_price2);
         $("#total_units").html(total_units);
         $("#totalUnits").val(total_units);
-    }
-
-    function guardarItems()
-    {
-        $("#items").val(JSON.stringify(items));
+        $("#itemsList").val(JSON.stringify(items));
     }
 
     </script>

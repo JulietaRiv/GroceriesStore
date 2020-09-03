@@ -74,7 +74,6 @@ class CartController extends Controller
             $order->comment = $request->input('message');
             $order->items = $request->session()->get('itemsList');
             $order->save();
-            //aca mostrar gracias x tu compra!
             return redirect()->route('index');
         }
     }
