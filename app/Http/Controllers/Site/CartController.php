@@ -74,15 +74,16 @@ class CartController extends Controller
             $order->comment = $request->input('message');
             $order->items = $request->session()->get('itemsList');
             $order->save();
-            foreach ($order->items as $item){
+           /* foreach ($order->items as $item){
                 $product = Product::where('id', 'product_id')->get();
+                $product->presentations = json_decode($product->presentations);
                     foreach ($product->presentations as $presentation){
                         if ($product->name .' - '. $presentation['presentation'] == $item['name']){
                             $presentation['stock'] = $presentation['stock'] - $item['quantity'];
                             $product->save();
                         }
                     }
-            } 
+            } */
             return redirect()->route('index');
         }
     }
