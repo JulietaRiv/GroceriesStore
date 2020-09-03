@@ -3,22 +3,42 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App;
 use App\Http\Controllers\Controller;
-use App\Category;
-use App\Product;
 use App\Order;
 use Illuminate\Support\Str;
 
 
 class OrdersController extends Controller
 {
-    public function index()
-    {
-        $orders = Order::where('id', '!=', '')->orderBy('id', 'desc')->paginate(30);
-        $links = $orders->links();
-        $status = 'pendiente';
-        return view ("Admin/orders/Index", ["orders" => $orders, 'links'=>$links, 'status'=>$status]);
+    public function index(Request $request)
+    {      
+        $orders = Order::query()->orderBy('id', 'desc');   
+        $appends = [];
+        if ($request->orderStatus != 'Todos' && $request->orderStatus != null){
+            $orders = $orders->where('status', '=', $request->orderStatus);
+            $appends['orderStatus'] = $request->orderStatus;
+        } 
+        if ($request->orderNum != null){
+            $orders = $orders->where('id', '=', $request->orderNum);
+            $appends['orderNum'] = $request->orderNum;
+        } 
+        if ($request->orderText != null){
+            $orders = $orders->search($request->orderText);
+            $appends['orderText'] = $request->orderText;
+        }
+        $orders = $orders->paginate(30);
+        if (count($appends) > 0){
+            $links = $orders->appends($appends)->links();
+        } else {
+            $links = $orders->links();
+        }
+        return view ("Admin/orders/Index", [
+            "orders" => $orders, 
+            'links'=>$links, 
+            'orderStatus'=> $request->orderStatus,
+            'orderNum' => $request->orderNum,
+            'orderText' => $request->orderText,
+        ]);
     }
 
     public function delete ($id)

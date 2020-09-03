@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App;
 use App\Product;
 use App\Category;
 use App\Brand;
@@ -12,9 +11,6 @@ use App\Highlighted;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\productForm;
-use DateTime;
-
 
 class ProductsController extends Controller
 {

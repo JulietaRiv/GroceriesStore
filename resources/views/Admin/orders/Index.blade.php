@@ -16,10 +16,23 @@
         <a href=""><button class="btn-primary"><i class="fa fa-download"></i>Exportar</button></a></div>
         </div>
         <br>
-        <button onclick="status('pendiente');" class="btn-danger">Pendientes</button>
-        <button onclick="status('armado');" class="btn-warning">Armados</button>
-        <button onclick="status('entregado');" class="btn-primary">Entregados</button>
-        <br>
+        <form id="searchForm" action="{{Route('orders')}}" method="get">
+            <table style="width:100%;">
+                <tbody>
+                    <tr>
+                        <td><select name="orderStatus" style="display:inline;" class="form-control">                                   
+                                <option>Todos</option>
+                                <option value="pendiente" @if ($orderStatus == "pendiente" ) selected @endif>Pendientes</option>
+                                <option value="armado" @if ($orderStatus == "armado" ) selected @endif>Armados</option>
+                                <option value="entregado" @if ($orderStatus == "entregado" ) selected @endif>Entregados</option>
+                            </select></td>
+                        <td><input name="orderNum" value="{{$orderNum}}" style="display:inline;" type="text" class="form-control" placeholder="n° de pedido ..."></td>
+                        <td><input name="orderText" value="{{$orderText}}" style="display:inline;" type="text" class="form-control" placeholder="buscar ..."></td>
+                        <td><button type="submit" class="btn-warning" style="display:inline;"><i class="fa fa-search" aria-hidden="true"> </i>Buscar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
         <br>
             <div class="box-body">
             @if (count($errors) > 0)
@@ -45,7 +58,6 @@
                         <th style="width: 20%">Acción</th>
                     </tr>          
                     @foreach ( $orders as $order)
-                    @if ( $order->status == $status )
                     <tr>
                         <td>{{ $order->id }}</td>    
                         <td>{{ $order->name }}</td>
@@ -58,7 +70,6 @@
                         <a href="/admin/orders/detail/{{ $order->id }}"><span class="badge bg-blue">Ver</span></a>
                         <a href="/admin/orders/delete/{{ $order->id }}"><span class="badge bg-red">Eliminar</span></a></td>
                     </tr>
-                    @endif
                     @endforeach
                 </tbody>     
             </table>
@@ -77,11 +88,7 @@
 @section('js')
     <script>
     
-    function status(status)
-    {
-        $status = status;
-    }
-
+    
     </script>
 @stop
 

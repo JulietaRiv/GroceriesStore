@@ -36,10 +36,12 @@
                         <td>{{ $offerProduct->name }}</td>
                         <td>{{ $offerProduct->category->name }}</td>
                         <td>{{ $offerProduct->brand->name }}</td>
-                        <td>{{ $offerProduct->price }}</td>
-                        @foreach ( $offerProduct->presentations as $offerPresentation )
-                        <td>@if ( $offerPresentation['offer'] == 1 ){{ $offerPresentation['presentation'] }}@endif</td>
-                        @endforeach
+                        <td>{{ $offerProduct->price }}</td>  
+                        <td>@foreach ( $offerProduct->presentations as $offerPresentation )
+                                @if ( $offerPresentation['offer'] == 1 )
+                                    {{ $offerPresentation['presentation'] }}
+                                @endif 
+                            @endforeach</td>
                     </tr>
                     @endforeach
                 </tbody>

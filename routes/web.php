@@ -19,7 +19,6 @@ Route::group(['namespace' => 'Site'], function () {
     Route::get('/product/{slug_name}', 'SiteController@detailProduct')->name('siteDetailProduct');
     Route::match(['get', 'post'], '/checkout', 'CartController@checkout')->name('cartCheckout');
     Route::post('/sendOrder', 'CartController@sendOrder')->name('cartSendOrder');
-    
 });    
 
 Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {
