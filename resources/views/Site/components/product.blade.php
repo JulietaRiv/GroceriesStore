@@ -33,7 +33,7 @@
 											<input type="hidden" name="cmd" value="_cart">
 											<input type="hidden" name="add" value="1">
 											<input type="hidden" name="business" value=" ">
-											<input type="hidden" name="item_name" value="{{ $product->name }} - @foreach ($product->presentations as $presentation) @if ($presentation['main']) {{$presentation['presentation']}} @endif @endforeach">
+											<input type="hidden" name="item_name" value="{{ $product->name }}-@foreach ($product->presentations as $presentation) @if ($presentation['main']){{$presentation['presentation']}} @endif @endforeach">
 											<input type="hidden" name="amount" value="{{ $product->price }}">
 											<input type="hidden" name="discount_amount" value="1.00">
 											<input type="hidden" name="currency_code" value="USD">

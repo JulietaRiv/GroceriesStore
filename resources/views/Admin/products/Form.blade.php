@@ -80,7 +80,7 @@
                   </label>
                 </div>
                 <br>
-                <button onclick="presentationForm()" id="cargarPres" name="cargarPres"  type="button" class="btn btn-primary">Cargar presentaciones</button>
+                <button onclick="showPresForm(false); return false;" id="cargarPres" name="cargarPres"  type="button" class="btn btn-primary">Cargar presentaciones</button>
                 <br>
                 <hr>
                 <div id="presentationsAdded" class="box">        

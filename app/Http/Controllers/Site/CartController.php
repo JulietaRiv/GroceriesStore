@@ -24,25 +24,25 @@ class CartController extends Controller
                 if ($itemNum = array_pop($itemNum)) {
                     if (is_numeric($itemNum)) {
                         $price = 0;
-                        if ($product = Product::where('id', $request->{'shipping_' . $itemNum})->first()){
-                        foreach ($product->presentations as $presentation) {
-                            if ($presentation['presentation'] == $request->{'shipping2_' . $itemNum}) {
-                                $price = $presentation['price'];
+                        if ($product = Product::where('id', $request->{'shipping_' . $itemNum})->first()) {
+                            foreach ($product->presentations as $presentation) {
+                                if ($presentation['presentation'] == $request->{'shipping2_' . $itemNum}) {
+                                    $price = $presentation['price'];
+                                }
                             }
+                            $itemsList[$itemNum - 1] = [
+                                'product_id' => $request->{'shipping_' . $itemNum},
+                                'name' => $request->{'item_name_' . $itemNum},
+                                'presentation' => $request->{'shipping2_' . $itemNum},
+                                'quantity' => $request->{'quantity_' . $itemNum},
+                                'unit_price' => $price,
+                                'price' => $request->{'quantity_' . $itemNum} * $price,
+                            ];
                         }
-                        $itemsList[$itemNum - 1] = [
-                            'product_id' => $request->{'shipping_' . $itemNum},
-                            'name' => $request->{'item_name_' . $itemNum},
-                            'presentation' => $request->{'shipping2_' . $itemNum},
-                            'quantity' => $request->{'quantity_' . $itemNum},
-                            'unit_price' => $price,
-                            'price' => $request->{'quantity_' . $itemNum} * $price,
-                        ];
-                    } 
                     }
                 }
             }
-            
+
             //3guardar en variable de session
             $request->session()->put('itemsList', $itemsList);
         } else {
@@ -74,16 +74,21 @@ class CartController extends Controller
             $order->comment = $request->input('message');
             $order->items = $request->session()->get('itemsList');
             $order->save();
-           /* foreach ($order->items as $item){
-                $product = Product::where('id', 'product_id')->get();
-                $product->presentations = json_decode($product->presentations);
-                    foreach ($product->presentations as $presentation){
-                        if ($product->name .' - '. $presentation['presentation'] == $item['name']){
-                            $presentation['stock'] = $presentation['stock'] - $item['quantity'];
-                            $product->save();
-                        }
+            foreach ($order->items as $item) {
+                $product = Product::where('id', $item['product_id'])->first();
+                $stock = 0;
+                $presentations = $product->presentations;
+                foreach ($presentations as $i => $presentation) {
+                    $pres = explode('-   ', $item['name']);
+                    if ($presentation['presentation'] == $pres[1]) {
+                        $presentations[$i]['stock'] = $presentations[$i]['stock'] - $item['quantity'];
                     }
-            } */
+                    $stock += $presentation['stock'];
+                }
+                $product->presentations = $presentations;
+                $product->stock = ($stock != 0) ? 1 : 0;
+                $product->save();
+            }
             return redirect()->route('index');
         }
     }
