@@ -92,6 +92,7 @@ class ComposerStaticInit7e41028a1824d42d2cb49ec786709528
             'Symfony\\Component\\ErrorHandler\\' => 31,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Sichikawa\\LaravelSendgridDriver\\' => 32,
         ),
         'R' => 
         array (
@@ -321,6 +322,10 @@ class ComposerStaticInit7e41028a1824d42d2cb49ec786709528
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'Sichikawa\\LaravelSendgridDriver\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/s-ichikawa/laravel-sendgrid-driver/src',
+        ),
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
@@ -522,6 +527,7 @@ class ComposerStaticInit7e41028a1824d42d2cb49ec786709528
         'App\\Highlighted' => __DIR__ . '/../..' . '/app/Highlighted.php',
         'App\\Http\\Controllers\\Admin\\BrandsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BrandsController.php',
         'App\\Http\\Controllers\\Admin\\CategoriesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CategoriesController.php',
+        'App\\Http\\Controllers\\Admin\\OrdersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/OrdersController.php',
         'App\\Http\\Controllers\\Admin\\ProductsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ProductsController.php',
         'App\\Http\\Controllers\\Admin\\WelcomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/WelcomeController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
@@ -531,6 +537,7 @@ class ComposerStaticInit7e41028a1824d42d2cb49ec786709528
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\Site\\CartController' => __DIR__ . '/../..' . '/app/Http/Controllers/Site/CartController.php',
         'App\\Http\\Controllers\\Site\\SiteController' => __DIR__ . '/../..' . '/app/Http/Controllers/Site/SiteController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -541,6 +548,7 @@ class ComposerStaticInit7e41028a1824d42d2cb49ec786709528
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Mail\\AvisoDeCompra' => __DIR__ . '/../..' . '/app/Mail/AvisoDeCompra.php',
         'App\\Offer' => __DIR__ . '/../..' . '/app/Offer.php',
         'App\\Product' => __DIR__ . '/../..' . '/app/Product.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -549,6 +557,7 @@ class ComposerStaticInit7e41028a1824d42d2cb49ec786709528
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\order' => __DIR__ . '/../..' . '/app/Order.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',
@@ -4168,6 +4177,10 @@ class ComposerStaticInit7e41028a1824d42d2cb49ec786709528
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'SessionUpdateTimestampHandlerInterface' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',
+        'Sichikawa\\LaravelSendgridDriver\\MailServiceProvider' => __DIR__ . '/..' . '/s-ichikawa/laravel-sendgrid-driver/src/MailServiceProvider.php',
+        'Sichikawa\\LaravelSendgridDriver\\SendGrid' => __DIR__ . '/..' . '/s-ichikawa/laravel-sendgrid-driver/src/SendGrid.php',
+        'Sichikawa\\LaravelSendgridDriver\\SendgridTransportServiceProvider' => __DIR__ . '/..' . '/s-ichikawa/laravel-sendgrid-driver/src/SendgridTransportServiceProvider.php',
+        'Sichikawa\\LaravelSendgridDriver\\Transport\\SendgridTransport' => __DIR__ . '/..' . '/s-ichikawa/laravel-sendgrid-driver/src/Transport/SendgridTransport.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',

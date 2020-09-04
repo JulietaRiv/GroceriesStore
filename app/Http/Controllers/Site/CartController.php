@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\Order;
+use App\Mail\AvisoDeCompra;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use \Illuminate\Http\Request;
 
@@ -83,6 +85,7 @@ class CartController extends Controller
                 $product->stock = ($stock != 0) ? 1 : 0;
                 $product->save();
             }
+            Mail::to('jrivelli@webmind.com.ar')->queue(new AvisoDeCompra());
             return redirect()->route('index');
         }
     }
