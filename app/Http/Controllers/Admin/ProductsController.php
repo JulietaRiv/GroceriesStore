@@ -139,7 +139,7 @@ class ProductsController extends Controller
             'category_id' => 'required',
             'brand_id' => 'required',
             'presentations' => 'required',
-            'image' => 'mimes:jpeg,png|max:1024',
+            'image' => 'mimes:jpeg,jpg,png|max:1024',
         ]);
         if ($validator->fails()) {
             return redirect()->back()
@@ -157,6 +157,7 @@ class ProductsController extends Controller
             $product->organic = data_get($request, 'organic', 0);
             $product->agroecological = data_get($request, 'agroecological', 0);
             $product->vegan = data_get($request, 'vegan', 0);
+            //if nueva o vieja foto
             $extension = $request->image->extension();
             $product->photo = Str::of($product->name)->slug('-').".".$extension;
            // unlink($file_path);

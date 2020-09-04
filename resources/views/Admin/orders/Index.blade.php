@@ -35,15 +35,13 @@
         </form>
         <br>
             <div class="box-body">
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <p>Corrige los siguientes errores:</p>
-                    <ul>
-                        @foreach ($errors->all() as $message)
-                            <li>{{ $message }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+            @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+            @endif
+            @if($errors->any())
+                <h4>{{$errors->first()}}</h4>
             @endif
             <table class="table table-bordered">
                 <tbody>

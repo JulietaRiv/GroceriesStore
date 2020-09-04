@@ -14,6 +14,14 @@
         <h4><a href="/admin/brands/add"><span class="badge bg-green">Agregar +</span></a></h4>
         </div>  
             <div class="box-body">
+            @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+            @endif
+            @if($errors->any())
+                <h4>{{$errors->first()}}</h4>
+            @endif
             <table class="table table-bordered">
                 <tbody>
                 <tr>

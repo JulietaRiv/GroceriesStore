@@ -15,6 +15,14 @@
     <br>
     <br>
         <div class="box-body">
+        @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+        @endif
+        @if($errors->any())
+            <h4>{{$errors->first()}}</h4>
+        @endif
             <form id="brandEdit" method="post" action="{{route('brandsUpdate')}}" name="brandEdit" role="form">
             @csrf
             <input style="width:50%; padding:5px;" type=text value="{{$brand->name}}" name="nameEdit">

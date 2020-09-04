@@ -13,9 +13,9 @@
         <h3 class="box-title">Productos</h3>
         <br>
         <h4><a href="/admin/products/add"><span class="badge bg-green">Agregar +</span></a></h4>
-        @if(session()->has('message'))
+        @if(session()->has('success'))
             <div class="alert alert-success">
-                {{ session()->get('message') }}
+                {{ session()->get('success') }}
             </div>
         @endif
         @if($errors->any())

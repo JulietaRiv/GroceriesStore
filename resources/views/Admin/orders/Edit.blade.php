@@ -17,6 +17,11 @@
                 <h3 style="text-align:center;">Editar pedido n° {{ $order->id }}</h3>
             </div>
             <br>
+            @if(session()->has('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+            @endif
             @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <ul>
