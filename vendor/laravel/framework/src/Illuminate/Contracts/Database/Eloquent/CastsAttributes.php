@@ -25,6 +25,4 @@ interface CastsAttributes
      * @return array|string
      */
     public function set($model, string $key, $value, array $attributes);
-
 }
-

@@ -12,5 +12,6 @@ class WelcomeController extends Controller
         return view('Admin/welcome');
     }
 
+
     
 }

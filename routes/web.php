@@ -21,7 +21,7 @@ Route::group(['namespace' => 'Site'], function () {
     Route::post('/sendOrder', 'CartController@sendOrder')->name('cartSendOrder');
 });    
 
-Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {
+Route::group(['prefix' => '/admin', 'middleware'=>'auth', 'namespace' => 'Admin'], function () {
 
     Route::get('/', 'WelcomeController@welcome')->name('welcome');
     
@@ -69,4 +69,5 @@ Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {
         Route::post('/update', "OrdersController@update")->name("ordersUpdate");
     });
 
+   
 });

@@ -6,10 +6,38 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Order;
 use Illuminate\Support\Str;
-
+use Illuminate\Notifications\Notification;
+use NotificationChannels\WebPush\WebPushMessage;
+use NotificationChannels\WebPush\WebPushChannel;
 
 class OrdersController extends Controller
 {
+    use Notification;
+    public function via($notifiable)
+    {
+        return [WebPushChannel::class];
+    }
+
+    public function toWebPush($notifiable, $notification)
+    {
+        return (new WebPushMessage)
+            ->title('Approved!')
+            ->icon('/approved-icon.png')
+            ->body('Your account was approved!')
+            ->action('View account', 'view_account')
+            ->options(['TTL' => 1000]);
+            // ->data(['id' => $notification->id])
+            // ->badge()
+            // ->dir()
+            // ->image()
+            // ->lang()
+            // ->renotify()
+            // ->requireInteraction()
+            // ->tag()
+            // ->vibrate()
+    }
+
+
     public function index(Request $request)
     {      
         $orders = Order::query()->orderBy('id', 'desc');   
