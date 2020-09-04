@@ -14,7 +14,7 @@
 						<figure>
 							<div class="snipcart-item block">
 								<div class="snipcart-thumb">
-									<a href="{{Route('siteDetailProduct', $product->slug_name)}}"><img title="" alt="{{$product->name}}" src="/site/images/icon1.png"></a>			
+									<a href="{{Route('siteDetailProduct', $product->slug_name)}}"><img title="" alt="{{$product->photo}}" src="public/storage/images/products/{{$product->photo}}.jpeg"></a>
 									<p>{{ $product->name }}</p>
 									@if ( $stars ?? '' )
 										<div class="stars">

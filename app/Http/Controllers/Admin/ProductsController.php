@@ -159,6 +159,8 @@ class ProductsController extends Controller
             $product->vegan = data_get($request, 'vegan', 0);
             $extension = $request->image->extension();
             $product->photo = Str::of($product->name)->slug('-').".".$extension;
+           // unlink($file_path);
+           // Model::destroy($request->id);
             $request->image->storeAs('/images/products', $product->photo, 'public');
             $stock = 0;
             $product->offer = 0;

@@ -14,8 +14,6 @@ class CartController extends Controller
 
     public function checkout(Request $request)
     {
-        //1levantar todos los campos del carrito
-        //2componer un array a medida (levantando precio de la base)
         if ($request->isMethod('post')) {
             $claves = array_keys($request->all());
             $itemsList = [];
@@ -42,8 +40,6 @@ class CartController extends Controller
                     }
                 }
             }
-
-            //3guardar en variable de session
             $request->session()->put('itemsList', $itemsList);
         } else {
             $itemsList = $request->session()->get('itemsList');
@@ -53,8 +49,6 @@ class CartController extends Controller
 
     public function sendOrder(Request $request)
     {
-        //  2 levantar el carrito de la sesion    
-        //  4 envio de mail con aviso
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'address' => 'required',
