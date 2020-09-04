@@ -62,10 +62,6 @@ return [
             'path' => '/usr/sbin/sendmail -bs',
         ],
 
-        'sendgrid' => [
-            'api_key' => env('SENDGRID_API_KEY'),
-        ],
-
         'log' => [
             'transport' => 'log',
             'channel' => env('MAIL_LOG_CHANNEL'),
@@ -88,8 +84,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'jrivelli@webmind.com.ar'),
-        'name' => env('MAIL_FROM_NAME', 'El Roble'),
+        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
     /*
