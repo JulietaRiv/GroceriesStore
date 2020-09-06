@@ -9,34 +9,10 @@ use Illuminate\Support\Str;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\WebPush\WebPushMessage;
 use NotificationChannels\WebPush\WebPushChannel;
+use App\Notifications\HelloNotification;
 
 class OrdersController extends Controller
 {
-    use Notification;
-    public function via($notifiable)
-    {
-        return [WebPushChannel::class];
-    }
-
-    public function toWebPush($notifiable, $notification)
-    {
-        return (new WebPushMessage)
-            ->title('Approved!')
-            ->icon('/approved-icon.png')
-            ->body('Your account was approved!')
-            ->action('View account', 'view_account')
-            ->options(['TTL' => 1000]);
-            // ->data(['id' => $notification->id])
-            // ->badge()
-            // ->dir()
-            // ->image()
-            // ->lang()
-            // ->renotify()
-            // ->requireInteraction()
-            // ->tag()
-            // ->vibrate()
-    }
-
 
     public function index(Request $request)
     {      
@@ -106,6 +82,13 @@ class OrdersController extends Controller
         $order->total_price = $request->input('totalPrice');
         $order->save();
         return redirect()->route("orders")->with('success', 'Excelente, registro guardado!');
+    }
+
+    public function notificarOrden(Request $request)
+    {
+        $request->user()->notify(new HelloNotification);
+
+        return response()->json('Notification sent.', 201);
     }
 
 }
