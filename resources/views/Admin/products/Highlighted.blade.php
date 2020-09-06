@@ -32,7 +32,8 @@
                     </tr>
                     @foreach ( $highlightedProducts as $highProduct )
                     <tr>
-                        <td style="width:5"><input type="checkbox" onclick="selectProduct(this)" value="{{$highProduct->id}}" name="order"/><span id="orderNum{{$highProduct->id}}"></span></td>
+                        <td style="width:5"><input type="checkbox" onclick="selectProduct(this)" value="{{$highProduct->id}}" name="order"
+                        @foreach ( $highlightedSelected as $highlightedSel ) @if ( $highProduct->id == $highlightedSel->product_id ) checked @endif @endforeach/><span id="orderNum{{$highProduct->id}}"></span></td>
                         <td>{{ $highProduct->name }}</td>
                         <td>{{ $highProduct->category->name }}</td>
                         <td>{{ $highProduct->brand->name }}</td>

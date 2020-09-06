@@ -30,9 +30,10 @@
                         <th>Precio</th>
                         <th>Presentación en oferta</th>
                     </tr>
-                    @foreach ( $offerProducts as $offerProduct )        
+                    @foreach ( $offerProducts as $offerProduct )    
                     <tr>
-                        <td style="width:5"><input type="checkbox" onclick="selectProduct(this);" value="{{$offerProduct->id}}" name="order"/><span id="orderNum{{$offerProduct->id}}"></span></td>
+                        <td style="width:5"><input type="checkbox" onclick="selectProduct(this);" value="{{$offerProduct->id}}" name="order" 
+                        @foreach ( $offerSelected as $offerSel ) @if ( $offerProduct->id == $offerSel->product_id ) checked @endif @endforeach/><span id="orderNum{{$offerProduct->id}}"></span></td>
                         <td>{{ $offerProduct->name }}</td>
                         <td>{{ $offerProduct->category->name }}</td>
                         <td>{{ $offerProduct->brand->name }}</td>

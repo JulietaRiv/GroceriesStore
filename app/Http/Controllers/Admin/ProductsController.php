@@ -190,13 +190,15 @@ class ProductsController extends Controller
     public function highlightedProducts()
     {
         $highlightedProducts = Product::where('highlighted', 1)->get();
-        return view('Admin/products/Highlighted', ['highlightedProducts' => $highlightedProducts]);
+        $highlightedSelected = Highlighted::where('id', '!=', '')->get();
+        return view('Admin/products/Highlighted', ['highlightedProducts' => $highlightedProducts, 'highlightedSelected' => $highlightedSelected]);
     }
 
     public function offerProducts()
     {
         $offerProducts = Product::where('offer', 1)->get();
-        return view('Admin/products/Offer', ['offerProducts' => $offerProducts]);
+        $offerSelected = Offer::where('id', '!=', '')->get();
+        return view('Admin/products/Offer', ['offerProducts' => $offerProducts, 'offerSelected'=>$offerSelected]);
     }
 
     public function offerSelected($ids)
