@@ -39,6 +39,7 @@ Route::group(['prefix' => '/admin', 'middleware'=>'auth', 'namespace' => 'Admin'
         Route::get('/highlightedSelected/{ids}', "ProductsController@highlightedSelected")->name("productsHighlightedSelected");
         Route::get('/stock', "ProductsController@stock")->name("productsStock");
         Route::get('/stockPerBrand', "ProductsController@stockPerBrand")->name("productsStockPerBrand");
+        Route::get('/deleteImage/{product_id}', "ProductsController@deleteImage")->name("productsDeleteImage");
     });
 
     Route::group(['prefix' => "/categories"], function() {

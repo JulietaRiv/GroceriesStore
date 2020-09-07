@@ -13,7 +13,11 @@
 	<div class="container">
 		<div class="agileinfo_single">		
             <div class="col-md-4 agileinfo_single_left">
-                <img id="example" src="images/si1.jpg" alt=" " class="img-responsive">
+				@if ( $product->photo != null )
+				<img title="" width="300" height="300" alt="{{$product->photo}}" class="img-responsive" src="/storage/images/products/{{$product->photo}}"></a>
+				@else
+				<img title="" width="300" height="300" alt="" class="img-responsive" src="/site/images/logo-roble.jpg"></a>
+				@endif
             </div>
 				<div class="col-md-8 agileinfo_single_right">
 				<h2>{{ $product->name }}</h2>

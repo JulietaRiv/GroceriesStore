@@ -14,7 +14,12 @@
 						<figure>
 							<div class="snipcart-item block">
 								<div class="snipcart-thumb">
-									<a href="{{Route('siteDetailProduct', $product->slug_name)}}"><img title="" width="150" height="150" alt="{{$product->photo}}" src="/storage/images/products/{{$product->photo}}"></a>
+									<a href="{{Route('siteDetailProduct', $product->slug_name)}}">
+										@if ( $product->photo != null )
+										<img title="" width="150" height="150" alt="{{$product->photo}}" src="/storage/images/products/{{$product->photo}}"></a>
+										@else
+										<img title="" width="150" height="150" alt="" src="/site/images/logo-roble.jpg"></a>
+										@endif
 									<p>{{ $product->name }}</p>
 									@if ( $stars ?? '' )
 										<div class="stars">

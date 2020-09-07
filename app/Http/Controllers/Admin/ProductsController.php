@@ -62,10 +62,12 @@ class ProductsController extends Controller
             $product->celiacs = data_get($request, 'celiacs', 0);
             $product->organic = data_get($request, 'organic', 0);
             $product->agroecological = data_get($request, 'agroecological', 0);
-            $product->vegan = data_get($request, 'vegan', 0);
-            $extension = $request->image->extension();
-            $product->photo = Str::of($product->name)->slug('-').".".$extension;
-            $request->image->storeAs('/images/products', $product->photo, 'public');
+            $product->vegan = data_get($request, 'vegan', 0);  
+            if($request->hasFile('image')) {
+                $extension = $request->image->extension();
+                $product->photo = Str::of($product->name)->slug('-').".".$extension;
+                $request->image->storeAs('/images/products', $product->photo, 'public');
+            }
             $stock = 0;
             $product->offer = 0;
             $product->highlighted = 0;
@@ -125,7 +127,6 @@ class ProductsController extends Controller
             $product->organic = \Illuminate\Support\Facades\Request::old('organic') != null ? '1' : '0';
             $product->agroecological = \Illuminate\Support\Facades\Request::old('agroecological') != null ? '1' : '0';
             $product->vegan = \Illuminate\Support\Facades\Request::old('vegan') != null ? '1' : '0';
-            $product->photo = \Illuminate\Support\Facades\Request::old('photo');
         }
         return view("Admin/products/Edit", ['product' => $product, 'brands' => $brands, 'categories' => $categories]);
     }
@@ -157,12 +158,11 @@ class ProductsController extends Controller
             $product->organic = data_get($request, 'organic', 0);
             $product->agroecological = data_get($request, 'agroecological', 0);
             $product->vegan = data_get($request, 'vegan', 0);
-            //if nueva o vieja foto
-            $extension = $request->image->extension();
-            $product->photo = Str::of($product->name)->slug('-').".".$extension;
-           // unlink($file_path);
-           // Model::destroy($request->id);
-            $request->image->storeAs('/images/products', $product->photo, 'public');
+            if($request->hasFile('image')) {
+                $extension = $request->image->extension();
+                $product->photo = Str::of($product->name)->slug('-').".".$extension;
+                $request->image->storeAs('/images/products', $product->photo, 'public');
+            }
             $stock = 0;
             $product->offer = 0;
             $product->highlighted = 0;
@@ -267,6 +267,14 @@ class ProductsController extends Controller
         }
         $nuevoProducts = collect($nuevoProducts)->sortBy('stock');
         return view('Admin/products/ProductStock', ['nuevoProducts'=>$nuevoProducts]);
+    }
+
+    public function deleteImage($product_id)
+    {
+        $product = Product::where('id', $product_id)->first();
+        $product->photo = null;
+        $product->update();
+        return back()->withInput();
     }
 
    

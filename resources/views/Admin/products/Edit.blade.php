@@ -25,7 +25,7 @@
         @if($errors->any())
             <h4>{{$errors->first()}}</h4>
         @endif
-          <form id="prodForm" method="post" action="{{route('productsUpdate')}}" name="prodForm" role="form">
+          <form id="prodForm" method="post" action="{{Route('productsUpdate')}}" name="prodForm" role="form">
                 <input type="hidden" name="_token" value="">      
                 @csrf            
                 <label>Nombre</label>
@@ -51,6 +51,8 @@
                 <div class="form-group">
                   <label for="InputFile">Foto</label>
                   <input id="image" name="image" type="file" value="{{$product->photo}}">
+                  <p style="display:inline-block;">@if ($product->photo != null) /   {{$product->photo}} @endif</p>  
+                  &nbsp<a href="{{Route('productsDeleteImage', $product->id)}}"><img style="width:20px;" src="/site/images/close_1.png"></a>  
                 </div>
                 <label>Descripción</label>
                 <input id="description" name="description" class="form-control input-lg" type="text" value="{{$product->description}}">
@@ -111,6 +113,8 @@
     @else 
     let presentations = [];
     @endif
+
+ 
 
     </script>
 @stop
