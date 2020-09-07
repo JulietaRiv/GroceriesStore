@@ -1,6 +1,6 @@
 	<div class="agile_top_brands_grids">
 		@foreach ( $products as $product )
-			<div class="col-md-{{$colmd}} top_brand_left-1">
+			<div class="col-md-{{$colmd}} top_brand_left-1" style="margin-top: 40px;">
 				<div class="hover14 column">
 					<div class="agile_top_brand_left_grid">
 						<div class="agile_top_brand_left_grid_pos">

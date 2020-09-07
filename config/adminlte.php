@@ -260,11 +260,6 @@ return [
         ],
         ['header' => 'Mi contenido'],
         [
-            'text'       => 'Productos',
-            'icon_color' => 'red',
-            'url'        => 'admin/products/index',
-        ],
-        [
             'text'       => 'Categorías',
             'icon_color' => 'yellow',
             'url'        => 'admin/categories/index',
@@ -275,9 +270,9 @@ return [
             'url'        => 'admin/brands/index',
         ],
         [
-            'text'       => 'Pedidos',
-            'icon_color' => 'purple',
-            'url'        => 'admin/orders/index',
+            'text'       => 'Productos',
+            'icon_color' => 'red',
+            'url'        => 'admin/products/index',
         ],
         [
             'text'       => 'Destacados',
@@ -293,6 +288,11 @@ return [
             'text'       => 'Stock',
             'icon_color' => 'orange',
             'url'        => 'admin/products/stock',
+        ],
+        [
+            'text'       => 'Pedidos',
+            'icon_color' => 'purple',
+            'url'        => 'admin/orders/index',
         ],
     ],
 
