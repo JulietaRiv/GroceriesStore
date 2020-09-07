@@ -19,8 +19,11 @@
                 <table class="table table-bordered">
                     <tbody>
                         <ul>
-                            {{ $product->photo }}
-                            <!-- /aca va la foto -->
+                            @if ( $product->photo != null )
+                            <li><img title="" width="150" height="150" alt="{{$product->photo}}" src="/storage/images/products/{{$product->photo}}"></a></li>
+                            @else
+                            <li><img title="" width="150" height="150" alt="" src="/site/images/logo-roble.jpg"></a></li>
+                            @endif
                             <li>Categoría: {{ $product->category->name }}</li>
                             <li>Marca: {{ $product->brand->name }}</li>
                             <li>Precio: $ {{ $product->price }}</li>
@@ -33,8 +36,6 @@
                             <li>Orgánico: {{ $product->organic  == 1 ? 'Si' : 'No' }}</li>
                             <li>Agroecológico: {{ $product->agroecological  == 1 ? 'Si' : 'No' }}</li>
                             <li>Vegano: {{ $product->vegan  == 1 ? 'Si' : 'No' }}</li>
-                            <li>Activo: {{ $product->active  == 1 ? 'Si' : 'No' }}</li>
-                            <!-- /aca va las presentaciones -->
                             <li>Presentaciones: </li>
                         </ul>
                         <table border='1' style='width:90%'>
@@ -63,7 +64,8 @@
                             @endforeach
                             </tbody>
                         </table>
-
+                        <br>
+                        <br>
                     </tbody>
                 </table>
             </div>

@@ -30,7 +30,11 @@
 											<i class="fa fa-star blue-star" aria-hidden="true"></i>
 										</div>
 									@endif
+									@if ( $product->stock == 0 )
+										<h5 style="font:solid; color:red; text-align:center;">SIN STOCK!</h5>
+									@else
 										<h4>{{ $product->price }} <span>{{ $product->promo_price }}</span></h4>
+									@endif
 								</div>			
 								<div class="snipcart-details top_brand_home_details">
 									<form action="#" method="post">
