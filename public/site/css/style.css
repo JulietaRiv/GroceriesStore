@@ -449,7 +449,7 @@ ul.multi-column-dropdown h6 {
 	outline:none;
 }
 #PPMiniCart .minicart-submit {
-    display: none;
+    bottom: -22px !important;
 }
 #PPMiniCart .minicart-submit:hover{
 	background:#fe9126 !important;

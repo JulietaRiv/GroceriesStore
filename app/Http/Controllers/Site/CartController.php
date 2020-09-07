@@ -73,8 +73,8 @@ class CartController extends Controller
                 $stock = 0;
                 $presentations = $product->presentations;
                 foreach ($presentations as $i => $presentation) {
-                    $pres = explode('-   ', $item['name']);
-                    if ($presentation['presentation'] == $pres[1]) {
+                    $pres = explode('-', $item['name']);
+                    if ($presentation['presentation'] == trim($pres[1])) {
                         $presentations[$i]['stock'] = $presentations[$i]['stock'] - $item['quantity'];
                     }
                     $stock += $presentation['stock'];
@@ -83,7 +83,8 @@ class CartController extends Controller
                 $product->stock = ($stock != 0) ? 1 : 0;
                 $product->save();
             }
-            return redirect()->route('index');
+            return redirect()->route('index')->with('success', 'gracias');
+            return redirect()->route("products")->with('success', 'Excelente, registro guardado!');
         }
     }
 }

@@ -40,6 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	});
 </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 @yield('css')
 @yield('js')
 <!-- start-smoth-scrolling -->
@@ -49,11 +50,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="agileits_header">
 		<div class="container">
 			<div class="product_list_header">  
-					<form action="#" method="post" class="last"> 
-						<input type="hidden" name="cmd" value="_cart">
-						<input type="hidden" name="display" value="1">
-						<button id="view-cart" class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-					</form>  
+				<form action="#" method="post" class="last"> 
+					<input type="hidden" name="cmd" value="_cart">
+					<input type="hidden" name="display" value="1">
+					<button id="view-cart" class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+				</form>  
 			</div>
 			<div class="clearfix"> </div>
 		</div>
@@ -173,7 +174,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	paypal.minicart.render({
 		action: '/checkout',
 		strings: {
-			button: 'Comprar @csrf',
+			button: 'Finalizar compra @csrf',
 			buttonAlt: "Enviar pedido",
 		}
 	});
@@ -182,6 +183,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		paypal.minicart.reset();
 	}
 
+	@if(session()->has('success'))
+	thanksForPurchase();
+    @endif
+	
 	function thanksForPurchase()
 {
     Swal.fire({

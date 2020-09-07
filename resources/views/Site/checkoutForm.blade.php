@@ -3,8 +3,6 @@
 @section('title', "Products")
 
 @section('content_header')
-    
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
 @stop
 
@@ -47,7 +45,7 @@
                 <label>Tu opinión nos importa!</label>
                     <textarea name="message" class="form-control" rows="4" placeholder="Dejanos un mensaje ...">{{ old('message') }}</textarea>
             </div>
-            <button onclick="sendOrder();" type="button" class="btn btn-success">Finalizar</button>
+            <button type="submit" class="btn btn-success">Finalizar</button>
             <br>
             <br>
         </form>
@@ -107,6 +105,8 @@
 
 @section('js')
 	<script> 
+
+        function pageshow(){return true};
 
         function sendOrder()
         {
