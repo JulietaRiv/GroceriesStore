@@ -25,7 +25,7 @@
         @if($errors->any())
             <h4>{{$errors->first()}}</h4>
         @endif
-          <form id="prodForm" method="post" action="{{Route('productsUpdate')}}" name="prodForm" role="form">
+          <form id="prodForm" method="post" action="{{Route('productsUpdate')}}" enctype="multipart/form-data" name="prodForm" role="form">
                 <input type="hidden" name="_token" value="">      
                 @csrf            
                 <label>Nombre</label>
@@ -113,8 +113,6 @@
     @else 
     let presentations = [];
     @endif
-
- 
 
     </script>
 @stop

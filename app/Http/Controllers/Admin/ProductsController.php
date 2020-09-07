@@ -81,7 +81,7 @@ class ProductsController extends Controller
                 }
                 if ($presentation['main'] == true) {
                     $product->price = $presentation['price'];
-                    $product->promo_price = $presentation['promo_price'];
+                    $product->promo_price = ($presentation['promo_price'] > 0) ? $presentation['promo_price'] : null;
                 }
             }
             $product->stock = $stock != 0 ? 1 : 0;
@@ -147,12 +147,12 @@ class ProductsController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            $product = Product::where('id', 10)->first();
-            $product->name = $request->name;
+            $product = Product::where('id', $request->input('productId'))->first();
+            $product->name = $request->input('name');
             $product->slug_name = '-';
-            $product->category_id = $request->category_id;
-            $product->brand_id = $request->brand_id;
-            $product->description = $request->description;
+            $product->category_id = $request->input('category_id');
+            $product->brand_id = $request->input('brand_id');
+            $product->description = $request->input('description');
             $product->presentations = json_decode($request->presentations, true);
             $product->celiacs = data_get($request, 'celiacs', 0);
             $product->organic = data_get($request, 'organic', 0);
@@ -176,11 +176,10 @@ class ProductsController extends Controller
                 }
                 if ($presentation['main'] == true) {
                     $product->price = $presentation['price'];
-                    $product->promo_price = $presentation['promo_price'];
+                    $product->promo_price = ($presentation['promo_price'] > 0) ? $presentation['promo_price'] : null;
                 }
             }
             $product->stock = $stock != 0 ? 1 : 0;
-            $product->save();
             $product->slug_name = Str::of($product->name)->slug('-') . '-' . $product->id;
             $product->save();
             return redirect()->route("products")->with('success', 'Excelente, registro guardado!');
