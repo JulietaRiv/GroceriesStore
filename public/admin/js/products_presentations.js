@@ -128,8 +128,9 @@ function showPresForm(param) {
     Swal.fire({
         title: "<i style='font-size:25px;' >Presentaciones del producto</i>",
         html: presentationsForm,
-        confirmButtonText: (param !== false) ? "Editar" : "Agregar +",
+        confirmButtonText: (param !== false) ? "Aplicar" : "Agregar +",
         closeOnConfirm: false,
+        showCancelButton: true,
     }).then((result) => {
         if (result.value == true) {
             savePres();

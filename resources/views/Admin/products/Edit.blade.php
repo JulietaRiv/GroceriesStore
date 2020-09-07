@@ -51,7 +51,9 @@
                 <div class="form-group">
                   <label for="InputFile">Foto</label>
                   <input id="image" name="image" type="file" value="{{$product->photo}}">
-                  <p style="display:inline-block;">@if ($product->photo != null) /   {{$product->photo}} @endif</p>  
+                  <p style="display:inline-block;">@if ($product->photo != null) /   
+                  <img style="width:200px;"  src="/storage/images/products/{{$product->photo}}">
+                  @endif</p>  
                   &nbsp<a href="{{Route('productsDeleteImage', $product->id)}}"><img style="width:20px;" src="/site/images/close_1.png"></a>  
                 </div>
                 <label>Descripción</label>
