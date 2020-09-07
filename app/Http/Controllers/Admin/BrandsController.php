@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App;
 use App\Brand;
 use App\Product;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 
 

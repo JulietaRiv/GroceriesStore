@@ -8,7 +8,6 @@ use App\Category;
 use App\Brand;
 use App\Offer;
 use App\Highlighted;
-use App\storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
@@ -20,10 +19,10 @@ class ProductsController extends Controller
         $search = $request->search;
         $products = Product::where('id', '>', 0);
         if ($search != ''){
-            $products = $products->search($search)->paginate(10);
+            $products = $products->search($search)->orderBy('name')->paginate(25);
             $links = $products->appends(['search' => $search])->links();
         } else {
-            $products = $products->paginate(30); 
+            $products = $products->orderBy('name')->paginate(25); 
             $links = $products->links();     
         }
         return view('Admin/products/Index', ['products' => $products, 'search' => $search, 'links'=>$links]);
@@ -31,8 +30,8 @@ class ProductsController extends Controller
 
     public function create()
     {
-        $categories = Category::where('active', 1)->get();
-        $brands = Brand::where('active', 1)->get();
+        $categories = Category::where('active', 1)->orderBy('name')->get();
+        $brands = Brand::where('active', 1)->orderBy('name')->get();
         return view("Admin/products/Form", ['brands' => $brands, 'categories' => $categories]);
     }
 
@@ -110,8 +109,8 @@ class ProductsController extends Controller
 
     public function edit($id)
     {
-        $categories = Category::where('active', 1)->get();
-        $brands = Brand::where('active', 1)->get();
+        $categories = Category::where('active', 1)->orderBy('name')->get();
+        $brands = Brand::where('active', 1)->orderBy('name')->get();
         if (\Illuminate\Support\Facades\Request::old('name') == '') {
             $product = Product::where('id', $id)->first();
         } else {
