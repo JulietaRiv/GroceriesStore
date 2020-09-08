@@ -68,20 +68,6 @@ class CartController extends Controller
             $order->comment = $request->input('message');
             $order->items = $request->session()->get('itemsList');
             $order->save();
-        /*    foreach ($order->items as $item) {
-                $product = Product::where('id', $item['product_id'])->first();
-                $stock = 0;
-                $presentations = $product->presentations;
-                foreach ($presentations as $i => $presentation) {
-                    if ($presentation['presentation'] == $item['presentation']) {
-                        $presentations[$i]['stock'] = $presentations[$i]['stock'] - $item['quantity'];
-                    }
-                    $stock += $presentation['stock'];
-                }
-                $product->presentations = $presentations;
-                $product->stock = ($stock != 0) ? 1 : 0;
-                $product->save();
-            }*/
             return redirect()->route('index')->with('success', 'gracias');
         }
     }
