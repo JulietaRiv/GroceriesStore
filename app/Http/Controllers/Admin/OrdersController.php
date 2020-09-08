@@ -77,7 +77,7 @@ class OrdersController extends Controller
         $order->cel = $request->input('cel2');
         $order->payment_method = $request->input('payment_method2');
         $order->comment = $request->input('message2');
-        $order->status = $request->input('status');
+        $order->status =  (data_get($request, 'armado', 0) == 1) ? "armado" : "pendiente";
         $order->items = json_decode($request->input('itemsList'), true);
         $order->total_units = $request->input('totalUnits');
         $order->total_price = $request->input('totalPrice');
@@ -90,10 +90,17 @@ class OrdersController extends Controller
         return view('Admin/orders/ProductOrderSearch', ['order_id'=>$order_id]);
     }
 
+    public function delivery($id)
+    {
+        $order = Order::where('id', $id)->first();
+        $order->status = "entregado";
+        $order->save();
+        return redirect()->route("orders")->with('success', 'Excelente, registro actualizado!');
+    }
+
     public function notificarOrden(Request $request)
     {
         $request->user()->notify(new HelloNotification);
-
         return response()->json('Notification sent.', 201);
     }
 

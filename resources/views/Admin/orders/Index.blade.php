@@ -62,10 +62,15 @@
                         <td>{{ $order->payment_method }}</td>
                         <td>{{ $order->created_at }}</td>
                         <td>{{ $order->status }}</td>
-                        <td><a href="/admin/orders/edit/{{ $order->id }}"><span class="badge bg-green">Editar</span></a>
-                        <a href="/admin/orders/detail/{{ $order->id }}"><span class="badge bg-blue">Ver</span></a>
-                        <a href="/admin/orders/detail/{{ $order->id }}?print=true"><span class="badge bg-orange">imprimir</span></a>
-                        <a href="/admin/orders/delete/{{ $order->id }}"><span class="badge bg-red">Eliminar</span></a></td>
+                        <td>
+                            @if ( $order->status == "armado")
+                            <a href="/admin/orders/delivery/{{ $order->id }}"><span class="badge bg-purple">Entregado</span></a>
+                            @endif
+                            <a @if ( $order->status != "pendiente" ) href="" @else href="/admin/orders/edit/{{ $order->id }}" @endif><span class="badge bg-green">Editar</span></a>
+                            <a href="/admin/orders/detail/{{ $order->id }}"><span class="badge bg-blue">Ver</span></a>
+                            <a href="/admin/orders/detail/{{ $order->id }}?print=true"><span class="badge bg-orange">imprimir</span></a>
+                            <a href="/admin/orders/delete/{{ $order->id }}"><span class="badge bg-red">Eliminar</span></a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>     

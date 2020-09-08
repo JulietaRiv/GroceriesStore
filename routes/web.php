@@ -68,6 +68,7 @@ Route::group(['prefix' => '/admin', 'middleware'=>'auth', 'namespace' => 'Admin'
         Route::get('/edit/{id}', "OrdersController@edit")->name("ordersEdit");
         Route::get('/delete/{id}', "OrdersController@delete")->name("ordersDelete");
         Route::post('/update', "OrdersController@update")->name("ordersUpdate");
+        Route::get('/delivery/{id}', "OrdersController@delivery")->name("ordersDeliveryStatus");
     });
     
     Route::get('/subscriptions', 'PushSubscriptionController@update')->name("susbs");

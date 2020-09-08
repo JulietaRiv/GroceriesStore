@@ -51,14 +51,10 @@
                     <textarea name="message2" class="form-control" rows="4" placeholder="Dejanos un mensaje ...">{{ $order->message }}</textarea>
             </div>
             <br>
-            <div class="form-group">
-                <label>Estado</label>
-                <select id="status" name="status" class="form-control">
-                    <option value="pendiente" @if ( $order->status == 'pendiente' ) selected @endif>Pendiente</option>
-                    <option value="armado"  @if ( $order->status == 'armado' ) selected @endif>Armado</option>
-                    <option value="entregado"  @if ( $order->status == 'entregado' ) selected @endif>Entregado</option>
-                </select>
-            </div>
+            <label>
+                <input value="1" name="armado" type="checkbox" @if (old('armado')) checked @endif>
+                Pedido armado
+            </label>
             <br>
             <input id="totalPrice" name="totalPrice" value="" type="hidden"/>
             <input id="totalUnits" name="totalUnits" value="" type="hidden"/>
