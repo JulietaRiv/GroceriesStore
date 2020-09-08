@@ -39,6 +39,9 @@
                 </tbody>      
             </table>
             </div>
+            <div class="box-footer clearfix">
+                {!! $links !!}
+            </div>
     </div>
 
 @stop
