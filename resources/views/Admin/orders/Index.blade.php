@@ -12,8 +12,6 @@
         <div class="box-header with-border">
         <h3 class="box-title">Pedidos</h3>
         <br>
-        <div><a href="/admin/categories/add"><button style="font:white;" class="btn-success"><i class="fa fa-plus"></i>Agregar</button></a>
-        <a href=""><button class="btn-primary"><i class="fa fa-download"></i>Exportar</button></a></div>
         </div>
         <br>
         <form id="searchForm" action="{{Route('orders')}}" method="get">
@@ -66,6 +64,7 @@
                         <td>{{ $order->status }}</td>
                         <td><a href="/admin/orders/edit/{{ $order->id }}"><span class="badge bg-green">Editar</span></a>
                         <a href="/admin/orders/detail/{{ $order->id }}"><span class="badge bg-blue">Ver</span></a>
+                        <a href="/admin/orders/detail/{{ $order->id }}?print=true"><span class="badge bg-orange">imprimir</span></a>
                         <a href="/admin/orders/delete/{{ $order->id }}"><span class="badge bg-red">Eliminar</span></a></td>
                     </tr>
                     @endforeach

@@ -56,11 +56,11 @@ class OrdersController extends Controller
         }  
     }
 
-    public function detail($id)
+    public function detail(Request $request, $id)
     {
         $order = Order::where('id', $id)->first();
-        $items = json_decode($order->items, true);
-        return view ("Admin/orders/Detail", ["order" => $order, 'items'=>$items]);
+        $view = ($request->print == false) ? "Admin/orders/Detail" : "Admin/orders/Print";
+        return view ($view, ["order" => $order]);
     }
 
     public function edit($id)

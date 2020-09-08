@@ -41,10 +41,8 @@
 									<input type="hidden" name="cmd" value="_cart">
 									<input type="hidden" name="add" value="1">
 									<input type="hidden" name="business" value=" ">
-									<input type="hidden" name="item_name" value="{{ $product->name }} - {{ $presen['presentation'] }}">
+									<input type="hidden" name="item_name" value="{{ $product->name }}">
 									<input type="hidden" name="amount" value="{{ $presen['price'] }}">
-									<input type="hidden" name="discount_amount" value="1.00">
-									<input type="hidden" name="currency_code" value="USD">
 									<input type="hidden" name="return" value=" ">
 									<input type="hidden" name="cancel_return" value=" ">
 									<input type="hidden" name="shipping" value="{{ $product->id }}">

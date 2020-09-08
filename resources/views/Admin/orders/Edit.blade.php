@@ -166,7 +166,7 @@
             total_units += item['quantity'] * 1;
             html += `
         <tr>   
-            <td>${ item['name'] }</td>
+            <td>${ item['name'] }-${ item['presentation'] }</td>
             <td style="text-align:right;"><input style="width:40px;" type="text" onchange="quantity(${i}, this.value);" value="${ item['quantity'] }"/></td>
             <td style="text-align:right;">${ item['unit_price'] }</td>
             <td style="text-align:right;">${ item['price'] }</td>
