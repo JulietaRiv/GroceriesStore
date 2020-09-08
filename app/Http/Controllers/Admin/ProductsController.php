@@ -16,16 +16,21 @@ class ProductsController extends Controller
 {
     public function index(Request $request)
     {
+        $paginate = ($request->fromOrder != null) ? 10 : 25 ;
         $search = $request->search;
         $products = Product::where('id', '>', 0);
         if ($search != ''){
-            $products = $products->search($search)->orderBy('name')->paginate(25);
+            $products = $products->search($search)->orderBy('name')->paginate($paginate);
             $links = $products->appends(['search' => $search])->links();
         } else {
-            $products = $products->orderBy('name')->paginate(25); 
+            $products = $products->orderBy('name')->paginate($paginate); 
             $links = $products->links();     
         }
-        return view('Admin/products/Index', ['products' => $products, 'search' => $search, 'links'=>$links]);
+        if ($request->fromOrder != null){
+            return view('Admin/orders/ProductOrderSearch', ['products' => $products, 'search' => $search, 'links'=>$links]);
+        } else {
+            return view('Admin/products/Index', ['products' => $products, 'search' => $search, 'links'=>$links]);
+        }
     }
 
     public function create()

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Order;
+use App\Product;
 use Illuminate\Support\Str;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\WebPush\WebPushMessage;
@@ -82,6 +83,11 @@ class OrdersController extends Controller
         $order->total_price = $request->input('totalPrice');
         $order->save();
         return redirect()->route("orders")->with('success', 'Excelente, registro guardado!');
+    }
+
+    public function addProduct($order_id)
+    {
+        return view('Admin/orders/ProductOrderSearch', ['order_id'=>$order_id]);
     }
 
     public function notificarOrden(Request $request)

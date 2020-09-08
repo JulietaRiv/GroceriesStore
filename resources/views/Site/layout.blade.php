@@ -191,7 +191,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 {
     Swal.fire({
     title: "Muchas gracias por tu compra!",
-    text: "Proximamente nos estaremos contactando con vos.",
+    text: "Nos estaremos contactando con vos.",
     confirmButtonText: "Ok", 
     closeOnConfirm: true,
     });
