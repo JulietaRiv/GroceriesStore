@@ -30,7 +30,7 @@
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->category->name }}</td>
                             <td>@if ( $product->stock == 1) Si @else No @endif</td>
-                            <td><a href=""><span class="badge bg-green">Editar</span></a></td>
+                            <td><a href="/admin/products/edit/{{ $product->id }}"><span class="badge bg-green">Editar</span></a></td>
                         </tr>          
                         @endforeach
                     </tbody>
