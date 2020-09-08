@@ -78,7 +78,14 @@ class OrdersController extends Controller
         $order->payment_method = $request->input('payment_method2');
         $order->comment = $request->input('message2');
         $order->status =  (data_get($request, 'armado', 0) == 1) ? "armado" : "pendiente";
-        $order->items = json_decode($request->input('itemsList'), true);
+        $items = $request->session()->get('itemsList');
+        foreach ($items as $item){
+            $item['product_id'] = $item['product_id'] * 1;
+            $item['quantity'] = $item['quantity'] * 1;
+            $item['unit_price'] = $item['unit_price'] * 1;
+            $item['price'] = $item['price'] * 1;
+        }
+        $order->items = $items;
         $order->total_units = $request->input('totalUnits');
         $order->total_price = $request->input('totalPrice');
         $order->save();

@@ -66,7 +66,14 @@ class CartController extends Controller
             $order->cel = $request->input('cel');
             $order->payment_method = $request->input('payment_method');
             $order->comment = $request->input('message');
-            $order->items = $request->session()->get('itemsList');
+            $items = $request->session()->get('itemsList');
+            foreach ($items as $item){
+                $item['product_id'] = $item['product_id'] * 1;
+                $item['quantity'] = $item['quantity'] * 1;
+                $item['unit_price'] = $item['unit_price'] * 1;
+                $item['price'] = $item['price'] * 1;
+            }
+            $order->items = $items;
             $order->save();
             return redirect()->route('index')->with('success', 'gracias');
         }
