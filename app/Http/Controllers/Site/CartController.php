@@ -14,32 +14,29 @@ class CartController extends Controller
 
     public function checkout(Request $request)
     {
+        $itemsNumbers = [];
+        $price = 0;
+        $itemsList = [];
+        $itemsQuantity = 0;
         if ($request->isMethod('post')) {
             $claves = array_keys($request->all());
-            $itemsList = [];
-            foreach ($claves as $clave) {
-                $itemNum = explode('_', $clave);
-                if ($itemNum = array_pop($itemNum)) {
-                    if (is_numeric($itemNum)) {
-                        $price = 0;
-                        if ($product = Product::where('id', $request->{'shipping_' . $itemNum})->first()) {
-                            foreach ($product->presentations as $presentation) {
-                                if ($presentation['presentation'] == $request->{'shipping2_' . $itemNum}) {
-                                    $price = $presentation['price'];
-                                }
-                            }
-                            $itemsList[$itemNum - 1] = [
-                                'product_id' => $request->{'shipping_' . $itemNum},
-                                'name' => $request->{'item_name_' . $itemNum},
-                                'presentation' => $request->{'shipping2_' . $itemNum},
-                                'quantity' => $request->{'quantity_' . $itemNum},
-                                'unit_price' => $price,
-                                'price' => $request->{'quantity_' . $itemNum} * $price,
-                            ];
-                        }
+            $itemsQuantity = (count($claves) - 8) / 5;
+            for ($i=1; $i <= $itemsQuantity; $i++){
+                $product = Product::where('id', $request->{'shipping_' . $i})->first();
+                foreach ($product->presentations as $presentation) {
+                    if ($presentation['presentation'] == $request->{'shipping2_' . $i}) {
+                        $price = $presentation['price'];
                     }
                 }
-            }
+                $itemsList[$i - 1] = [
+                    'product_id' => $request->{'shipping_' . $i},
+                    'name' => $request->{'item_name_' . $i},
+                    'presentation' => $request->{'shipping2_' . $i},
+                    'quantity' => $request->{'quantity_' . $i},
+                    'unit_price' => $price,
+                    'price' => $request->{'quantity_' . $i} * $price,
+                ];
+            } 
             $request->session()->put('itemsList', $itemsList);
         } else {
             $itemsList = $request->session()->get('itemsList');

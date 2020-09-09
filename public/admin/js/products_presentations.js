@@ -38,7 +38,7 @@ let presentationsForm = `
 function savePres() {
     let presentation = {
         'main': ($('#presNum').val() !== '') ? presentations[$('#presNum').val()].main : (presentations.length == 0) ? 1 : 0,
-        'presentation': $('#pres_presentation').val(),
+        'presentation': ($('#pres_presentation').val()).trim(),
         'price': $('#pres_price').val(),
         'promo_price': $('#pres_promo_price').val(),
         'offer': $('#pres_offer').is(':checked'),
