@@ -18,9 +18,9 @@ class CartController extends Controller
         $itemsList = [];
         $itemsQuantity = 0;
         if ($request->isMethod('post')) {
-            $claves = array_keys($request->all());
-            $itemsQuantity = (count($claves) - 8) / 5;
-            for ($i=1; $i <= $itemsQuantity; $i++){
+            $itemsKeys = array_keys($request->all());
+            $itemsQuantity = (count($itemsKeys) - 8) / 5;
+            for ($i = 1; $i <= $itemsQuantity; $i++){
                 $product = Product::where('id', $request->{'shipping_' . $i})->first();
                 foreach ($product->presentations as $presentation) {
                     if ($presentation['presentation'] == $request->{'shipping2_' . $i}) {
