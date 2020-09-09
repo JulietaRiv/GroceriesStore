@@ -103,7 +103,7 @@
             <div class="clearfix"></div>
             <input type="hidden" value="1" name="fromOrder">
         </form>
-
+        <br>
         <div id="productOrderResult"></div>
     </div>         
 </div>

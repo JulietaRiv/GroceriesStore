@@ -21,7 +21,7 @@
                     <td>{{ $product->brand->name }}</td>
                     <td>{{ $presentation['presentation'] }}</td>
                     <td>{{ $presentation['price'] }}</td>
-                    <td><button type="button" onclick="addItem({{$product->id}},'{{$product->name}}','{{$presentation['presentation']}}',{{$presentation['price']}});"><span class="badge bg-orange">Agregar</span></button></td>
+                    <td><a type="button" onclick="addItem({{$product->id}},'{{$product->name}}','{{$presentation['presentation']}}',{{$presentation['price']}});"><span class="badge bg-orange">Agregar</span></a></td>
                 </tr>
                 @endforeach
                 @endforeach
