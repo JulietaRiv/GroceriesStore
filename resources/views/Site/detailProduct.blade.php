@@ -43,6 +43,7 @@
 									<input type="hidden" name="business" value=" ">
 									<input type="hidden" name="item_name" value="{{ $product->name }}">
 									<input type="hidden" name="amount" value="{{ $presen['price'] }}">
+									<input type="hidden" name="currency_code" value="ARS">
 									<input type="hidden" name="return" value=" ">
 									<input type="hidden" name="cancel_return" value=" ">
 									<input type="hidden" name="shipping" value="{{ $product->id }}">

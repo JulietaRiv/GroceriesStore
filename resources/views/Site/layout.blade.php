@@ -170,6 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //here ends scrolling icon -->
 <script src="/site/js/minicart.min.js"></script>
 <script>
+
 	// Mini Cart
 	paypal.minicart.render({
 		action: '/checkout',
