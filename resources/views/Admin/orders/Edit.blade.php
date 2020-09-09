@@ -117,6 +117,12 @@
 @section('js')
     <script>
 
+    @if ($order->items != '')
+        let items = {!! json_encode($order->items) !!};
+    @else 
+        let items = [];
+    @endif
+
     window.onload = function () {
         renderItems();
     }
@@ -131,13 +137,6 @@
             $("#productOrderResult").html(response);
         });
     }
-
-
-    @if ($order->items != '')
-    let items = {!! json_encode($order->items) !!};
-    @else 
-    let items = [];
-    @endif
 
     function deleteItem(index)
     {
@@ -166,7 +165,7 @@
             <td style="text-align:right;"><input style="width:40px;" type="text" onchange="quantity(${i}, this.value);" value="${ item['quantity'] }"/></td>
             <td style="text-align:right;">${ item['unit_price'] }</td>
             <td style="text-align:right;">${ item['price'] }</td>
-            <td><a href="javascript:void deleteItem(${i});" ><span class="badge bg-red">Eliminar</span></a></td>
+            <td><a href="javascript:void deleteItem(${i});"><span class="badge bg-red">Eliminar</span></a></td>
         </tr>           
         `;
         });
@@ -181,11 +180,11 @@
 
     function addItem(product_id, name, presentation, unit_price){
         items.push({
-            'product_id':product_id * 1, 
+            'product_id':product_id, 
             'name': name,
             'presentation': presentation,
-            'unit_price': unit_price * 1,
-            'price': unit_price * 1,
+            'unit_price': unit_price,
+            'price': unit_price,
             'quantity': 1,
         });
         renderItems();

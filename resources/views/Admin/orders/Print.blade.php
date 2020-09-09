@@ -5,6 +5,7 @@
             <h3 class="box-title">Detalle del pedido n° {{$order->id}}</h3>
         </div>
         <br>
+        <h5 style="display:inline-block;">Estado: <span style="color:red;">{{ $order->status }}</span></h5>
         <br>
         <!-- /.box-header -->
         <div class="box-body">
