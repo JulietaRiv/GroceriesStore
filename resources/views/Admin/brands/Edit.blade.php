@@ -14,7 +14,7 @@
     </div>
     <br>
     <br>
-        <div class="box-body">
+    <div class="box-body">
         @if(session()->has('success'))
             <div class="alert alert-success">
                 {{ session()->get('success') }}
@@ -23,13 +23,13 @@
         @if($errors->any())
             <h4>{{$errors->first()}}</h4>
         @endif
-            <form id="brandEdit" method="post" action="{{route('brandsUpdate')}}" name="brandEdit" role="form">
-            @csrf
+        <form id="brandEdit" method="post" action="{{route('brandsUpdate')}}" name="brandEdit" role="form">
+        @csrf
             <input style="width:50%; padding:5px;" type=text value="{{$brand->name}}" name="nameEdit">
             <input type="hidden" name="id" value="{{$brand->id}}">
             <button onclick="$('#brandEdit').submit();" type="submit" class="btn btn-success">Guardar</button>      
-            </form>
-        </div>
+        </form>
+    </div>
 </div>
 
 @stop

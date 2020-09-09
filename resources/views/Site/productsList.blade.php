@@ -8,7 +8,6 @@
 
 @section('content')
 
-
 	<div id="offers" class="newproducts-w3agile">
 		<div class="container">
 		<h3>{{ $title['title'] }} @if ($title['type_icon'] !== 0)<img style="width:50px;" src="/site/images/{{$title['type_icon']}}" alt=""/>@endif</h3>
@@ -28,17 +27,13 @@
 		</div>																																												
 	</div>
 	<div class="col-md-8 products-right">
-
 @else
-
 	<div class="col-md-12 products-right">
-
 @endif
 @include('Site/components/product')
 
 	</div>
 		<div class="clearfix"> </div>
-
 		</div>
 	</div>
 	
@@ -49,6 +44,5 @@
 @stop
 
 @section('js')
-	<script> 
-	</script>
+	<script> </script>
 @stop

@@ -15,7 +15,6 @@
             </div>
             <br>
             <br>
-            <!-- /.box-header -->
             <div class="box-body">
                 <table class="table table-bordered">
                     <tbody>
@@ -36,9 +35,7 @@
                     </tbody>
                 </table>
             </div>
-            <!-- /.box-body -->
         </div>
-        <!-- /.box -->
     </div>
     
 @stop
@@ -48,7 +45,5 @@
 @stop
 
 @section('js')
-    <script> 
-        
-    </script>
+    <script> </script>
 @stop

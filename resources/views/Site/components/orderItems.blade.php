@@ -1,5 +1,4 @@
 
-
     <div class="products-right-grid">
         <div class="products-right-grids">
             <div class="sorting">
@@ -11,8 +10,7 @@
                 </select>
             </div>
             <div class="sorting-left">
-                <select id="country1" onchange="changeItemspp(this.value)" class="frm-field required sect">    
-
+                <select id="country1" onchange="changeItemspp(this.value)" class="frm-field required sect">
                 @php
                 $cols = ( $colmd == 3 ) ? 4 : 3 ;
                 @endphp
@@ -21,9 +19,7 @@
                 @php
                 $val = $i * 3;
                 @endphp
-
-                    <option @if ($items == $val) selected @endif value="{{$val}}">Items por página {{$val * $cols}}</option>
-                  
+                    <option @if ($items == $val) selected @endif value="{{$val}}">Items por página {{$val * $cols}}</option>              
                 @endfor
                 </select>
             </div>

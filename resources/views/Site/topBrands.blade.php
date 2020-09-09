@@ -1,6 +1,6 @@
 <!-- top-brands -->
 <div id="highlightedProducts" class="top-brands">
-		<div class="container">
+	<div class="container">
 		<h2>Destacados</h2>				
 			
 @php 
@@ -10,6 +10,6 @@ $colmd = 4;
 @endphp
 @include('Site/components/product')
 
-		</div>
+	</div>
 </div>
 <!-- //top-brands -->

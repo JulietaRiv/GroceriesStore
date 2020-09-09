@@ -46,9 +46,9 @@ class OrdersController extends Controller
         ]);
     }
 
-    public function delete ($id)
+    public function delete($id)
     {
-        if ($order = Order::where('id', '=', $id)->first()){       
+        if ($order = Order::where('id', $id)->first()){       
             $order->delete();
             return redirect()->route("orders")->with('success','Excelente, registro guardado!');
         } else {

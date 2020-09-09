@@ -34,7 +34,6 @@ let presentationsForm = `
         <input type="hidden" id="presNum" name="presNum" value=""/>
     </form>`;
 
-
 function savePres() {
     let presentation = {
         'main': ($('#presNum').val() !== '') ? presentations[$('#presNum').val()].main : (presentations.length == 0) ? 1 : 0,
@@ -79,7 +78,6 @@ function renderPres() {
             let offer = presentation.offer == true ? 'Si' : 'No';
             let highlighted = presentation.highlighted == true ? 'Si' : 'No';
             let checked = presentation.main == 1 ? 'checked' : '';
-
             html += `<tr>
                             <td><input ${ checked} type="radio" onclick="setMain(${i})" name="default"/></td>
                             <td>${ presentation.presentation}</td>

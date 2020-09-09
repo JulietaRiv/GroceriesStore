@@ -8,7 +8,6 @@
 
 @section('content')
 
-
 @include('Site/carousel')
 
 @include('Site/topBrands')
@@ -18,7 +17,6 @@
 @include('Site/offers')
 
 @include('Site/aboutUs')
-
 
 @stop
 

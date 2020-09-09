@@ -8,7 +8,6 @@
 
 @section('content')
 
-
 <div class="products">
 	<div class="container">
 		<div class="agileinfo_single">		
@@ -19,18 +18,18 @@
 				<img title="" width="300" height="300" alt="" class="img-responsive" src="/site/images/logo-roble.jpg"></a>
 				@endif
             </div>
-				<div class="col-md-8 agileinfo_single_right">
+			<div class="col-md-8 agileinfo_single_right">
 				<h2>{{ $product->name }}</h2>
 				<br>
-					<div class="w3agile_description">
-						<h4>Descripción:</h4>
-						<p>{{ $product->description }}</p>
-					</div>
-					<br>
-					<h4>Presentaciones:</h4>
-					<br>
-                    @foreach ( $presentations as $presen )
-                    * {{ $presen['presentation'] }}
+				<div class="w3agile_description">
+					<h4>Descripción:</h4>
+					<p>{{ $product->description }}</p>
+				</div>
+				<br>
+				<h4>Presentaciones:</h4>
+				<br>
+				@foreach ( $presentations as $presen )
+				* {{ $presen['presentation'] }}
 					<div class="snipcart-item block">
 						<div class="snipcart-thumb agileinfo_single_right_snipcart">
 							<h4 class="m-sing">$ {{ $presen['price'] }} <span></span></h4>
@@ -55,8 +54,8 @@
 					</div>
 					<br>
                     @endforeach
-				</div>
-				<div class="clearfix"> </div>
+			</div>
+			<div class="clearfix"> </div>
         </div>
     </div>
 </div>

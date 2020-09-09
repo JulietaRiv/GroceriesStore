@@ -14,7 +14,6 @@ class CartController extends Controller
 
     public function checkout(Request $request)
     {
-        $itemsNumbers = [];
         $price = 0;
         $itemsList = [];
         $itemsQuantity = 0;

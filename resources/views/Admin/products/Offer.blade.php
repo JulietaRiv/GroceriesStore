@@ -18,37 +18,35 @@
         <button type="button" onclick="location.href='/admin/products/offerSelected/'+orderProducts" class="btn btn-success">Aplicar</button>
     </div>
     <br>
-        <!-- /.box-header -->
-        <div class="box-body no-padding">
-            <table class="table table-condensed">
-                <tbody>
-                    <tr>
-                        <th style="width:5">Orden</th>
-                        <th>Nombre</th>
-                        <th>Categoría</th>
-                        <th>Marca</th>
-                        <th>Precio</th>
-                        <th>Presentación en oferta</th>
-                    </tr>
-                    @foreach ( $offerProducts as $offerProduct )    
-                    <tr>
-                        <td style="width:5"><input type="checkbox" onclick="selectProduct(this);" value="{{$offerProduct->id}}" name="order" 
-                        @foreach ( $offerSelected as $offerSel ) @if ( $offerProduct->id == $offerSel->product_id ) checked @endif @endforeach/><span id="orderNum{{$offerProduct->id}}"></span></td>
-                        <td>{{ $offerProduct->name }}</td>
-                        <td>{{ $offerProduct->category->name }}</td>
-                        <td>{{ $offerProduct->brand->name }}</td>
-                        <td>{{ $offerProduct->price }}</td>  
-                        <td>@foreach ( $offerProduct->presentations as $offerPresentation )
-                                @if ( $offerPresentation['offer'] == 1 )
-                                    {{ $offerPresentation['presentation'] }}
-                                @endif 
-                            @endforeach</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-        <!-- /.box-body -->
+    <div class="box-body no-padding">
+        <table class="table table-condensed">
+            <tbody>
+                <tr>
+                    <th style="width:5">Orden</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Marca</th>
+                    <th>Precio</th>
+                    <th>Presentación en oferta</th>
+                </tr>
+                @foreach ( $offerProducts as $offerProduct )    
+                <tr>
+                    <td style="width:5"><input type="checkbox" onclick="selectProduct(this);" value="{{$offerProduct->id}}" name="order" 
+                    @foreach ( $offerSelected as $offerSel ) @if ( $offerProduct->id == $offerSel->product_id ) checked @endif @endforeach/><span id="orderNum{{$offerProduct->id}}"></span></td>
+                    <td>{{ $offerProduct->name }}</td>
+                    <td>{{ $offerProduct->category->name }}</td>
+                    <td>{{ $offerProduct->brand->name }}</td>
+                    <td>{{ $offerProduct->price }}</td>  
+                    <td>@foreach ( $offerProduct->presentations as $offerPresentation )
+                            @if ( $offerPresentation['offer'] == 1 )
+                                {{ $offerPresentation['presentation'] }}
+                            @endif 
+                        @endforeach</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 
 @stop
@@ -84,8 +82,8 @@ function selectProduct(e)
         orderProducts = orderProducts.filter(elem => elem != e.value);
         $("#orderNum" + e.value).html('');
         orderProducts.forEach(function(a, i){
-                $("#orderNum" + a).html(i + 1);
-            });
+            $("#orderNum" + a).html(i + 1);
+        });
     }  
 } 
 

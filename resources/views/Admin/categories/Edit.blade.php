@@ -15,14 +15,14 @@
     <br>
     <br>
         <div class="box-body">
-        @if(session()->has('success'))
-            <div class="alert alert-success">
-                {{ session()->get('success') }}
-            </div>
-        @endif
-        @if($errors->any())
-            <h4>{{$errors->first()}}</h4>
-        @endif
+            @if(session()->has('success'))
+                <div class="alert alert-success">
+                    {{ session()->get('success') }}
+                </div>
+            @endif
+            @if($errors->any())
+                <h4>{{$errors->first()}}</h4>
+            @endif
             <form id="categEdit" method="post" action="{{route('categoriesUpdate')}}" name="categEdit" role="form">
             @csrf
                 <input style="width:50%; padding:5px;" type=text value="{{$category->name}}" name="nameEdit">

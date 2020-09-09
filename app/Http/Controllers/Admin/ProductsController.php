@@ -256,7 +256,7 @@ class ProductsController extends Controller
 
     public function stockPerBrand(Request $request)
     {
-        $products = Product::where('brand_id', '=', $request->brand_id)->get();
+        $products = Product::where('brand_id', $request->brand_id)->get();
         $nuevoProducts = [];
         foreach ($products as $product){
             foreach ($product->presentations as $presentation){
@@ -279,6 +279,5 @@ class ProductsController extends Controller
         $product->update();
         return back()->withInput();
     }
-
    
 }

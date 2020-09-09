@@ -17,36 +17,36 @@
     </div>
     <br>
         <div class="box-body">
-        @if(session()->has('success'))
-            <div class="alert alert-success">
-                {{ session()->get('success') }}
-            </div>
-        @endif
-        @if($errors->any())
-            <h4>{{$errors->first()}}</h4>
-        @endif
+          @if(session()->has('success'))
+              <div class="alert alert-success">
+                  {{ session()->get('success') }}
+              </div>
+          @endif
+          @if($errors->any())
+              <h4>{{$errors->first()}}</h4>
+          @endif
             <div id="totalForm">
-            <form id="prodForm" method="post" action="{{route('productsStore')}}" enctype="multipart/form-data" name="prodForm" role="form">
-            @csrf            
+              <form id="prodForm" method="post" action="{{route('productsStore')}}" enctype="multipart/form-data" name="prodForm" role="form">
+              @csrf            
                 <label>Nombre</label>
-                <input id="productName" class="form-control input-lg" value="{{ old('name') }}" name="name" type="text">
-                <br>
+                  <input id="productName" class="form-control input-lg" value="{{ old('name') }}" name="name" type="text">
+                  <br>
                 <div class="form-group">
                   <label>Categoría</label>
                   <select id="category_id" name="category_id" class="form-control">
-                    <option value="" >- Seleccionar -</option>        
-                  @foreach ( $categories as $category )         
-                    <option value="{{$category->id}}" @if ( old('category_id') ==  $category->id ) selected @endif>{{ $category->name }}</option>      
-                  @endforeach
+                      <option value="" >- Seleccionar -</option>        
+                    @foreach ( $categories as $category )         
+                      <option value="{{$category->id}}" @if ( old('category_id') ==  $category->id ) selected @endif>{{ $category->name }}</option>      
+                    @endforeach
                   </select>
                 </div>
                 <div class="form-group">
                   <label>Marca</label>
                   <select id="barnd_id" name="brand_id" class="form-control">
-                  <option value="" >- Seleccionar -</option>
-                  @foreach ( $brands as $brand )
-                  <option value="{{$brand->id}}" @if ( old('brand_id') == $brand->id ) selected @endif>{{$brand->name}}</option>
-                  @endforeach
+                      <option value="" >- Seleccionar -</option>
+                    @foreach ( $brands as $brand )
+                      <option value="{{$brand->id}}" @if ( old('brand_id') == $brand->id ) selected @endif>{{$brand->name}}</option>
+                    @endforeach
                   </select>
                 </div>
                 <br>
@@ -55,8 +55,8 @@
                   <input id="image" name="image" type="file" value="">
                 </div>
                 <label>Descripción</label>
-                <input id="description" name="description" class="form-control input-lg" type="text" value="{{ old('description') }}">
-                <br>
+                  <input id="description" name="description" class="form-control input-lg" type="text" value="{{ old('description') }}">
+                  <br>
                 <div class="checkbox">
                   <label>
                     <input id="celiacs" name="celiacs" value="1" type="checkbox" @if (old('celiacs')) checked @endif> Sin Tacc
@@ -78,24 +78,24 @@
                   </label>
                 </div>
                 <br>
-                <button onclick="showPresForm(false); return false;" id="cargarPres" name="cargarPres"  type="button" class="btn btn-primary">Cargar presentaciones</button>
-                <br>
-                <hr>
-                <div id="presentationsAdded" class="box">        
-                  <div class="box-header with-border">
-                    <h3 class="box-title">Presentaciones</h3><div><span class="badge bg-green"></span></div>
-                    <br>
+                  <button onclick="showPresForm(false); return false;" id="cargarPres" name="cargarPres"  type="button" class="btn btn-primary">Cargar presentaciones</button>
+                  <br>
+                  <hr>
+                  <div id="presentationsAdded" class="box">        
+                    <div class="box-header with-border">
+                      <h3 class="box-title">Presentaciones</h3><div><span class="badge bg-green"></span></div>
+                      <br>
+                    </div>
+                    <div id="presentationContent" class="box-body"></div>           
                   </div>
-                  <div id="presentationContent" class="box-body"></div>           
-                </div>
-                <br>
-                <button type="submit" class="btn btn-success">Guardar</button>
-                <br>
+                  <br>
+                  <button type="submit" class="btn btn-success">Guardar</button>
+                  <br>
+                  <input type="hidden" id="presentations" name="presentations" value="">
+              </form>
             </div>
             <br>       
         </div>
-        <input type="hidden" id="presentations" name="presentations" value="">
-        </form>
 </div>
 
 @stop
@@ -106,16 +106,13 @@
 
 @section('js')
 
-
 <script>
-
 
   @if (old('presentations') != '')
   let presentations = {!!old('presentations')!!};
   @else 
   let presentations = [];
   @endif
-
 
 </script>
 

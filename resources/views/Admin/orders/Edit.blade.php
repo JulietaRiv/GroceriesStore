@@ -30,13 +30,13 @@
             @csrf
             <label>Nombre completo</label>
                 <input value="{{ $order->name }}" name="name2" class="form-control" type="text" placeholder="Nombre Apellido">
-            <br>
+                <br>
             <label>Dirección de envío</label>
                 <input value="{{ $order->address }}" name="address2" class="form-control" type="text" placeholder="Calle n°, Localidad, aclaraciones">
-            <br>
+                <br>
             <label>Celular</label>
                 <input value="{{ $order->cel }}" name="cel2" class="form-control" type="text" placeholder="011 155 555 5555">
-            <br>
+                <br>
             <div class="form-group">
                 <label>Seleccionar Medio de pago</label>
                     <select name="payment_method2" class="form-control">
@@ -176,7 +176,6 @@
         $("#totalUnits").val(total_units);
         $("#itemsList").val(JSON.stringify(items));
     }
-
 
     function addItem(product_id, name, presentation, unit_price){
         items.push({

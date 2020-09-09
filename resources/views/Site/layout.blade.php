@@ -14,9 +14,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="keywords" content="Super Market Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> 
-
 //addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //for-mobile-apps -->
 <link href="/site/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
@@ -87,68 +85,66 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="navigation-agileits">
 		<div class="container">
 			<nav class="navbar navbar-default">
-							<!-- Brand and toggle get grouped for better mobile display -->
-							<div class="navbar-header nav_2">
-								<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
-									<span class="sr-only">Toggle navigation</span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-									<span class="icon-bar"></span>
-								</button>
-							</div> 
-							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-								<ul class="nav navbar-nav">				
-									<li><a href="/#highlightedProducts">Destacados</a></li>	
-									<li><a href="/#aboutUs">Nosotros</a></li>
-									<li><a href="/#offers">Ofertas</a></li>
-									<li><a href="{{route('siteProducts', ['category' , 'conservas-y-untables'])}}">Categorías</a></li>
-									<li><a href="{{route('siteProducts', ['type', 'organic'])}}">Orgánicos</a></li>
-									<li><a href="{{route('siteProducts', ['type', 'agroecological'])}}">Agroecológicos</a></li>
-									<li><a href="{{route('siteProducts', ['type', 'celiacs'])}}">Sin Tacc</a></li>
-									<li><a href="{{route('siteProducts', ['type', 'vegan'])}}">Veganos</a></li>
-									<li><a href="/#contact">Contacto</a></li>
-								</ul>
-							</div>
-							</nav>
-			</div>
-		</div>	
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header nav_2">
+					<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div> 
+				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+					<ul class="nav navbar-nav">				
+						<li><a href="/#highlightedProducts">Destacados</a></li>	
+						<li><a href="/#aboutUs">Nosotros</a></li>
+						<li><a href="/#offers">Ofertas</a></li>
+						<li><a href="{{route('siteProducts', ['category' , 'conservas-y-untables'])}}">Categorías</a></li>
+						<li><a href="{{route('siteProducts', ['type', 'organic'])}}">Orgánicos</a></li>
+						<li><a href="{{route('siteProducts', ['type', 'agroecological'])}}">Agroecológicos</a></li>
+						<li><a href="{{route('siteProducts', ['type', 'celiacs'])}}">Sin Tacc</a></li>
+						<li><a href="{{route('siteProducts', ['type', 'vegan'])}}">Veganos</a></li>
+						<li><a href="/#contact">Contacto</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>	
 <!-- //navigation -->
 <div id="content">
 
 @yield('content')
 
 </div>
-
 <!-- //footer -->
 <div id="contact" class="footer">
-		<div class="container">
-			<div class="w3_footer_grids">
-				<div class="col-md-6 w3_footer_grid">
-					<h3>Contacto</h3>			
-					<ul class="address">
-						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Martínez, San Isidro, Buenos Aires<span></span></li>
-						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:ventaelroble@gmail.com">ventaelroble@gmail.com</a></li>
-						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>(+011) 153-505-1213 &nbsp; <img style="width:20px;" src="/site/images/whatsapp-bn.svg"/>  &nbsp @elroblenatural  &nbsp; <img style="width:20px;" src="/site/images/instagram-bn.png"/></li>
-					</ul>
-				</div>
-				<div class="col-md-6 w3_footer_grid">
-					<h3></h3>
-					<ul class="info"> 
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#highlightedProducts">Destacados</a></li>
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#aboutUs">Nosotros</a></li>
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#offers">Ofertas</a></li>
-						<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{route('siteProducts', ['category', 'conservas-y-untables'])}}">Categorías</a></li>
-					</ul>
-				</div>			
+	<div class="container">
+		<div class="w3_footer_grids">
+			<div class="col-md-6 w3_footer_grid">
+				<h3>Contacto</h3>			
+				<ul class="address">
+					<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Martínez, San Isidro, Buenos Aires<span></span></li>
+					<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:ventaelroble@gmail.com">ventaelroble@gmail.com</a></li>
+					<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>(+011) 153-505-1213 &nbsp; <img style="width:20px;" src="/site/images/whatsapp-bn.svg"/>  &nbsp @elroblenatural  &nbsp; <img style="width:20px;" src="/site/images/instagram-bn.png"/></li>
+				</ul>
 			</div>
-		</div>	
-		<div class="footer-copy">		
-			<div class="container">
-				<p>© 2020 Catálogo Tienda Almacen. All rights reserved | Design by <a href="">JRivDev</a></p>
-			</div>
-		</div>		
+			<div class="col-md-6 w3_footer_grid">
+				<h3></h3>
+				<ul class="info"> 
+					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#highlightedProducts">Destacados</a></li>
+					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#aboutUs">Nosotros</a></li>
+					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="#offers">Ofertas</a></li>
+					<li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="{{route('siteProducts', ['category', 'conservas-y-untables'])}}">Categorías</a></li>
+				</ul>
+			</div>			
+		</div>
 	</div>	
-	
+	<div class="footer-copy">		
+		<div class="container">
+			<p>© 2020 Catálogo Tienda Almacen. All rights reserved | Design by <a href="">JRivDev</a></p>
+		</div>
+	</div>		
+</div>	
 <!-- //footer -->	
 <!-- Bootstrap Core JavaScript -->
 <script src="/site/js/bootstrap.min.js"></script>
@@ -170,7 +166,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //here ends scrolling icon -->
 <script src="/site/js/minicart.min.js"></script>
 <script>
-
 	// Mini Cart
 	paypal.minicart.render({
 		action: '/checkout',
@@ -179,15 +174,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			buttonAlt: "Enviar pedido",
 		}
 	});
-
 	if (~window.location.search.indexOf('reset=true')) {
 		paypal.minicart.reset();
 	}
-
 	@if(session()->has('success'))
 	thanksForPurchase();
     @endif
-	
+	//gracias x tu compra!
 	function thanksForPurchase()
 {
     Swal.fire({
@@ -209,7 +202,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			  $('#responsive_wrapper').width(jQuery(this).val());
 			});		
 		});
-
 </script>	
 <!-- //main slider-banner --> 
 </body>

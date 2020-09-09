@@ -8,7 +8,6 @@ use App\Product;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 
-
 class BrandsController extends Controller
 {
     public function index()
@@ -32,16 +31,16 @@ class BrandsController extends Controller
         return redirect()->route("brands")->with('success','Excelente, registro guardado!');
     }
 
-    public function detail ($id)
+    public function detail($id)
     {
-        $brand = Brand::where('id', '=', $id)->first();
+        $brand = Brand::where('id', $id)->first();
         $products = Product::where('brand_id', $id)->get();
         return view ("Admin/brands/Detail", ["brand" => $brand, "products"=>$products]);
     }
 
-    public function delete ($id)
+    public function delete($id)
     {
-        if ($brand = Brand::where('id', '=', $id)->first()){
+        if ($brand = Brand::where('id', $id)->first()){
             $brand->delete();
             return redirect()->route("brands")->with('success','Excelente, registro guardado!');
         } else {
@@ -51,13 +50,13 @@ class BrandsController extends Controller
 
     public function edit($id)
     {
-        $brand = Brand::where('id', '=', $id)->first();
+        $brand = Brand::where('id', $id)->first();
         return view ("Admin/brands/Edit", ['brand' => $brand]);        
     }
 
     public function update (Request $request)
     {
-        $brand = Brand::where('id', '=', $request->id)->first();
+        $brand = Brand::where('id', $request->id)->first();
         $brand->name = $request->nameEdit;
         $brand->update();
         return redirect()->route("brands")->with('success','Excelente, registro guardado!');

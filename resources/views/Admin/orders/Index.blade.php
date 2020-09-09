@@ -10,8 +10,8 @@
     
     <div class="box">
         <div class="box-header with-border">
-        <h3 class="box-title">Pedidos</h3>
-        <br>
+            <h3 class="box-title">Pedidos</h3>
+            <br>
         </div>
         <br>
         <form id="searchForm" action="{{Route('orders')}}" method="get">
@@ -23,7 +23,8 @@
                                 <option value="pendiente" @if ($orderStatus == "pendiente" ) selected @endif>Pendientes</option>
                                 <option value="armado" @if ($orderStatus == "armado" ) selected @endif>Armados</option>
                                 <option value="entregado" @if ($orderStatus == "entregado" ) selected @endif>Entregados</option>
-                            </select></td>
+                            </select>
+                        </td>
                         <td><input name="orderNum" value="{{$orderNum}}" style="display:inline;" type="text" class="form-control" placeholder="n° de pedido ..."></td>
                         <td><input name="orderText" value="{{$orderText}}" style="display:inline;" type="text" class="form-control" placeholder="buscar ..."></td>
                         <td><button type="submit" class="btn-warning" style="display:inline;"><i class="fa fa-search" aria-hidden="true"> </i>Buscar</button></td>
@@ -32,7 +33,7 @@
             </table>
         </form>
         <br>
-            <div class="box-body">
+        <div class="box-body">
             @if(session()->has('success'))
             <div class="alert alert-success">
                 {{ session()->get('success') }}
@@ -75,10 +76,10 @@
                     @endforeach
                 </tbody>     
             </table>
-            </div>
-            <div class="box-footer clearfix">
-                {!! $links !!}
-            </div>
+        </div>
+        <div class="box-footer clearfix">
+            {!! $links !!}
+        </div>
     </div>
 
 @stop
@@ -88,10 +89,7 @@
 @stop
 
 @section('js')
-    <script>
-    
-    
-    </script>
+    <script> </script>
 @stop
 
    

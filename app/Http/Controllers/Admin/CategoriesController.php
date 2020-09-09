@@ -8,7 +8,6 @@ use App\Category;
 use App\Product;
 use Illuminate\Support\Str;
 
-
 class CategoriesController extends Controller
 {
     public function index()
@@ -32,16 +31,16 @@ class CategoriesController extends Controller
         return redirect()->route("categories")->with('Excelente, registro guardado!');
     }
 
-    public function detail ($id)
+    public function detail($id)
     {
-        $category = Category::where('id', '=', $id)->first();
+        $category = Category::where('id', $id)->first();
         $products = Product::where('category_id', $id)->get();
         return view ("Admin/categories/Detail", ["category" => $category, 'products'=>$products]);
     }
 
-    public function delete ($id)
+    public function delete($id)
     {
-        if ($category = Category::where('id', '=', $id)->first()){       
+        if ($category = Category::where('id', $id)->first()){       
             $category->delete();
             return redirect()->route("categories")->with('success','Excelente, registro guardado!');
         } else {
@@ -51,13 +50,13 @@ class CategoriesController extends Controller
 
     public function edit($id)
     {
-        $category = Category::where('id', '=', $id)->first();
+        $category = Category::where('id', $id)->first();
         return view ("Admin/categories/Edit", ['category' => $category]);        
     }
 
-    public function update (Request $request)
+    public function update(Request $request)
     {
-        $category = Category::where('id', '=', $request->id)->first();
+        $category = Category::where('id', $request->id)->first();
         $category->name = $request->nameEdit;
         $category->slug_name = Str::of($category->name)->slug('-');
         $category->update();

@@ -7,7 +7,6 @@
         <br>
         <h5 style="display:inline-block;">Estado: <span style="color:red;">{{ $order->status }}</span></h5>
         <br>
-        <!-- /.box-header -->
         <div class="box-body">
             <table class="table table-bordered">
                 <tbody>
@@ -62,7 +61,5 @@
                 </tfoot>
             </table>
         </div>
-        <!-- /.box-body -->
     </div>
-    <!-- /.box -->
 </div>

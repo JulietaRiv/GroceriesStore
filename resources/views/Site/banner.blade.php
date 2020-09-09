@@ -23,8 +23,7 @@
 			<div class="ban-top">
 				<img src="site/images/honey.jpg" class="img-responsive" alt="">														
 			</div>
-		</div>
-						
+		</div>					
 		<div class="clearfix"></div>
 	</div>
 </div>

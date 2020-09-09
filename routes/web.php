@@ -22,9 +22,7 @@ Route::group(['namespace' => 'Site'], function () {
 });    
 
 Route::group(['prefix' => '/admin', 'middleware'=>'auth', 'namespace' => 'Admin'], function () {
-
-    Route::get('/', 'WelcomeController@welcome')->name('welcome');
-    
+    Route::get('/', 'WelcomeController@welcome')->name('welcome');    
     Route::group(['prefix' => "/products"], function() {
         Route::get('/index', "ProductsController@index")->name("products");
         Route::get('/add', "ProductsController@create")->name("productsAdd");
@@ -41,7 +39,6 @@ Route::group(['prefix' => '/admin', 'middleware'=>'auth', 'namespace' => 'Admin'
         Route::get('/stockPerBrand', "ProductsController@stockPerBrand")->name("productsStockPerBrand");
         Route::get('/deleteImage/{product_id}', "ProductsController@deleteImage")->name("productsDeleteImage");
     });
-
     Route::group(['prefix' => "/categories"], function() {
         Route::get('/index', "CategoriesController@index")->name("categories");
         Route::get('/add', "CategoriesController@create")->name("categoriesAdd");
@@ -51,7 +48,6 @@ Route::group(['prefix' => '/admin', 'middleware'=>'auth', 'namespace' => 'Admin'
         Route::get('/detail/{id}', "CategoriesController@detail")->name("categoriesDetail");
         Route::get('/delete/{id}', "CategoriesController@delete")->name("categoriesDelete");
     });
-
     Route::group(['prefix' => "/brands"], function() {
         Route::get('/index', "BrandsController@index")->name("brands");
         Route::get('/add', "BrandsController@create")->name("brandsAdd");
@@ -61,7 +57,6 @@ Route::group(['prefix' => '/admin', 'middleware'=>'auth', 'namespace' => 'Admin'
         Route::get('/detail/{id}', "BrandsController@detail")->name("brandsDetail");
         Route::get('/delete/{id}', "BrandsController@delete")->name("brandsDelete");
     });
-
     Route::group(['prefix' => "/orders"], function() {
         Route::get('/index', "OrdersController@index")->name("orders");
         Route::get('/detail/{id}', "OrdersController@detail")->name("ordersDetail");
@@ -69,13 +64,10 @@ Route::group(['prefix' => '/admin', 'middleware'=>'auth', 'namespace' => 'Admin'
         Route::get('/delete/{id}', "OrdersController@delete")->name("ordersDelete");
         Route::post('/update', "OrdersController@update")->name("ordersUpdate");
         Route::get('/delivery/{id}', "OrdersController@delivery")->name("ordersDeliveryStatus");
-    });
-    
+    });   
     Route::get('/subscriptions', 'PushSubscriptionController@update')->name("susbs");
     Route::post('/subscriptions/delete', 'PushSubscriptionController@destroy')->name("hola");;
-   
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');

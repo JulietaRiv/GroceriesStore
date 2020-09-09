@@ -18,41 +18,39 @@
         <button onclick="location.href='/admin/products/highlightedSelected/'+orderProducts" class="btn btn-success">Aplicar</button>
     </div>
     <br>
-        <!-- /.box-header -->
-        <div class="box-body no-padding">
-            <table class="table table-condensed">
-                <tbody>
-                    <tr>
-                        <th style="width:5">Orden</th>
-                        <th>Nombre</th>
-                        <th>Categoría</th>
-                        <th>Marca</th>
-                        <th>Precio</th>
-                        <th>Presentación destacada</th>
-                    </tr>
-                    @foreach ( $highlightedProducts as $highProduct )
-                    <tr>
-                        <td style="width:5"><input type="checkbox" onclick="selectProduct(this)" value="{{$highProduct->id}}" name="order"
-                        @foreach ( $highlightedSelected as $highlightedSel ) @if ( $highProduct->id == $highlightedSel->product_id ) checked @endif @endforeach/><span id="orderNum{{$highProduct->id}}"></span></td>
-                        <td>{{ $highProduct->name }}</td>
-                        <td>{{ $highProduct->category->name }}</td>
-                        <td>{{ $highProduct->brand->name }}</td>
-                        <td>{{ $highProduct->price }}</td>
-                        <td>
-                        @if ( $highProduct->presentations == null )
-                        {{ $highProduct->id }}
-                        @else
-                        @foreach ( $highProduct->presentations as $highPresentation )
-                        @if ($highPresentation['highlighted'] == 1){{$highPresentation['presentation']}}@endif
-                        @endforeach
-                        @endif
-                        </td>
-                    </tr>
+    <div class="box-body no-padding">
+        <table class="table table-condensed">
+            <tbody>
+                <tr>
+                    <th style="width:5">Orden</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Marca</th>
+                    <th>Precio</th>
+                    <th>Presentación destacada</th>
+                </tr>
+                @foreach ( $highlightedProducts as $highProduct )
+                <tr>
+                    <td style="width:5"><input type="checkbox" onclick="selectProduct(this)" value="{{$highProduct->id}}" name="order"
+                    @foreach ( $highlightedSelected as $highlightedSel ) @if ( $highProduct->id == $highlightedSel->product_id ) checked @endif @endforeach/><span id="orderNum{{$highProduct->id}}"></span></td>
+                    <td>{{ $highProduct->name }}</td>
+                    <td>{{ $highProduct->category->name }}</td>
+                    <td>{{ $highProduct->brand->name }}</td>
+                    <td>{{ $highProduct->price }}</td>
+                    <td>
+                    @if ( $highProduct->presentations == null )
+                    {{ $highProduct->id }}
+                    @else
+                    @foreach ( $highProduct->presentations as $highPresentation )
+                    @if ($highPresentation['highlighted'] == 1){{$highPresentation['presentation']}}@endif
                     @endforeach
-                </tbody>
-            </table>
-        </div>
-        <!-- /.box-body -->
+                    @endif
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 
 @stop
@@ -64,7 +62,6 @@
 @section('js')
 
 <script>
-
 
 let orderProducts = [];
 
@@ -89,8 +86,8 @@ function selectProduct(e)
         orderProducts = orderProducts.filter(elem => elem != e.value);
         $("#orderNum" + e.value).html('');
         orderProducts.forEach(function(a, i){
-                $("#orderNum" + a).html(i + 1);
-            });
+            $("#orderNum" + a).html(i + 1);
+        });
     }  
 } 
 </script>

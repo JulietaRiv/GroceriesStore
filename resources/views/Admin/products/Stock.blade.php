@@ -10,7 +10,6 @@
 
 @section('content')
 
-
 <div class="box">
     <div class="box-header">
         <h3 class="box-title">Stock</h3>
@@ -25,12 +24,9 @@
             @endforeach
         </select>
     </div>
-        <!-- /.box-header -->
-       <div id="productResult">
-       </div>
-        <!-- /.box-body -->
+    <div id="productResult">
+    </div>
 </div>
-
 
 @stop
 

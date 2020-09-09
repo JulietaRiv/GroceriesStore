@@ -1,6 +1,6 @@
 
 <div id="aboutUs" class="brands">
-		<div class="container">
+	<div class="container">
 		<h3>Nosotros</h3>
 			<div class="brands-agile">
                 <p>Les damos la bienvenida a “EL ROBLE”, comprometidos con el ambiente, el pequeño y mediano productor y el desarrollo local y sustentable. 
@@ -13,5 +13,5 @@
                 <p>Medios de Pago: Efectivo contra entrega, Transferencia bancaria, Mercado Pago.</p>
 				<div class="clearfix"></div>
 			</div>
-		</div>
+	</div>
 </div>
