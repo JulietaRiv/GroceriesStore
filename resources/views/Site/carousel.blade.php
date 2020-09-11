@@ -9,13 +9,13 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-         <a href=""> <img class="first-slide" src="site/images/strawberries.jpg" alt="First slide"></a>   
+         <a href=""> <img class="first-slide" src="site/images/carrousel1.jpg" alt="First slide"></a>   
         </div>
         <div class="item">
-         <a href=""> <img class="second-slide" src="site/images/bread.jpg" alt="Second slide"></a>     
+         <a href=""> <img class="second-slide" src="site/images/carrousel2.jpg" alt="Second slide"></a>     
         </div>
         <div class="item">
-          <a href=""><img class="third-slide " src="site/images/nuts.jpg" alt="Third slide"></a>      
+          <a href=""><img class="third-slide " src="site/images/carrousel3.jpg" alt="Third slide"></a>      
         </div>
       </div>
     </div><!-- /.carousel -->	
