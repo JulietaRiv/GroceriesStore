@@ -16,9 +16,9 @@
 									<div class="snipcart-thumb">
 										<a href="{{Route('siteDetailProduct', $product->slug_name)}}">
 											@if ( $product->photo != null )
-											<img title="" width="150" height="150" alt="{{$product->photo}}" src="/storage/images/products/{{$product->photo}}"></a>
+											<img width="150" height="150" alt="{{$product->photo}}" src="/storage/images/products/{{$product->photo}}" title="Ver detalle"></a>
 											@else
-											<img title="" width="150" height="150" alt="" src="/site/images/logo-roble.jpg"></a>
+											<img width="150" height="150" alt="" src="/site/images/logo-roble.jpg" title="Ver detalle"></a>
 											@endif
 										<p>{{ $product->name }}</p>
 										@if ( $stars ?? '' )
