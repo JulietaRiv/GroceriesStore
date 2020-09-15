@@ -66,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</ul>
 			</div>
 			<div class="w3ls_logo_products_left">
-				<img style="width:200px;" src="/site/images/LOGO.png" alt="El Roble"/>
+				<img style="width:200px;" src="/site/images/logo-roble.jpg" alt="El Roble"/>
 			</div>
 			<div class="w3l_search">
 				<form id="searchForm" action="{{Route('siteProducts', ['search', 'q'])}}" method="get">
