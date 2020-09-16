@@ -62,7 +62,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="w3ls_logo_products_left1">
 				<ul class="phone_email">
 					<li><img style="width:30px;" alt="Hace tu pedido" src="/site/images/whatsapp-color.png"/> Hace tu pedido: (+011) 153-505-1213</li>
-					<br><br><li><img style="width:24px;" alt="Seguinos" src="/site/images/instagram-color.png"/>&nbsp Seguinos @elroblenatural</li>
+					<br><br><li><img style="width:24px;" alt="Seguinos" src="/site/images/instagram-color.png"/>&nbsp Seguinos <a href="https://www.instagram.com/elroblenatural/?hl=es"  target="_blank">@elroblenatural</a></li>
 				</ul>
 			</div>
 			<div class="w3ls_logo_products_left">
