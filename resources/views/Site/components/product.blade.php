@@ -15,12 +15,12 @@
 								<div class="snipcart-item block">
 									<div class="snipcart-thumb">
 										<a href="{{Route('siteDetailProduct', $product->slug_name)}}">
-											@if ( $product->photo != null )
-											<img width="150" height="150" alt="{{$product->photo}}" src="/storage/images/products/{{$product->photo}}" title="@if (count($product->presentations) === 1) 'Ver detalle' @else 'Ver más presentaciones' @endif"></a>
-											@else
-											<img width="150" height="150" alt="" src="/site/images/logo-roble.jpg" title="@if (count($product->presentations) === 1) 'Ver detalle' @else 'Ver más presentaciones' @endif"></a>
-											@endif
-										<p>{{ $product->name }}</p>
+										@if ( $product->photo != null )
+											<img width="150" height="150" alt="{{$product->photo}}" src="/storage/images/products/{{$product->photo}}" title="@if (count($product->presentations) === 1) Ver detalle @else Ver más presentaciones @endif"></a>
+										@else
+											<img width="150" height="150" alt="" src="/site/images/logo-roble.jpg" title="@if (count($product->presentations) === 1) Ver detalle @else Ver más presentaciones @endif"></a>
+										@endif	
+											<p class="card-text">{{ Str::limit($product->name, 20) }}</p>
 										@if ( $stars ?? '' )
 											<div class="stars">
 												<i class="fa fa-star blue-star" aria-hidden="true"></i>
