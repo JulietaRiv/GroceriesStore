@@ -97,6 +97,7 @@ class OrdersController extends Controller
                 foreach ($presentations as $i => $presentation) {
                     if ($presentation['presentation'] == $item['presentation']) {
                         $presentations[$i]['stock'] = $presentations[$i]['stock'] - $item['quantity'];
+                        $presentations[$i]['stock'] = $presentations[$i]['stock'] < 0 ?? 0;
                     }
                     $stock += $presentation['stock'];
                 }
