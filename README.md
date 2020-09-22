@@ -6,7 +6,7 @@ Cuenta con un admin muy cómodo de usar, facil de actualizar el contenido, contr
 
 ## Comenzando 🚀
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+xxx
 
 
 ### Pre-requisitos 📋
@@ -16,17 +16,17 @@ Es necesario tener instalado Laravel, Composer.
 
 ### Instalación 🔧
 
-.Crear proyecto Laravel con Composer con el siguiente comando:
+-Crear proyecto Laravel con Composer con el siguiente comando:
     composer create-project laravel/laravel mi-proyecto-laravel
-.Crear base de datos relacional Mysql.
-.Configurar archivo .env para conectar a la base.
-.Utilizar el comando propio CRUDmaker para crear rapidamente los abm necesarios.
+-Crear base de datos relacional Mysql.
+-Configurar archivo .env para conectar a la base.
+-Utilizar el comando propio CRUDmaker para crear rapidamente los abm necesarios.
     Esto creará los modelos, los controladores con sus principales métodos, las migraciones que crean las tablas, y los respectivos directorios de vistas             principales. Más las rutas agrupadas por abm.
 
 
 ## Despliegue 📦
 
-_Agrega notas adicionales sobre como hacer deploy_
+xxx
 
 
 ## Construido con 🛠️
