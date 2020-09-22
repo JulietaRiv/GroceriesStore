@@ -31,7 +31,7 @@
 											</div>
 										@endif
 										@if ( $product->stock == 0 )
-											<h5 style="font:solid; color:red; text-align:center;">SIN STOCK!</h5>
+											<h4 style="font:solid; color:red; text-align:center;">SIN STOCK!</h4>
 										@else
 											<h4>{{ $product->price }} <span>{{ $product->promo_price }}</span></h4>
 										@endif
