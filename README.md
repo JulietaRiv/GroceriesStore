@@ -1,6 +1,7 @@
 # Groceries Store
 
 Tienda de productos de almacen, con template de bootstrap, totalmente responsive, sencillo carrito de compras, sin necesidad de registrarse y loguearse, con minimos datos para finalizar la compra.
+Algo que la distingue de la gran mayoría de tiendas virtuales es que tiene la capacidad de cargar distintas presentaciones a un mismo producto, lo cual evita en el listado de productos ver la misma imagen y nombre repetidos, cada presentación se administra individualmente (características, stock y demás).
 Cuenta con un admin muy cómodo de usar, facil de actualizar el contenido, controlar el stock y los pedidos.
 
 
@@ -11,7 +12,7 @@ xxx
 
 ### Pre-requisitos 📋
 
-Es necesario tener instalado Laravel, Composer.
+Es necesario tener instalado PHP, Laravel, Composer.
 
 
 ### Instalación 🔧
@@ -21,7 +22,7 @@ Es necesario tener instalado Laravel, Composer.
 -Crear base de datos relacional Mysql.
 -Configurar archivo .env para conectar a la base.
 -Utilizar el comando propio CRUDmaker para crear rapidamente los abm necesarios.
-    Esto creará los modelos, los controladores con sus principales métodos, las migraciones que crean las tablas, y los respectivos directorios de vistas             principales. Más las rutas agrupadas por abm.
+    Esto creará los modelos, los controladores con sus principales métodos, las migraciones que crean las tablas, y los respectivos directorios de vistas             principales. Más las rutas agrupadas por prefijo según abm.
 
 
 ## Despliegue 📦
@@ -35,10 +36,10 @@ xxx
 * https://github.com/laravel-notification-channels/webpush - Notificaciones
 * https://github.com/sweetalert2/sweetalert2 - Pop up a medida
 
+
 ## Contribuyendo 🖇️
 
 Para contribuir directamente al código fuente:
-
 Fork en el repositorio
 Clone el repo en tu local (git clone)
 Realizar cambios, correcciones, o mejoras
@@ -70,8 +71,8 @@ laravel 7.24
 Bajo licencia MIT.
 
 
-## Expresiones de Gratitud 🎁
+## Gratitud 🎁
 
-* Especialmente gracias a Adrian Rivelli 🤓 por su colaboración https://github.com/arivelli.
+* Especialmente gracias a Adrian Rivelli 🤓 mentor https://github.com/arivelli.
 
  😊
