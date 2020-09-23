@@ -2,7 +2,7 @@
 
 Is a virtual store of groceries, made with Bootstrap template, totally responsive, with a simple cart, there is no need to register and login, just complete minimun data to end the purchase.
 Something distinct against the most of virtual stores, is that has the capability of having different presentations for each product, this avoid the same image and name to be repeted on the products lists. Each presentation is managed individually (features, stock and so on).
-It also has a confortable admin, easy to use, to update the content, basic stock control and orders.
+It also has a confortable admin, made with adminLTE template, easy to use, to update the content, basic stock control and orders.
 
 
 ## Getting started 🚀
