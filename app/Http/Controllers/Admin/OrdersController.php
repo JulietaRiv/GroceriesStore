@@ -133,7 +133,7 @@ class OrdersController extends Controller
     {
         $order = Order::where('id', $id)->first();   
         view()->share('order',$order);    
-        $pdf = PDF::loadView('Admin/orders/Print', $order);      
+        $pdf = PDF::loadView('Admin/orders/Download', $order);      
         return $pdf->download('order' . $id . '.pdf');
     }
 
