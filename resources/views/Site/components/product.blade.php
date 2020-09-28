@@ -21,6 +21,7 @@
 											<img width="150" height="150" alt="" src="/site/images/logo-roble.jpg" title="@if (count($product->presentations) === 1) Ver detalle @else Ver más presentaciones @endif"></a>
 										@endif	
 											<p class="card-text">{{ Str::limit($product->name, 20) }}</p>
+											<p style="margin-top:0px;">{{$product->brand->name}}</p>
 										@if ( $stars ?? '' )
 											<div class="stars">
 												<i class="fa fa-star blue-star" aria-hidden="true"></i>
@@ -33,7 +34,7 @@
 										@if ( $product->stock == 0 )
 											<h4 style="font:solid; color:red; text-align:center;">SIN STOCK!</h4>
 										@else
-											<h4>{{ $product->price }} <span>{{ $product->promo_price }}</span></h4>
+											<h4>${{ $product->price }} <span>@if ($product->promo_price != '') $ {{$product->promo_price}} @endif</span></h4>
 										@endif
 									</div>			
 									<div class="snipcart-details top_brand_home_details">

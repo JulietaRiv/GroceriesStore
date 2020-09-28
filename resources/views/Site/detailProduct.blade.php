@@ -20,9 +20,12 @@
             </div>
 			<div class="col-md-8 agileinfo_single_right">
 				<h2>{{ $product->name }}</h2>
-				<br>
 				<div class="w3agile_description">
-					<h4>Descripción:</h4><p>{{ $product->description }}</p>
+					<h4>Descripción:</h4>
+					<p>{{ $product->description }}</p>
+					<br>
+					<h4>Marca:</h4>
+					<p>{{ $product->brand->name }}</p>
 				</div>
 				<br>
 				<h4>Presentaciones:</h4>
