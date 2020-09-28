@@ -64,6 +64,7 @@ Route::group(['prefix' => '/admin', 'middleware'=>'auth', 'namespace' => 'Admin'
         Route::get('/delete/{id}', "OrdersController@delete")->name("ordersDelete");
         Route::post('/update', "OrdersController@update")->name("ordersUpdate");
         Route::get('/delivery/{id}', "OrdersController@delivery")->name("ordersDeliveryStatus");
+        Route::get('/pdf/{id}', "OrdersController@createPDF")->name("ordersDownload");
     });   
     Route::get('/subscriptions', 'PushSubscriptionController@update')->name("susbs");
     Route::post('/subscriptions/delete', 'PushSubscriptionController@destroy')->name("hola");;

@@ -11,6 +11,7 @@ use Illuminate\Notifications\Notification;
 use NotificationChannels\WebPush\WebPushMessage;
 use NotificationChannels\WebPush\WebPushChannel;
 use App\Notifications\HelloNotification;
+use PDF;
 
 class OrdersController extends Controller
 {
@@ -126,6 +127,14 @@ class OrdersController extends Controller
     {
         $request->user()->notify(new HelloNotification);
         return response()->json('Notification sent.', 201);
+    }
+
+    public function createPDF($id)
+    {
+        $order = Order::where('id', $id)->first();   
+        view()->share('order',$order);    
+        $pdf = PDF::loadView('Admin/orders/Print', $order);      
+        return $pdf->download('order' . $id . '.pdf');
     }
 
 }
