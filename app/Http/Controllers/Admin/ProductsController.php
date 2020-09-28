@@ -67,6 +67,7 @@ class ProductsController extends Controller
             $product->organic = data_get($request, 'organic', 0);
             $product->agroecological = data_get($request, 'agroecological', 0);
             $product->vegan = data_get($request, 'vegan', 0);  
+            $product->photo = '-';
             $stock = 0;
             $product->offer = 0;
             $product->highlighted = 0;
@@ -88,10 +89,9 @@ class ProductsController extends Controller
             $product->slug_name = Str::of($product->name)->slug('-') . '-' . $product->id;
             if($request->hasFile('image')) {
                 $extension = $request->image->extension();
-                $product->photo = Str::of($product->name)->slug('-').".".$extension;
+                $product->photo = $product->slug_name ."." . $extension;
                 $request->image->storeAs('/images/products', $product->photo, 'public');
             }
-            $request->image->storeAs('/images/products', $product->photo, 'public');
             $product->save();
             return redirect()->route("products")->with('success', 'Excelente, registro guardado!');
         }
@@ -163,11 +163,6 @@ class ProductsController extends Controller
             $product->organic = data_get($request, 'organic', 0);
             $product->agroecological = data_get($request, 'agroecological', 0);
             $product->vegan = data_get($request, 'vegan', 0);
-            if($request->hasFile('image')) {
-                $extension = $request->image->extension();
-                $product->photo = Str::of($product->name)->slug('-').".".$extension;
-                $request->image->storeAs('/images/products', $product->photo, 'public');
-            }
             $stock = 0;
             $product->offer = 0;
             $product->highlighted = 0;
@@ -186,6 +181,12 @@ class ProductsController extends Controller
             }
             $product->stock = $stock != 0 ? 1 : 0;
             $product->slug_name = Str::of($product->name)->slug('-') . '-' . $product->id;
+            $product->save();
+            if($request->hasFile('image')) {
+                $extension = $request->image->extension();
+                $product->photo = $product->slug_name ."." . $extension;
+                $request->image->storeAs('/images/products', $product->photo, 'public');
+            }
             $product->save();
             return redirect()->route("products")->with('success', 'Excelente, registro guardado!');
         }
