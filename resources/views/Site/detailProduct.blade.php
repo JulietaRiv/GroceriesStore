@@ -34,7 +34,7 @@
 				* {{ $presen['presentation'] }}
 					<div class="snipcart-item block">
 						<div class="snipcart-thumb agileinfo_single_right_snipcart">
-							<h4 class="m-sing">$ {{ $presen['price'] }} <span></span></h4>
+							<h4 class="m-sing">$ {{ $presen['price'] }} <span>@if ($product->promo_price != '') $ {{$product->promo_price}} @endif</span></h4>
 						</div>         
 						<div class="snipcart-details agileinfo_single_right_details">
 							<form action="#" method="post">
@@ -49,7 +49,7 @@
 									<input type="hidden" name="cancel_return" value=" ">
 									<input type="hidden" name="shipping" value="{{ $product->id }}">
 									<input type="hidden" name="shipping2" value="{{ $presen['presentation'] }}">
-									<input type="submit" name="submit" value="Add to cart" class="button">
+									<input type="submit" name="submit" value="Agregar al carro" class="button">
 								</fieldset>
 							</form>
 						</div>
