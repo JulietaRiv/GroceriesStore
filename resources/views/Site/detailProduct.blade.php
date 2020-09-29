@@ -55,12 +55,13 @@
 						</div>
 					</div>
 					<br>
-                    @endforeach
+                @endforeach
 			</div>
 			<div class="clearfix"> </div>
         </div>
     </div>
 </div>
+
 @stop
 
 @section('css')

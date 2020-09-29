@@ -20,7 +20,7 @@
 										@else
 											<img width="150" height="150" alt="" src="/site/images/logo-roble.jpg" title="@if (count($product->presentations) === 1) Ver detalle @else Ver más presentaciones @endif"></a>
 										@endif	
-											<p class="card-text">{{ Str::limit($product->name, 20) }}</p>
+											<p class="card-text">{{ Str::limit($product->name, 40) }}</p>
 											<p style="margin-top:0px; font-weight:bold;">{{$product->brand->name}}</p>
 										@if ( $stars ?? '' )
 											<div class="stars">
@@ -50,7 +50,7 @@
 												<input type="hidden" name="cancel_return" value=" ">
 												<input type="hidden" name="shipping" value="{{ $product->id }}">
 												<input type="hidden" name="shipping2" value="@foreach ( $product->presentations as $presentation ) @if ( $presentation['main'] ) {{ $presentation['presentation'] }}@endif @endforeach">
-												<input type="submit" name="submit" value="Agregar al carro" class="button">
+												<input type="submit" name="submit" value="Agregar al carro" class="button" style="width:110%;">
 											</fieldset>
 										</form>
 									</div>
