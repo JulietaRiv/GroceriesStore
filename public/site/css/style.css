@@ -3391,3 +3391,6 @@ td.invert-image a img {
     font-size: 13px;
 }
 }
+.card-text {
+    height:45px;
+}
