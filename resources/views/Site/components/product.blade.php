@@ -20,7 +20,7 @@
 										@else
 											<img width="150" height="150" alt="" src="/site/images/logo-roble.jpg" title="@if (count($product->presentations) === 1) Ver detalle @else Ver más presentaciones @endif"></a>
 										@endif	
-											<p class="card-text">{{ Str::limit($product->name, 40) }}</p>
+											<p style="height:45px;">{{ Str::limit($product->name, 40) }}</p>
 											<p style="margin-top:0px; font-weight:bold;">{{$product->brand->name}}</p>
 										@if ( $stars ?? '' )
 											<div class="stars">
