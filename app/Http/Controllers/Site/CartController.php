@@ -63,11 +63,12 @@ class CartController extends Controller
             $order->payment_method = $request->input('payment_method');
             $order->comment = $request->input('message');
             $items = $request->session()->get('itemsList');
-            foreach ($items as $item){
-                $item['product_id'] = $item['product_id'] * 1;
-                $item['quantity'] = $item['quantity'] * 1;
-                $item['unit_price'] = $item['unit_price'] * 1;
-                $item['price'] = $item['price'] * 1;
+            foreach ($items as $i=>$item){
+                $items[$i]['product_id'] = $item['product_id'] * 1;
+                $items[$i]['quantity'] = $item['quantity'] * 1;
+                $items[$i]['unit_price'] = $item['unit_price'] * 1;
+                $items[$i]['price'] = $item['price'] * 1;
+                $items[$i]['brand'] = Product::where('id', '=', $item['product_id'])->first()->brand->name;
             }
             $order->items = $items;
             $order->save();

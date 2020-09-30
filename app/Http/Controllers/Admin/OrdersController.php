@@ -67,6 +67,7 @@ class OrdersController extends Controller
     public function edit($id)
     {
         $order = Order::where('id', $id)->first();
+        //dd($order);
         return view ("Admin/orders/Edit", ["order" => $order]);
     }
 
@@ -80,30 +81,31 @@ class OrdersController extends Controller
         $order->comment = $request->input('message2');
         $order->status =  (data_get($request, 'armado', 0) == 1) ? "armado" : "pendiente";
         $items = json_decode($request->input('itemsList'), true);
-        foreach ($items as $item){
-            $item['product_id'] = $item['product_id'] * 1;
-            $item['quantity'] = $item['quantity'] * 1;
-            $item['unit_price'] = $item['unit_price'] * 1;
-            $item['price'] = $item['price'] * 1;
+        foreach ($items as $i=>$item){
+            $item[$i]['product_id'] = $item['product_id'] * 1;
+            $item[$i]['quantity'] = $item['quantity'] * 1;
+            $item[$i]['unit_price'] = $item['unit_price'] * 1;
+            $item[$i]['price'] = $item['price'] * 1;
         }
         $order->items = $items;
         $order->total_units = $request->input('totalUnits');
         $order->total_price = $request->input('totalPrice');
         $order->save();
         if ($order->status == "armado"){
-                foreach ($order->items as $item) {
+            foreach ($order->items as $item) {
                 $product = Product::where('id', $item['product_id'])->first();
                 $stock = 0;
                 $presentations = $product->presentations;
                 foreach ($presentations as $i => $presentation) {
-                    if ($presentation['presentation'] == $item['presentation']) {
+                    if ($presentations[$i]['presentation'] == $item['presentation']) {
                         $presentations[$i]['stock'] = $presentations[$i]['stock'] - $item['quantity'];
-                        $presentations[$i]['stock'] = $presentations[$i]['stock'] < 0 ?? 0;
                     }
-                    $stock += $presentation['stock'];
+                    $presentations[$i]['stock'] = ($presentations[$i]['stock'] <= 0) ? 0 : $presentations[$i]['stock'];
+                    //acumulo stock de todas las presentaciones para setear el stock del producto
+                    $stock += $presentations[$i]['stock'];
                 }
                 $product->presentations = $presentations;
-                $product->stock = ($stock != 0) ? 1 : 0;
+                $product->stock = ($stock > 0) ? 1 : 0;
                 $product->save();
             }
         }

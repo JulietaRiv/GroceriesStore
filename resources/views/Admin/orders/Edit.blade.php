@@ -48,7 +48,7 @@
             <br>
             <div class="form-group">
                 <label>Tu opinión nos importa!</label>
-                    <textarea name="message2" class="form-control" rows="4" placeholder="Dejanos un mensaje ...">{{ $order->message }}</textarea>
+                    <textarea name="message2" class="form-control" rows="4" placeholder="Dejanos un mensaje ...">{{ $order->comment }}</textarea>
             </div>
             <br>
             <label>
@@ -156,12 +156,13 @@
         let total_units = 0;
         let html = "";
         items.forEach(function(item, i){
+            item['product_id'] = item['product_id'] * 1;
             item['price'] = item['quantity'] * item['unit_price'];
             total_price2 += item['price'];
             total_units += item['quantity'] * 1;
             html += `
         <tr>   
-            <td>${ item['name'] }-${ item['presentation'] }</td>
+            <td><a href="/admin/products/edit/${ item['product_id'] }" title="${ item['brand'] }">${ item['name'] } - ${ item['presentation'] }</a></td>
             <td style="text-align:right;"><input style="width:40px;" type="text" onchange="quantity(${i}, this.value);" value="${ item['quantity'] }"/></td>
             <td style="text-align:right;">${ item['unit_price'] }</td>
             <td style="text-align:right;">${ item['price'] }</td>
@@ -190,4 +191,5 @@
     }
 
     </script>
+
 @stop

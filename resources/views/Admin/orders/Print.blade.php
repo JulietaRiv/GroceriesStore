@@ -28,6 +28,7 @@
                         <thead style="text-align:center;">
                             <tr>
                                 <th style="text-align:left;">Items</th>
+                                <th>Marca</th>
                                 <th>Unidades</th>
                                 <th>Precio por unidad</th>
                                 <th>Precio</th>
@@ -44,7 +45,8 @@
                             $unidades += $item['quantity'];
                             @endphp
                             <tr>
-                                <td>{{ $item['name'] }}</td>
+                                <td>{{ $item['name'] }} - {{ $item['presentation'] }}</td>
+                                <td style="text-align:center;">{{ $item['brand'] }}</td>
                                 <td style="text-align:center;">{{ $item['quantity'] }}</td>
                                 <td style="text-align:center;">${{ $item['unit_price'] }}</td>
                                 <td style="text-align:center;">${{ $item['price'] }}</td>
@@ -54,6 +56,7 @@
                         <tfoot>
                             <tr>
                                 <td>Precio final</td>
+                                <td></td>
                                 <td style="text-align:center;">{{ $unidades }}</td>
                                 <td></td>
                                 <td style="text-align:center; font-weight:bold;">${{ $total }}</td>
