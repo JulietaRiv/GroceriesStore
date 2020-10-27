@@ -277,6 +277,7 @@ class ProductsController extends Controller
     public function deleteImage($product_id)
     {
         $product = Product::where('id', $product_id)->first();
+        unlink('../storage/app/public/images/products', $product->photo);
         $product->photo = null;
         $product->update();
         return back()->withInput();
